@@ -1,0 +1,14 @@
+site:
+  title: "Droidcon24 Presentation"
+
+server:
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/dist/js/developmentExecutable/droidcon24.js"
+      api: "build/libs/droidcon24.jar"
+    prod:
+      script: "build/dist/js/productionExecutable/droidcon24.js"
+      siteRoot: ".kobweb/site"
+
+  port: 8080
