@@ -1,5 +1,7 @@
 import com.varabyte.kobweb.gradle.application.extensions.AppBlock.LegacyRouteRedirectStrategy
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
+import kotlinx.html.link
+import kotlinx.html.script
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -14,7 +16,12 @@ version = "1.0-SNAPSHOT"
 kobweb {
     app {
         index {
-            description.set("Powered by Kobweb")
+            description.set("Kobweb Presentation for Droidcon SF 2024")
+            head.add {
+                script { src = "/reveal.js/dist/reveal.js" }
+                link(rel = "stylesheet", href = "/reveal.js/dist/reveal.css")
+                link(rel = "stylesheet", href = "/reveal.js/dist/theme/white.css")
+            }
         }
 
         // Only legacy sites need this set. Sites built after 0.16.0 should default to DISALLOW.
@@ -35,9 +42,9 @@ kotlin {
             implementation(compose.html.core)
             implementation(libs.kobweb.core)
             implementation(libs.kobweb.silk)
-            implementation(libs.silk.icons.fa)
             implementation(libs.kobwebx.markdown)
-            
+            // We use devNpm to pull down relevant reveal.js files locally. See `head.add` block above.
+            implementation(devNpm("reveal.js", "5.1.0"))
         }
     }
 }
