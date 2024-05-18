@@ -28,6 +28,9 @@ kobweb {
         // See https://github.com/varabyte/kobweb#legacy-routes for more information.
         legacyRouteRedirectStrategy.set(LegacyRouteRedirectStrategy.DISALLOW)
     }
+    markdown {
+        defaultRoot.set(".components.layouts.SectionLayout")
+    }
 }
 
 kotlin {
