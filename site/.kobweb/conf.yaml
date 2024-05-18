@@ -1,5 +1,6 @@
 site:
   title: "Droidcon24 Presentation"
+  routePrefix: "droidcon24"
 
 server:
   files:
@@ -9,6 +10,6 @@ server:
       api: "build/libs/droidcon24.jar"
     prod:
       script: "build/dist/js/productionExecutable/droidcon24.js"
-      siteRoot: ".kobweb/site"
+      siteRoot: "../docs"
 
   port: 8080

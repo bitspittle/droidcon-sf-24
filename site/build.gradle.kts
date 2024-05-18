@@ -18,9 +18,9 @@ kobweb {
         index {
             description.set("Kobweb Presentation for Droidcon SF 2024")
             head.add {
-                script { src = "/reveal.js/dist/reveal.js" }
-                link(rel = "stylesheet", href = "/reveal.js/dist/reveal.css")
-                link(rel = "stylesheet", href = "/reveal.js/dist/theme/white.css")
+                script { src = routePrefix.prependTo("/reveal.js/dist/reveal.js") }
+                link(rel = "stylesheet", href = routePrefix.prependTo("/reveal.js/dist/reveal.css"))
+                link(rel = "stylesheet", href = routePrefix.prependTo("/reveal.js/dist/theme/white.css"))
             }
         }
 
