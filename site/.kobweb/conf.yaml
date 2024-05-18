@@ -10,6 +10,6 @@ server:
       api: "build/libs/droidcon24.jar"
     prod:
       script: "build/dist/js/productionExecutable/droidcon24.js"
-      siteRoot: "../docs"
+      siteRoot: ".kobweb/site"
 
   port: 8080
