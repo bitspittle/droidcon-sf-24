@@ -37,6 +37,14 @@ kobweb {
     }
     markdown {
         defaultRoot.set(".components.layouts.SectionLayout")
+        handlers {
+            code.set { codeBlock ->
+                // Add reveal.js attributes to our code block
+                val text = "\"\"\"${codeBlock.literal.escapeTripleQuotedText()}\"\"\""
+                val lang = codeBlock.info?.takeIf { it.isNotEmpty() }?.let { "\"${it.escapeSingleQuotedText()}\"" }
+                "$group.components.widgets.Code($text, $lang)"
+            }
+        }
     }
 }
 
