@@ -10,6 +10,7 @@ import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
 import dev.bitspittle.droidcon24.bindings.revealjs.Reveal
+import dev.bitspittle.droidcon24.bindings.revealjs.RevealHighlight
 import dev.bitspittle.droidcon24.pages.sections.*
 import org.jetbrains.compose.web.dom.Div
 import kotlin.js.json
@@ -26,6 +27,7 @@ fun HomePage() {
                 element,
                 json(
                     "embedded" to false,
+                    "plugins" to arrayOf(RevealHighlight) // imported in build.gradle.kts
                 )
             ).apply {
                 initialize()

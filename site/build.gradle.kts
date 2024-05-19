@@ -18,9 +18,12 @@ kobweb {
         index {
             description.set("Kobweb Presentation for Droidcon SF 2024")
             head.add {
-                script { src = routePrefix.prependTo("/reveal.js/dist/reveal.js") }
-                link(rel = "stylesheet", href = routePrefix.prependTo("/reveal.js/dist/reveal.css"))
-                link(rel = "stylesheet", href = routePrefix.prependTo("/reveal.js/dist/theme/white.css"))
+                val revealJs = routePrefix.prependTo("/reveal.js")
+                script { src = "$revealJs/dist/reveal.js" }
+                link(rel = "stylesheet", href = "$revealJs/dist/reveal.css")
+                link(rel = "stylesheet", href = "$revealJs/dist/theme/white.css")
+                script { src = "$revealJs/plugin/highlight/highlight.js" }
+                link(rel = "stylesheet", href = "$revealJs/plugin/highlight/monokai.css")
             }
         }
         export {
