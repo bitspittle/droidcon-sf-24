@@ -43,8 +43,8 @@ fun HomePage() {
         }
     ) {
         Div(Modifier.classNames("slides").toAttrs()) {
-            Slide1Page()
-            Slide2Page()
+            TitlePage()
+            AgendaPage()
         }
     }
 }
