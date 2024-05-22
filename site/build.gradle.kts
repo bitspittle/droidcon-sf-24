@@ -40,6 +40,7 @@ kobweb {
     }
     markdown {
         defaultRoot.set(".components.layouts.SectionLayout")
+        imports.add(".components.widgets.*")
         handlers {
             code.set { codeBlock ->
                 // Add reveal.js attributes to our code block
