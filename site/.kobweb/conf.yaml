@@ -1,15 +1,15 @@
 site:
   title: "Droidcon24 Presentation"
-  routePrefix: "droidcon24"
+  routePrefix: "droidcon-sf-24"
 
 server:
   files:
     dev:
       contentRoot: "build/processedResources/js/main/public"
-      script: "build/dist/js/developmentExecutable/droidcon24.js"
-      api: "build/libs/droidcon24.jar"
+      script: "build/dist/js/developmentExecutable/droidcon-sf-24.js"
+      api: "build/libs/droidcon-sf-24.jar"
     prod:
-      script: "build/dist/js/productionExecutable/droidcon24.js"
+      script: "build/dist/js/productionExecutable/droidcon-sf-24.js"
       siteRoot: ".kobweb/site"
 
   port: 8080

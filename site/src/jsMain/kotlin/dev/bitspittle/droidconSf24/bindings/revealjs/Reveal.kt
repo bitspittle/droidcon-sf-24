@@ -1,4 +1,4 @@
-package dev.bitspittle.droidcon24.bindings.revealjs
+package dev.bitspittle.droidconSf24.bindings.revealjs
 
 import org.w3c.dom.Element
 import kotlin.js.Json

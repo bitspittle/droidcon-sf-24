@@ -1,4 +1,4 @@
-package dev.bitspittle.droidcon24.components.layouts
+package dev.bitspittle.droidconSf24.components.layouts
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.core.rememberPageContext

@@ -10,7 +10,7 @@ plugins {
     alias(libs.plugins.kobwebx.markdown)
 }
 
-group = "dev.bitspittle.droidcon24"
+group = "dev.bitspittle.droidconSf24"
 version = "1.0-SNAPSHOT"
 
 kobweb {
@@ -52,7 +52,7 @@ kobweb {
 }
 
 kotlin {
-    configAsKobwebApplication("droidcon24")
+    configAsKobwebApplication("droidcon-sf-24")
 
     sourceSets {
         commonMain.dependencies {

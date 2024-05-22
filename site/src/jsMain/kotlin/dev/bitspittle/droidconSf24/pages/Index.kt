@@ -1,4 +1,4 @@
-package dev.bitspittle.droidcon24.pages
+package dev.bitspittle.droidconSf24.pages
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.dom.disposableRef
@@ -9,9 +9,9 @@ import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.Page
-import dev.bitspittle.droidcon24.bindings.revealjs.Reveal
-import dev.bitspittle.droidcon24.bindings.revealjs.RevealHighlight
-import dev.bitspittle.droidcon24.pages.sections.*
+import dev.bitspittle.droidconSf24.bindings.revealjs.Reveal
+import dev.bitspittle.droidconSf24.bindings.revealjs.RevealHighlight
+import dev.bitspittle.droidconSf24.pages.sections.*
 import org.jetbrains.compose.web.dom.Div
 import kotlin.js.json
 

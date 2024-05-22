@@ -1,4 +1,4 @@
-package dev.bitspittle.droidcon24.components.widgets
+package dev.bitspittle.droidconSf24.components.widgets
 
 import androidx.compose.runtime.Composable
 import org.jetbrains.compose.web.dom.Pre

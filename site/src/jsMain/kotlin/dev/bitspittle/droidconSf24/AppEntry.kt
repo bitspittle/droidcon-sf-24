@@ -1,4 +1,4 @@
-package dev.bitspittle.droidcon24
+package dev.bitspittle.droidconSf24
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.compose.ui.modifiers.*
