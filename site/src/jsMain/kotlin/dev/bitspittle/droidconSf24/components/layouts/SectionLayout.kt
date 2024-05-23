@@ -40,6 +40,17 @@ private fun HTMLCollection.walk(onEach: (Element) -> Unit) {
         }
 }
 
+private fun NodeList.walk(onEach: (Node) -> Unit) {
+    (0 until length)
+        .mapNotNull { i: Int -> this[i] }
+        .forEach { node ->
+            onEach(node)
+            node.childNodes.walk(onEach)
+        }
+}
+
+
+
 @Composable
 fun SectionLayout(content: @Composable () -> Unit) {
     val ctx = rememberPageContext()
@@ -72,24 +83,40 @@ fun SectionLayout(content: @Composable () -> Unit) {
                 //   <li><span class="fa-li"><i class="fa-solid fa-folder"></i></span>Hi!</li>
                 //</ul>
                 if (styles.contains("folders")) {
+                    fun HTMLElement.styleListElement() {
+                        // Inline styles required to override reveal-js list styles
+                        style.listStyleType = "none"
+                        style.fontFamily = "monospace"
+                        style.color = Colors.LightGray.toString()
+                    }
+
                     element.children.walk { child ->
                         when (child) {
                             is HTMLUListElement -> {
                                 child.addClass("fa-ul")
-                                // Have to override reveal-js list styles
-                                child.style.listStyleType = "none"
+                                child.styleListElement()
                             }
                             is HTMLOListElement -> {
                                 child.addClass("fa-ol")
-                                // Have to override reveal-js list styles
-                                child.style.listStyleType = "none"
+                                child.styleListElement()
                             }
 
                             is HTMLLIElement -> {
                                 val span = document.createElement("span")
                                 span.addClass("fa-li")
                                 val i = document.createElement("i")
-                                i.addClass("fa-regular", "fa-folder")
+                                val childText = buildString {
+                                    child.childNodes.walk { liChild ->
+                                        if (liChild.parentNode == child && liChild is Text) {
+                                            append(liChild.nodeValue.orEmpty())
+                                        }
+                                    }
+                                }
+                                i.addClass("fa-regular", when {
+                                    childText.contains('.') -> "fa-file"
+                                    child.children.length > 0 -> "fa-folder-open"
+                                    else -> "fa-folder"
+                                })
                                 span.appendChild(i)
                                 child.insertBefore(span, child.firstChild)
                             }
