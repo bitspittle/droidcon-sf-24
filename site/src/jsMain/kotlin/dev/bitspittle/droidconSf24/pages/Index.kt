@@ -18,6 +18,7 @@ import dev.bitspittle.droidconSf24.bindings.revealjs.Reveal
 import dev.bitspittle.droidconSf24.bindings.revealjs.RevealHighlight
 import dev.bitspittle.droidconSf24.pages.sections.AgendaPage
 import dev.bitspittle.droidconSf24.pages.sections.TitlePage
+import dev.bitspittle.droidconSf24.pages.sections.industry.Part1Page
 import org.jetbrains.compose.web.dom.Div
 import kotlin.js.json
 
@@ -61,6 +62,7 @@ fun HomePage() {
         Div(Modifier.classNames("slides").toAttrs()) {
             TitlePage()
             AgendaPage()
+            Part1Page()
         }
     }
 }
