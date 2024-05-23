@@ -1,7 +1,7 @@
 ## Agenda
 
 * State of the industry
-* Kobweb fundamentals
+* Kobweb basics
 * Android / KMP
 * Tips and tricks
 * Closing remarks

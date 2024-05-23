@@ -60,6 +60,9 @@ fun HomePage() {
         }
     ) {
         Div(Modifier.classNames("slides").toAttrs()) {
+            // TEMP, slide being worked on
+            Part2Page()
+
             TitlePage()
             AgendaPage()
             Part1Page()
