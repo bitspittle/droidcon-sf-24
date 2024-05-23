@@ -1,2 +1,2 @@
 # Kobweb
-## Web development in Kotlin leveraging Compose HTML
+### Web development in Kotlin leveraging Compose HTML

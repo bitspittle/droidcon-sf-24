@@ -21,7 +21,7 @@ kobweb {
                 val revealJs = routePrefix.prependTo("/reveal.js")
                 script { src = "$revealJs/dist/reveal.js" }
                 link(rel = "stylesheet", href = "$revealJs/dist/reveal.css")
-                link(rel = "stylesheet", href = "$revealJs/dist/theme/white.css")
+                link(rel = "stylesheet", href = "$revealJs/dist/theme/night.css")
                 script { src = "$revealJs/plugin/highlight/highlight.js" }
                 link(rel = "stylesheet", href = "$revealJs/plugin/highlight/monokai.css")
             }
