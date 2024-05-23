@@ -26,6 +26,8 @@ import kotlin.js.json
 @InitSilk
 fun initSilk(ctx: InitSilkContext) {
     ctx.stylesheet.apply {
+        cssLayers.addAll(listOf("reveal", "highlightjs")) // Specified in build.gradle.kts
+
         // Disable text selection as we don't need it for slides
         registerStyleBase("body") {
             Modifier.userSelect(UserSelect.None)

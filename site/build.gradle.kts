@@ -1,7 +1,8 @@
 import com.varabyte.kobweb.gradle.application.extensions.AppBlock.LegacyRouteRedirectStrategy
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
-import kotlinx.html.link
 import kotlinx.html.script
+import kotlinx.html.style
+import kotlinx.html.unsafe
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -20,10 +21,18 @@ kobweb {
             head.add {
                 val revealJs = routePrefix.prependTo("/reveal.js")
                 script { src = "$revealJs/dist/reveal.js" }
-                link(rel = "stylesheet", href = "$revealJs/dist/reveal.css")
-                link(rel = "stylesheet", href = "$revealJs/dist/theme/night.css")
+                style {
+                    unsafe {
+                        raw("@import url(\"$revealJs/dist/reveal.css\") layer(reveal);")
+                        raw("@import url(\"$revealJs/dist/theme/night.css\") layer(reveal);")
+                    }
+                }
                 script { src = "$revealJs/plugin/highlight/highlight.js" }
-                link(rel = "stylesheet", href = "$revealJs/plugin/highlight/monokai.css")
+                style {
+                    unsafe {
+                        raw("@import url(\"$revealJs/plugin/highlight/monokai.css\") layer(highlightjs);")
+                    }
+                }
             }
         }
         export {
