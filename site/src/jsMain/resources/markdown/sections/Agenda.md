@@ -2,7 +2,7 @@
 
 * State of the industry
 * Kobweb fundamentals
-* Android + KMP
+* Android / KMP
 * Tips and tricks
 * Closing remarks
 * Q & A
