@@ -63,7 +63,7 @@ kotlin {
         jsMain.dependencies {
             implementation(compose.html.core)
             implementation(libs.kobweb.core)
-            implementation(libs.kobweb.silk)
+            implementation(libs.silk.foundation)
             implementation(libs.silk.icons.fa)
             implementation(libs.kobwebx.markdown)
             // We use devNpm to pull down relevant reveal.js files locally. See `head.add` block above.
