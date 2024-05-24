@@ -6,6 +6,6 @@ pluginManagement {
     }
 }
 
-rootProject.name = "droidcon24"
+rootProject.name = "droidcon-sf-24"
 
 include(":site")
