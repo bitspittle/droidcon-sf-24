@@ -18,6 +18,7 @@ import com.varabyte.kobweb.silk.style.layer.SilkLayer
 import com.varabyte.kobweb.silk.style.layer.add
 import dev.bitspittle.droidconSf24.bindings.revealjs.Reveal
 import dev.bitspittle.droidconSf24.bindings.revealjs.RevealHighlight
+import dev.bitspittle.droidconSf24.bindings.revealjs.RevealNotes
 import dev.bitspittle.droidconSf24.components.sections.*
 import dev.bitspittle.droidconSf24.pages.sections.AgendaPage
 import dev.bitspittle.droidconSf24.pages.sections.QandAPage
@@ -50,7 +51,7 @@ fun HomePage() {
                 element,
                 json(
                     "embedded" to false,
-                    "plugins" to arrayOf(RevealHighlight) // imported in build.gradle.kts
+                    "plugins" to arrayOf(RevealHighlight, RevealNotes) // imported in build.gradle.kts
                 )
             ).apply {
                 initialize()

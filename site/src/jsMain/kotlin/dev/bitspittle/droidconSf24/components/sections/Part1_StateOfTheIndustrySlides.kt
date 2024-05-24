@@ -12,5 +12,6 @@ fun StateOfTheIndustrySlides() {
         Kmp2Page()
         Kmp3Page()
     }
+    WasmPage()
     CmpPage()
 }

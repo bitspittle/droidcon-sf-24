@@ -33,6 +33,7 @@ kobweb {
                         raw("@import url(\"$revealJs/plugin/highlight/monokai.css\") layer(highlightjs);")
                     }
                 }
+                script { src = "$revealJs/plugin/notes/notes.js" }
             }
         }
         export {
