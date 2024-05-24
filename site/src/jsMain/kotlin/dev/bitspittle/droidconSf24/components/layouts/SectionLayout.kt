@@ -2,12 +2,12 @@ package dev.bitspittle.droidconSf24.components.layouts
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.CSSTextShadow
+import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.css.UserSelect
 import com.varabyte.kobweb.compose.css.textShadow
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
-import com.varabyte.kobweb.compose.ui.modifiers.textShadow
-import com.varabyte.kobweb.compose.ui.modifiers.userSelect
+import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.init.InitSilk
@@ -15,21 +15,29 @@ import com.varabyte.kobweb.silk.init.InitSilkContext
 import com.varabyte.kobweb.silk.init.registerStyleBase
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.base
+import com.varabyte.kobweb.silk.style.cssRules
+import com.varabyte.kobweb.silk.style.toAttrs
 import com.varabyte.kobweb.silk.theme.SilkTheme
 import com.varabyte.kobwebx.markdown.markdown
 import kotlinx.browser.document
 import kotlinx.dom.addClass
 import org.jetbrains.compose.web.attributes.AttrsScope
+import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.StyleScopeBuilder
+import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Section
 import org.w3c.dom.*
 import org.w3c.dom.css.get
 
-private val TextShadowModifier = Modifier
-    .textShadow(
-        CSSTextShadow(0.px, 0.px, blurRadius = 5.px, color = Colors.Black)
-    )
+val SectionStyle = CssStyle {
+    cssRule("blockquote") {
+        Modifier
+            .borderLeft(0.3.cssRem, LineStyle.Solid, Colors.DarkGray)
+            .padding(left = 1.cssRem)
+            .textAlign(TextAlign.Start)
+    }
+}
 
 private fun HTMLCollection.walk(onEach: (Element) -> Unit) {
     (0 until length)
@@ -49,8 +57,6 @@ private fun NodeList.walk(onEach: (Node) -> Unit) {
         }
 }
 
-
-
 @Composable
 fun SectionLayout(content: @Composable () -> Unit) {
     val ctx = rememberPageContext()
@@ -67,7 +73,7 @@ fun SectionLayout(content: @Composable () -> Unit) {
     val styles = md.frontMatter["styles"].orEmpty().toSet()
 
     Section(
-        attrs = {
+        attrs = SectionStyle.toAttrs {
             dataAttrs.forEach { (key, value) -> attr(key, value) }
             ref { element ->
 

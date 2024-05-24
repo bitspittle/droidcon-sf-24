@@ -14,6 +14,8 @@ import com.varabyte.kobweb.core.Page
 import com.varabyte.kobweb.silk.init.InitSilk
 import com.varabyte.kobweb.silk.init.InitSilkContext
 import com.varabyte.kobweb.silk.init.registerStyleBase
+import com.varabyte.kobweb.silk.style.layer.SilkLayer
+import com.varabyte.kobweb.silk.style.layer.add
 import dev.bitspittle.droidconSf24.bindings.revealjs.Reveal
 import dev.bitspittle.droidconSf24.bindings.revealjs.RevealHighlight
 import dev.bitspittle.droidconSf24.components.sections.*
@@ -26,7 +28,8 @@ import kotlin.js.json
 @InitSilk
 fun initSilk(ctx: InitSilkContext) {
     ctx.stylesheet.apply {
-        cssLayers.addAll(listOf("reveal", "highlightjs")) // Specified in build.gradle.kts
+        // Layers specified in build.gradle.kts
+        cssLayers.add("reveal", "highlightjs", after = SilkLayer.BASE)
 
         // Disable text selection as we don't need it for slides
         registerStyleBase("body") {
