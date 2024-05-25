@@ -20,6 +20,8 @@ fun Image(src: String, scale: Number = 1.0) {
             .margin(leftRight = 10.percent).padding(1.cssRem)
             .thenIf(scale.toDouble() < 1.0) { Modifier.scale(scale) }
     ) {
-        Img("images/$src")
+        Img("", attrs = {
+            attr("data-src", "images/$src")
+        })
     }
 }
