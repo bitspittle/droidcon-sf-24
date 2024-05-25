@@ -8,16 +8,17 @@ import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.borderLeft
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.textAlign
+import com.varabyte.kobweb.compose.ui.modifiers.textShadow
+import com.varabyte.kobweb.compose.ui.thenIf
+import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.style.CssStyle
-import com.varabyte.kobweb.silk.style.toAttrs
+import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobwebx.markdown.markdown
-import dev.bitspittle.droidconSf24.utilities.walk
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Section
-import org.w3c.dom.HTMLHeadingElement
 
 val SectionStyle = CssStyle {
     cssRule("blockquote") {
@@ -25,6 +26,21 @@ val SectionStyle = CssStyle {
             .borderLeft(0.3.cssRem, LineStyle.Solid, Colors.DarkGray)
             .padding(left = 1.cssRem)
             .textAlign(TextAlign.Start)
+    }
+}
+
+val OutlinedHeadersStyle = CssStyle {
+    cssRule(" :is(h1, h2, h3, h4, h5, h6)") {
+        listOf(
+            (-1).px to (-1).px,
+            (1).px to (-1).px,
+            (-1).px to (1).px,
+            (1).px to (1).px,
+        )
+            .map { CSSTextShadow(it.first, it.second, blurRadius = 20.px, color = Colors.Black) }
+            .let { shadows ->
+                Modifier.textShadow(*shadows.toTypedArray())
+            }
     }
 }
 
@@ -44,30 +60,12 @@ fun SectionLayout(content: @Composable () -> Unit) {
     val styles = md.frontMatter["styles"].orEmpty().toSet()
 
     Section(
-        attrs = SectionStyle.toAttrs {
-            dataAttrs.forEach { (key, value) -> attr(key, value) }
-            ref { element ->
-                if (styles.contains("outlined-headers")) {
-                    element.children.walk { child ->
-                        when (child) {
-                            is HTMLHeadingElement -> {
-                                child.style.textShadow =
-                                    listOf(
-                                        (-1).px to (-1).px,
-                                        (1).px to (-1).px,
-                                        (-1).px to (1).px,
-                                        (1).px to (1).px,
-                                    )
-                                        .map { CSSTextShadow(it.first, it.second, blurRadius = 20.px, color = Colors.Black) }
-                                        .joinToString()
-                            }
-                        }
-                    }
-                }
-
-                onDispose {  }
+        attrs = SectionStyle
+            .toModifier()
+            .thenIf(styles.contains("outlined-headers"), OutlinedHeadersStyle.toModifier())
+            .toAttrs {
+                dataAttrs.forEach { (key, value) -> attr(key, value) }
             }
-        }
     ) {
         content()
     }
