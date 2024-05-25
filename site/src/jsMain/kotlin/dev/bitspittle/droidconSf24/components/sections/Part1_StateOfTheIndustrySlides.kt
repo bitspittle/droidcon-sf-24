@@ -14,4 +14,10 @@ fun StateOfTheIndustrySlides() {
     }
     WasmPage()
     CmpPage()
+    ComposeHtmlPage()
+    Section {
+        CMPvsComposeHtmlPage()
+        CMPvsComposeHtml2Page()
+        CMPvsComposeHtml3Page()
+    }
 }
