@@ -3,6 +3,8 @@ package dev.bitspittle.droidconSf24.components.layouts
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.CSSTextShadow
 import com.varabyte.kobweb.compose.css.TextAlign
+import com.varabyte.kobweb.compose.dom.ref
+import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.borderLeft
@@ -15,10 +17,13 @@ import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobwebx.markdown.markdown
+import dev.bitspittle.droidconSf24.utilities.walk
+import kotlinx.dom.addClass
 import org.jetbrains.compose.web.css.LineStyle
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Section
+import org.w3c.dom.HTMLElement
 
 val SectionStyle = CssStyle {
     cssRule("blockquote") {
@@ -44,6 +49,16 @@ val OutlinedHeadersStyle = CssStyle {
     }
 }
 
+private fun HTMLElement.autoAddFragments() {
+    val element = this
+
+    element.children.walk { child ->
+        if (child.parentElement == element && child !=  element.firstElementChild) {
+            child.addClass("fragment fade-in")
+        }
+    }
+}
+
 @Composable
 fun SectionLayout(content: @Composable () -> Unit) {
     val ctx = rememberPageContext()
@@ -53,7 +68,8 @@ fun SectionLayout(content: @Composable () -> Unit) {
     val dataAttrs = md.frontMatter.keys
         .filter { it.startsWith("data-") }
         .mapNotNull { dataKey ->
-            val dataValue = md.frontMatter[dataKey]?.single() ?: return@mapNotNull null
+            val dataValueList = md.frontMatter[dataKey] ?: return@mapNotNull null
+            val dataValue = dataValueList.singleOrNull().orEmpty()
             dataKey to dataValue
         }
 
@@ -65,8 +81,22 @@ fun SectionLayout(content: @Composable () -> Unit) {
             .thenIf(styles.contains("outlined-headers"), OutlinedHeadersStyle.toModifier())
             .toAttrs {
                 dataAttrs.forEach { (key, value) -> attr(key, value) }
+                if (styles.contains("auto-fragment") && !styles.contains("horizontal")) {
+                    ref { element ->
+                        element.autoAddFragments()
+                        onDispose {  }
+                    }
+                }
             }
     ) {
-        content()
+        if (styles.contains("horizontal")) {
+            Row(ref = ref { element ->
+                if (styles.contains("auto-fragment")) {
+                    element.autoAddFragments()
+                }
+            }) {
+                content()
+            }
+        } else content()
     }
 }

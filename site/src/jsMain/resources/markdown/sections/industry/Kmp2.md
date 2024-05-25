@@ -1,11 +1,16 @@
+---
+data-transition: "slide-in fade-out"
+styles:
+  - horizontal
+---
+
 ```kotlin
 plugins {
-    kotlin("multiplatform")
-}
-
-kotlin {
-    android()
-    js()
-    jvm()
+    kotlin("jvm")
 }
 ```
+
+{{{ Folders
+* src
+    * main
+}}}
