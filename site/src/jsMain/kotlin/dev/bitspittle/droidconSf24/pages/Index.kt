@@ -8,6 +8,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.classNames
 import com.varabyte.kobweb.compose.ui.modifiers.fillMaxSize
 import com.varabyte.kobweb.compose.ui.toAttrs
+import com.varabyte.kobweb.core.AppGlobals
 import com.varabyte.kobweb.core.Page
 import dev.bitspittle.droidconSf24.bindings.revealjs.Reveal
 import dev.bitspittle.droidconSf24.bindings.revealjs.RevealHighlight
@@ -31,6 +32,7 @@ fun HomePage() {
                 element,
                 json(
                     "embedded" to false,
+                    "slideNumber" to AppGlobals.getValue("show-slides").toBoolean(),
                     "plugins" to arrayOf(RevealHighlight, RevealNotes) // imported in build.gradle.kts
                 )
             ).apply {

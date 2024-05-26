@@ -16,6 +16,7 @@ version = "1.0-SNAPSHOT"
 
 kobweb {
     app {
+        globals.put("show-slides", if (findProperty("reveal.show.slides").toString() == "true") "true" else "false")
         index {
             description.set("Kobweb Presentation for Droidcon SF 2024")
             head.add {
