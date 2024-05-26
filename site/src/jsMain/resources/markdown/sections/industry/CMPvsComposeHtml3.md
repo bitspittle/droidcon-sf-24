@@ -1,10 +1,13 @@
-## CMP for Web vs Compose HTML
+---
+data-auto-animate:
+styles:
+  - accented-subheaders
+---
 
-### Why Compose HTML?
+## CMP for Web <span style="color:red">vs</span> Compose HTML
 
-* No need to create a large canvas buffer
-* UI can be inspected by browser devtools
-* Some styling is only available via CSS (e.g. visited links, print mode)
-* Browser accessibility support is robust and well-established.
-* Smaller site download size
-* Access to JS frameworks
+### Two use-cases
+
+"I want to write a general application once for many platforms."
+
+"I want to write a traditional website, but I don't want to use JS or React."

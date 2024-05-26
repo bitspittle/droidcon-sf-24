@@ -1,6 +1,12 @@
-## CMP for Web vs Compose HTML
+---
+data-auto-animate:
+styles:
+  - accented-subheaders
+---
 
-Two use-cases
+## CMP for Web <span style="color:red">vs</span> Compose HTML
 
-1. I want to write a general application and want it to show up everywhere.
-2. I want to write a traditional website, but I don't want to use JS or React.
+### CMP for Web
+
+* Renders to a canvas
+* Includes its own rendering engine (Skia)

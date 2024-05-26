@@ -3,14 +3,9 @@ package dev.bitspittle.droidconSf24.components.layouts
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.CSSTextShadow
 import com.varabyte.kobweb.compose.css.TextAlign
-import com.varabyte.kobweb.compose.dom.ref
-import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
-import com.varabyte.kobweb.compose.ui.modifiers.borderLeft
-import com.varabyte.kobweb.compose.ui.modifiers.padding
-import com.varabyte.kobweb.compose.ui.modifiers.textAlign
-import com.varabyte.kobweb.compose.ui.modifiers.textShadow
+import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.thenIf
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.core.rememberPageContext
@@ -19,13 +14,16 @@ import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobwebx.markdown.markdown
 import dev.bitspittle.droidconSf24.utilities.walk
 import kotlinx.dom.addClass
-import org.jetbrains.compose.web.css.LineStyle
-import org.jetbrains.compose.web.css.cssRem
-import org.jetbrains.compose.web.css.px
+import org.jetbrains.compose.web.css.*
+import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Section
 import org.w3c.dom.HTMLElement
 
 val SectionStyle = CssStyle {
+    base {
+        Modifier.padding(leftRight = 5.percent) // Make sure sections always breath on the margins
+    }
+
     cssRule("blockquote") {
         Modifier
             .borderLeft(0.3.cssRem, LineStyle.Solid, Colors.DarkGray)
@@ -46,6 +44,12 @@ val OutlinedHeadersStyle = CssStyle {
             .let { shadows ->
                 Modifier.textShadow(*shadows.toTypedArray())
             }
+    }
+}
+
+val AccentedSubheadersStyle = CssStyle {
+    cssRule(" :is(h3, h4, h5, h6)") {
+        Modifier.color(Colors.LightSlateGray)
     }
 }
 
@@ -79,6 +83,7 @@ fun SectionLayout(content: @Composable () -> Unit) {
         attrs = SectionStyle
             .toModifier()
             .thenIf(styles.contains("outlined-headers"), OutlinedHeadersStyle.toModifier())
+            .thenIf(styles.contains("accented-subheaders"), AccentedSubheadersStyle.toModifier())
             .toAttrs {
                 dataAttrs.forEach { (key, value) -> attr(key, value) }
                 if (styles.contains("auto-fragment") && !styles.contains("horizontal")) {
@@ -90,11 +95,18 @@ fun SectionLayout(content: @Composable () -> Unit) {
             }
     ) {
         if (styles.contains("horizontal")) {
-            Row(ref = ref { element ->
-                if (styles.contains("auto-fragment")) {
-                    element.autoAddFragments()
-                }
-            }) {
+            Div(Modifier
+                .display(DisplayStyle.Grid)
+                .gridTemplateColumns { repeat(autoFit) { minmax(0.px, 1.fr) } }
+                .gap(1.cssRem)
+                .toAttrs {
+                    if (styles.contains("auto-fragment")) {
+                        ref { element ->
+                            element.autoAddFragments()
+                            onDispose {  }
+                        }
+                    }
+                }) {
                 content()
             }
         } else content()
