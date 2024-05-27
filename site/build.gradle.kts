@@ -15,9 +15,13 @@ plugins {
 group = "dev.bitspittle.droidconSf24"
 version = "1.0-SNAPSHOT"
 
+fun Project.getProjectBool(property: String): Boolean {
+    return findProperty(property).toString() == "true"
+}
+
 kobweb {
     app {
-        globals.put("show-slides", if (findProperty("reveal.show.slides").toString() == "true") "true" else "false")
+        globals.put("show-slide-numbers", getProjectBool("slides.show.number").toString())
         index {
             description.set("Kobweb Presentation for Droidcon SF 2024")
             head.add {
@@ -121,6 +125,11 @@ kobweb {
                 }
             }
             orderedSlides.add(lastSlide)
+
+            // While working on slides, we often want to quickly see the last slide we worked on
+            if (getProjectBool("slides.start.with.last.modified")) {
+                orderedSlides.add(0, markdownEntries.maxBy { it.file.lastModified() }.toSlideId())
+            }
 
             generateKotlin(slidesPath, buildString {
                 appendLine(

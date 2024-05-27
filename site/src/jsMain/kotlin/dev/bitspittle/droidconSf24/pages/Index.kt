@@ -14,7 +14,7 @@ import dev.bitspittle.droidconSf24.bindings.revealjs.Reveal
 import dev.bitspittle.droidconSf24.bindings.revealjs.RevealHighlight
 import dev.bitspittle.droidconSf24.bindings.revealjs.RevealNotes
 import dev.bitspittle.droidconSf24.components.sections.*
-import dev.bitspittle.droidconSf24.devMode
+import dev.bitspittle.droidconSf24.showSlideNumbers
 import org.jetbrains.compose.web.dom.Div
 import kotlin.js.json
 
@@ -30,7 +30,7 @@ fun HomePage() {
                 element,
                 json(
                     "embedded" to false,
-                    "slideNumber" to AppGlobals.getValue("show-slides").toBoolean(),
+                    "slideNumber" to AppGlobals.showSlideNumbers,
                     "plugins" to arrayOf(RevealHighlight, RevealNotes) // imported in build.gradle.kts
                 )
             ).apply {
