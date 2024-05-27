@@ -6,4 +6,6 @@ styles:
 
 ## Why did I create Kobweb?
 
-### Routing
+### Live Reloading
+
+{{{ LiveReloadingIndicator }}}

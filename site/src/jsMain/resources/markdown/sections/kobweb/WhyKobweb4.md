@@ -6,12 +6,6 @@ styles:
 
 ## Why did I create Kobweb?
 
-### Markdown support
+### SEO
 
-```markdown
-# Title
-
-## Subtitle
-
-Great for blogs or about pages!
-```
+{{{ Image("fluense-seo.png") }}}

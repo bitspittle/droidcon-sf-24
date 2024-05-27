@@ -6,6 +6,4 @@ styles:
 
 ## Why did I create Kobweb?
 
-### SEO
-
-{{{ Image("fluense-seo.png") }}}
+### Routing

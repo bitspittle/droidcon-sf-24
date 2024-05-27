@@ -6,7 +6,12 @@ styles:
 
 ## Why did I create Kobweb?
 
-### <span style="color:#3DDC84">${FaAndroid} Android-*ish*</span>
+### Markdown support
 
-* `Modifier` concept
-* `Box`, `Row`, `Column`
+```markdown
+# Title
+
+## Subtitle
+
+Great for blog posts or about pages!
+```
