@@ -4,6 +4,7 @@ import com.varabyte.kobwebx.gradle.markdown.MarkdownEntry
 import kotlinx.html.script
 import kotlinx.html.style
 import kotlinx.html.unsafe
+import kotlin.math.roundToInt
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -129,6 +130,26 @@ kobweb {
                 }
             }
             orderedSlides.add(lastSlide)
+
+            run {
+                val slideCount = orderedSlides.size + orderedSlides.sumOf { slideId ->
+                    // Don't double count slideId (it shows up in the grouped list too)
+                    groupedSlides[slideId]?.size?.let { it - 1 } ?: 0
+                }
+                val targetSlideCount = 90
+                print("You have created $slideCount slide(s) (target: $targetSlideCount). ")
+                if (slideCount == targetSlideCount) {
+                    println("Congratulations!")
+                } else if (slideCount > targetSlideCount) {
+                    println("Congratulations! (You are over by ${slideCount - targetSlideCount} slide(s).)")
+                } else {
+                    println(
+                        "You are approximately ${
+                            (orderedSlides.size / targetSlideCount.toFloat() * 100.0).roundToInt().coerceAtMost(100)
+                        }% done."
+                    )
+                }
+            }
 
             generateKotlin(slidesPath, buildString {
                 appendLine(
