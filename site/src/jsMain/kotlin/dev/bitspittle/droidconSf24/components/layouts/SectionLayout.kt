@@ -1,6 +1,6 @@
 package dev.bitspittle.droidconSf24.components.layouts
 
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import com.varabyte.kobweb.compose.css.CSSTextShadow
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -49,15 +49,23 @@ val AccentedSubheadersStyle = CssStyle {
     }
 }
 
-private fun HTMLElement.autoAddFragments() {
-    val element = this
+private sealed interface Layout {
+    data object Default : Layout
+    data object Horizontal : Layout
+    data class Grid(val numColumns: Int) : Layout
 
-    element.children.walk { child ->
-        if (child.parentElement == element && child !=  element.firstElementChild) {
-            child.addClass("fragment fade-in")
-        }
-    }
 }
+
+// layouts:
+//   "horizontal": creates a row
+//   "grid n": creates a simple grid of n columns
+//
+// styles:
+//   "outlined-headers": puts text shadow on h tags, useful when there's a background image
+//   "accented-subheaders": changes colors of h3 (and smaller) headers for better visual separation
+//
+// behaviors:
+//   "auto-fragment": automatically add fragment tags to all top level elements (to force a click through effect)
 
 @Composable
 fun SectionLayout(content: @Composable () -> Unit) {
@@ -73,7 +81,30 @@ fun SectionLayout(content: @Composable () -> Unit) {
             dataKey to dataValue
         }
 
+    val behaviors = md.frontMatter["behaviors"].orEmpty().toSet()
     val styles = md.frontMatter["styles"].orEmpty().toSet()
+    val layout = md.frontMatter["layout"]?.singleOrNull()?.let { layoutStr ->
+        val layoutStrAndArgs = layoutStr.trim().split(" ")
+        when (layoutStrAndArgs[0]) {
+            Layout.Horizontal::class.simpleName!!.lowercase() -> Layout.Horizontal
+            Layout.Grid::class.simpleName!!.lowercase() -> Layout.Grid(layoutStrAndArgs[1].toInt())
+            else -> {
+                console.warn("Ignored unrecognized layout \"$layoutStr\"")
+                null
+            }
+        }
+    } ?: Layout.Default
+
+    var containerElement by remember { mutableStateOf<HTMLElement?>(null) }
+    containerElement?.let { element ->
+        if (behaviors.contains("auto-fragment")) {
+            element.children.walk { child ->
+                if (child.parentElement == element && child != element.firstElementChild) {
+                    child.addClass("fragment fade-in")
+                }
+            }
+        }
+    }
 
     Section(
         attrs = SectionStyle
@@ -82,29 +113,36 @@ fun SectionLayout(content: @Composable () -> Unit) {
             .thenIf(styles.contains("accented-subheaders"), AccentedSubheadersStyle.toModifier())
             .toAttrs {
                 dataAttrs.forEach { (key, value) -> attr(key, value) }
-                if (styles.contains("auto-fragment") && !styles.contains("horizontal")) {
-                    ref { element ->
-                        element.autoAddFragments()
-                        onDispose {  }
-                    }
+                if (layout is Layout.Default) {
+                    ref { containerElement = it; onDispose { } }
                 }
             }
     ) {
-        if (styles.contains("horizontal")) {
-            Div(Modifier
-                .display(DisplayStyle.Grid)
-                .gridTemplateColumns { repeat(autoFit) { minmax(0.px, 1.fr) } }
-                .gap(1.cssRem)
-                .toAttrs {
-                    if (styles.contains("auto-fragment")) {
-                        ref { element ->
-                            element.autoAddFragments()
-                            onDispose {  }
-                        }
-                    }
-                }) {
-                content()
+        when (layout) {
+            is Layout.Horizontal -> {
+                Div(Modifier
+                    .display(DisplayStyle.Grid)
+                    .gridTemplateColumns { repeat(autoFit) { minmax(0.px, 1.fr) } }
+                    .gap(1.cssRem)
+                    .toAttrs { ref { containerElement = it; onDispose { } } }) {
+                    content()
+                }
             }
-        } else content()
+
+            is Layout.Grid -> {
+                Div(Modifier
+                    .display(DisplayStyle.Grid)
+                    .gridTemplateColumns { repeat(layout.numColumns) { minmax(0.px, 1.fr) } }
+                    .gridTemplateRows { repeat(autoFit) { minmax(0.px, 1.fr) } }
+                    .gap(1.cssRem)
+                    .toAttrs {
+                        ref { containerElement = it; onDispose {  } }
+                    }) {
+                    content()
+                }
+            }
+
+            else -> content()
+        }
     }
 }
