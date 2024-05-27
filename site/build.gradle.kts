@@ -180,7 +180,7 @@ kobweb {
                         """.trimMargin()
                         )
 
-                        groupedSlides.getValue(slideId).forEach { groupedSlideId ->
+                        groupedSlides.getValue(slideId).sorted().forEach { groupedSlideId ->
                             appendLine(
                                 """
                             |       ${groupedById.getValue(groupedSlideId).fqn}()
