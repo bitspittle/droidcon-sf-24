@@ -145,7 +145,7 @@ kobweb {
                 } else {
                     println(
                         "You are approximately ${
-                            (orderedSlides.size / targetSlideCount.toFloat() * 100.0).roundToInt().coerceAtMost(100)
+                            (slideCount / targetSlideCount.toFloat() * 100.0).roundToInt().coerceAtMost(100)
                         }% done."
                     )
                 }
