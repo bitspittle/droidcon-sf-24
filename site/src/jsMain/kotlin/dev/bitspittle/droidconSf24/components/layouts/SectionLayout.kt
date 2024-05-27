@@ -20,10 +20,6 @@ import org.jetbrains.compose.web.dom.Section
 import org.w3c.dom.HTMLElement
 
 val SectionStyle = CssStyle {
-    base {
-        Modifier.padding(leftRight = 5.percent) // Make sure sections always breath on the margins
-    }
-
     cssRule("blockquote") {
         Modifier
             .borderLeft(0.3.cssRem, LineStyle.Solid, Colors.DarkGray)
