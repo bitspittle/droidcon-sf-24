@@ -4,7 +4,7 @@ follows: Header
 
 ## KMP
 
-{{{ Image("kmp.svg", 0.8) }}}
+{{{ Image("kmp.svg", 0.8, backgroundColor = Colors.White) }}}
 
 > [KMP] is designed to simplify the development of cross-platform projects.
 

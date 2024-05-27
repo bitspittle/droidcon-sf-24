@@ -58,6 +58,9 @@ kobweb {
     markdown {
         defaultRoot.set(".components.layouts.SectionLayout")
         imports.add(".components.widgets.*")
+        imports.add("com.varabyte.kobweb.compose.ui.graphics.Colors")
+        imports.add("com.varabyte.kobweb.silk.components.icons.fa.*")
+
         handlers {
             code.set { codeBlock ->
                 // Add reveal.js attributes to our code block
