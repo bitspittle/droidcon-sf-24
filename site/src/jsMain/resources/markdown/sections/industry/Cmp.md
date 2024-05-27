@@ -1,3 +1,7 @@
+---
+follows: Wasm
+---
+
 ## CMP
 
 {{{ Image("cmp.png", 0.8) }}}

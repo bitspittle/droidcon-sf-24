@@ -1,3 +1,7 @@
+---
+follows: Header
+---
+
 ## KMP
 
 {{{ Image("kmp.svg", 0.8) }}}

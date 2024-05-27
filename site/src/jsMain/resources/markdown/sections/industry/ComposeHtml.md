@@ -1,3 +1,7 @@
+---
+follows: CMPvsComposeHtml
+---
+
 ## Compose HTML
 
 > Compose HTML is a library targeting Kotlin/JS that provides Composable building blocks for creating web user

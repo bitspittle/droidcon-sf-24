@@ -1,3 +1,7 @@
+---
+follows: Title
+---
+
 ## Agenda
 
 * State of the industry

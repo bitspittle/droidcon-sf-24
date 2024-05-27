@@ -1,5 +1,6 @@
 import com.varabyte.kobweb.gradle.application.extensions.AppBlock.LegacyRouteRedirectStrategy
 import com.varabyte.kobweb.gradle.application.util.configAsKobwebApplication
+import com.varabyte.kobwebx.gradle.markdown.MarkdownEntry
 import kotlinx.html.script
 import kotlinx.html.style
 import kotlinx.html.unsafe
@@ -59,6 +60,126 @@ kobweb {
                 val lang = codeBlock.info?.takeIf { it.isNotEmpty() }?.let { "\"${it.escapeSingleQuotedText()}\"" }
                 "$group.components.widgets.Code($text, $lang)"
             }
+        }
+
+        fun MarkdownEntry.toSlideId(): String {
+            return filePath.removePrefix("sections/").removeSuffix(".md")
+        }
+
+        val numericSuffix = Regex("(.*)(\\d+)$")
+
+        process.set { markdownEntries ->
+            val groupedById = markdownEntries.associateBy { entry -> entry.toSlideId() }
+            val slidesPackage = "$group.components.sections"
+            val slidesPath = "${slidesPackage.replace('.', '/')}/Slides.kt"
+
+            val firstSlide = "Title"
+            val lastSlide = "QandA"
+            val followingMap = mutableMapOf<String, MutableList<String>>()
+            val groupedSlides = mutableMapOf<String, MutableList<String>>()
+            markdownEntries.forEach { entry ->
+                val slideId = entry.toSlideId()
+                val follows = entry.frontMatter["follows"]?.singleOrNull()
+                if (follows == null) {
+                    if (slideId !in listOf(firstSlide, lastSlide)) {
+                        val match = numericSuffix.matchEntire(slideId)
+                        if (match == null) {
+                            logger.error("e: ${entry.filePath} needs to specify the slide it follows.")
+                        } else {
+                            val prefix = match.groupValues[1]
+                            groupedSlides.getOrPut(prefix) { mutableListOf(prefix) }.add(slideId)
+                        }
+                    }
+                } else {
+                    // If a slide "subdir/b" and it says it follows "a" and "a" doesn't exist, check "subdir/a" as well
+                    val potentialFollows = mutableListOf(follows)
+                    if (slideId.contains("/") && !follows.contains("/")) {
+                        potentialFollows.add("${slideId.substringBeforeLast("/")}/$follows")
+                    }
+
+                    val finalFollows = potentialFollows.firstOrNull { groupedById.containsKey(it) }
+                    if (finalFollows == null) {
+                        logger.error("e: ${entry.filePath} uses `follows` value \"$follows\" which does not match any markdown file.")
+                    } else {
+                        followingMap.getOrPut(finalFollows) { mutableListOf() }.add(slideId)
+                    }
+                }
+            }
+
+            val orderedSlides = mutableListOf<String>()
+            run {
+                val slidesToProcess = mutableListOf(firstSlide)
+                while (slidesToProcess.isNotEmpty()) {
+                    val currSlide = slidesToProcess.removeFirst()
+                    orderedSlides.add(currSlide)
+                    followingMap[currSlide].orEmpty().let { following ->
+                        if (following.size > 1) {
+                            logger.error("e: Multiple slides marked as following the same slide: $currSlide <- ${following.joinToString()}")
+                        }
+                        slidesToProcess.addAll(following)
+                    }
+                }
+            }
+            orderedSlides.add(lastSlide)
+
+            generateKotlin(slidesPath, buildString {
+                appendLine(
+                    """
+                        // This file is generated. Modify the build script if you need to change it.
+    
+                        package $slidesPackage
+    
+                        import androidx.compose.runtime.*
+                        import org.jetbrains.compose.web.dom.Section
+                    """.trimIndent()
+                )
+
+                appendLine(
+                    """
+                        @Composable
+                        fun Slides() {
+                        """.trimIndent()
+                    )
+
+                orderedSlides.forEach { slidePath ->
+                    val entry = groupedById.getValue(slidePath)
+                    val slideId = entry.toSlideId()
+                    if (groupedSlides.containsKey(slideId)) {
+                        appendLine(
+                            """
+                            |   Section {
+                        """.trimMargin()
+                        )
+
+                        groupedSlides.getValue(slideId).forEach { groupedSlideId ->
+                            appendLine(
+                                """
+                            |       ${groupedById.getValue(groupedSlideId).fqn}()
+                        """.trimMargin()
+                            )
+                        }
+
+                        appendLine(
+                            """
+                            |   }
+                        """.trimMargin()
+                        )
+
+                    } else {
+                        appendLine(
+                            """
+                            |   ${entry.fqn}()
+                        """.trimMargin()
+                        )
+                    }
+                }
+
+                appendLine(
+                    """
+                        }
+                    """.trimIndent()
+                    )
+                })
         }
     }
 }

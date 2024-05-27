@@ -14,9 +14,7 @@ import dev.bitspittle.droidconSf24.bindings.revealjs.Reveal
 import dev.bitspittle.droidconSf24.bindings.revealjs.RevealHighlight
 import dev.bitspittle.droidconSf24.bindings.revealjs.RevealNotes
 import dev.bitspittle.droidconSf24.components.sections.*
-import dev.bitspittle.droidconSf24.pages.sections.AgendaPage
-import dev.bitspittle.droidconSf24.pages.sections.QandAPage
-import dev.bitspittle.droidconSf24.pages.sections.TitlePage
+import dev.bitspittle.droidconSf24.devMode
 import org.jetbrains.compose.web.dom.Div
 import kotlin.js.json
 
@@ -49,16 +47,7 @@ fun HomePage() {
         }
     ) {
         Div(Modifier.classNames("slides").toAttrs()) {
-            TitlePage()
-            AgendaPage()
-
-            StateOfTheIndustrySlides()
-            KobwebSlides()
-            AndroidSlides()
-            TipsAndTricksSlides()
-            ClosingSlides()
-
-            QandAPage()
+            Slides()
         }
     }
 }

@@ -1,4 +1,5 @@
 ---
+follows: Cmp
 data-auto-animate:
 styles:
   - accented-subheaders
