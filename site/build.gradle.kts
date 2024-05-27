@@ -22,6 +22,7 @@ fun Project.getProjectBool(property: String): Boolean {
 kobweb {
     app {
         globals.put("show-slide-numbers", getProjectBool("slides.show.number").toString())
+        globals.put("remember-last-slide", getProjectBool("slides.remember.last").toString())
         index {
             description.set("Kobweb Presentation for Droidcon SF 2024")
             head.add {
@@ -125,11 +126,6 @@ kobweb {
                 }
             }
             orderedSlides.add(lastSlide)
-
-            // While working on slides, we often want to quickly see the last slide we worked on
-            if (getProjectBool("slides.start.with.last.modified")) {
-                orderedSlides.add(0, markdownEntries.maxBy { it.file.lastModified() }.toSlideId())
-            }
 
             generateKotlin(slidesPath, buildString {
                 appendLine(

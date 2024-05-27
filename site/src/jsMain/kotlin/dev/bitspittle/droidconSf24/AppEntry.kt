@@ -5,7 +5,6 @@ import com.varabyte.kobweb.compose.css.UserSelect
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.modifiers.userSelect
 import com.varabyte.kobweb.core.App
-import com.varabyte.kobweb.core.AppGlobals
 import com.varabyte.kobweb.core.KobwebApp
 import com.varabyte.kobweb.silk.init.InitSilk
 import com.varabyte.kobweb.silk.init.InitSilkContext
@@ -13,8 +12,6 @@ import com.varabyte.kobweb.silk.init.registerStyleBase
 import com.varabyte.kobweb.silk.prepareSilkFoundation
 import com.varabyte.kobweb.silk.style.layer.SilkLayer
 import com.varabyte.kobweb.silk.style.layer.add
-
-val AppGlobals.showSlideNumbers: Boolean get() = getValue("show-slide-numbers").toBoolean()
 
 @InitSilk
 fun initSilk(ctx: InitSilkContext) {
