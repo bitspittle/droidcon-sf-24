@@ -31,8 +31,8 @@ kobweb {
                 script { src = "$revealJs/dist/reveal.js" }
                 style {
                     unsafe {
-                        raw("@import url(\"$revealJs/dist/reveal.css\") layer(reveal);")
-                        raw("@import url(\"$revealJs/dist/theme/night.css\") layer(reveal);")
+                        raw("@import url(\"$revealJs/dist/reveal.css\") layer(revealjs);")
+                        raw("@import url(\"$revealJs/dist/theme/night.css\") layer(revealjs);")
                     }
                 }
                 script { src = "$revealJs/plugin/highlight/highlight.js" }
@@ -69,8 +69,8 @@ kobweb {
             code.set { codeBlock ->
                 // Add reveal.js attributes to our code block
                 val text = "\"\"\"${codeBlock.literal.escapeTripleQuotedText()}\"\"\""
-                val lang = codeBlock.info?.takeIf { it.isNotEmpty() }?.let { "\"${it.escapeSingleQuotedText()}\"" }
-                "$group.components.widgets.Code($text, $lang)"
+                val info = codeBlock.info?.takeIf { it.isNotEmpty() }?.let { "\"${it.escapeSingleQuotedText()}\"" }
+                "$group.components.widgets.Code($text, $info)"
             }
         }
 
