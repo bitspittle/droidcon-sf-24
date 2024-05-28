@@ -4,7 +4,7 @@ follows: Architecture
 
 ## Install Kobweb
 
-```
+```bash
 # Homebrew: Mac / Linux
 $ brew install varabyte/tap/kobweb
 
