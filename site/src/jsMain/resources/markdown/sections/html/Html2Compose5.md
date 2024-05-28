@@ -10,7 +10,7 @@ data-auto-animate:
 }
 ```
 
-```html|0|4|0
+```html 0|4|0
 <!-- example.html -->
 <div
    id="example"

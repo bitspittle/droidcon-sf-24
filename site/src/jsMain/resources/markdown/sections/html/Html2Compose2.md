@@ -12,7 +12,7 @@ data-auto-animate:
 </div>
 ```
 
-```kotlin|0|2|3-6|0
+```kotlin 0|2|3-6|0
 Div(attrs = {
   attr("id", "example")
   style {

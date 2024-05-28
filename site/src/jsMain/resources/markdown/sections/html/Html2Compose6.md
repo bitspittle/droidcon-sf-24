@@ -26,7 +26,7 @@ data-auto-animate:
 
 {{{ Horizontal
 
-```kotlin|0|3-6|0
+```kotlin 0|3-6|0
 object AppStyleSheet 
   : StyleSheet() {
   val rect by style {
@@ -36,7 +36,7 @@ object AppStyleSheet
 }
 ```
 
-```kotlin|0|3-5|0
+```kotlin 0|3-5|0
 Div(attrs = {
   id("example")
   classes(

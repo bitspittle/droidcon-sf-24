@@ -8,9 +8,9 @@ import org.jetbrains.compose.web.dom.Code as JbCode
 // See https://revealjs.com/code/
 @Composable
 fun Code(text: String, info: String? = null) {
-    val infoSplit = info.orEmpty().split("|", limit = 2).map { it.takeUnless { it.isEmpty() } }
-    val lang = infoSplit[0]
-    val lines = if (infoSplit.size > 1) infoSplit[1] else null
+    val infoSplit = info.orEmpty().split(" ").map { it.takeUnless { it.isEmpty() } }.toMutableList()
+    val lang = infoSplit.removeFirst()
+    val lines = if (infoSplit.isNotEmpty()) infoSplit.removeFirst() else null
 
     Pre {
         JbCode(attrs = {
