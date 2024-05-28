@@ -9,3 +9,10 @@ styles:
 ### SEO
 
 {{{ Image("fluense-seo.png") }}}
+
+{{{ SpeakerNotes
+
+* This is Kobweb's secret sauce
+* At export time, we take an html snapshot of every page; this is great for site crawlers.
+
+}}}
