@@ -23,3 +23,9 @@ ${FaCode}
 }}}
 
 }}}
+
+{{{ SpeakerNotes
+
+* CLI version and library version are not the same!
+
+}}}
