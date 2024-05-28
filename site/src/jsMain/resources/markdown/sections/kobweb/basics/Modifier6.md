@@ -3,11 +3,17 @@
 
 ## Modifier Chaining
 
-```kotlin
-private val SIZE_MODIFIER = Modifier.size(50.px)
-private val SPACING_MODIFIER =
+```kotlin 1,3,6
+val SizeModifier =
+    Modifier.size(50.px)
+val SpacingModifier =
     Modifier.margin(10.px).padding(20.px)
 
-private val COMBINED_MODIFIER =
-    SIZE_MODIFIER.then(SPACING_MODIFIER)
+val CombinedModifier = SizeModifier.then(SpacingModifier)
 ```
+
+{{{ SpeakerNotes
+
+* Modifiers are totally immutable and safe to share! 
+
+}}}
