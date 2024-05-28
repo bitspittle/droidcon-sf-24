@@ -61,6 +61,9 @@ kobweb {
         imports.add(".components.widgets.*")
         imports.add("com.varabyte.kobweb.compose.ui.graphics.Colors")
         imports.add("com.varabyte.kobweb.silk.components.icons.fa.*")
+        imports.add("com.varabyte.kobweb.compose.ui.Modifier")
+        imports.add("com.varabyte.kobweb.compose.ui.modifiers.*")
+
         for (unit in listOf("percent", "px", "cssRem", "fr")) {
             imports.add("org.jetbrains.compose.web.css.$unit")
         }

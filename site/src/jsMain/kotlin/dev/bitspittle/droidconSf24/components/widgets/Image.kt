@@ -1,7 +1,6 @@
 package dev.bitspittle.droidconSf24.components.widgets
 
 import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.compose.css.CSSLengthNumericValue
 import com.varabyte.kobweb.compose.css.JustifyItems
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -26,19 +25,14 @@ val ImageStyle = CssStyle.base {
 }
 
 @Composable
-private fun _Image(src: String) {
-    Img("", attrs = Modifier.fillMaxSize().toAttrs {
-        attr("data-src", "images/$src")
-    })
-}
-
-@Composable
-fun Image(src: String, scale: Number = 1.0, backgroundColor: Color? = null) {
+fun Image(src: String, modifier: Modifier = Modifier, scale: Number = 1.0, backgroundColor: Color? = null) {
     Box(
         ImageStyle.toModifier()
             .thenIf(backgroundColor != null) { Modifier.backgroundColor(backgroundColor!!) }
             .thenIf(scale.toDouble() < 1.0) { Modifier.scale(scale) }
     ) {
-        _Image(src)
+        Img("", attrs = modifier.fillMaxSize().toAttrs {
+            attr("data-src", "images/$src")
+        })
     }
 }
