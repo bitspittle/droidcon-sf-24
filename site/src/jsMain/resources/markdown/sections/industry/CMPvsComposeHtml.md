@@ -1,5 +1,5 @@
 ---
-follows: Cmp
+follows: ComposeHtml
 data-auto-animate:
 styles:
   - accented-subheaders

@@ -1,5 +1,5 @@
 ---
-follows: industry/ComposeHtml
+follows: industry/CMPvsComposeHtml
 data-background-image: "images/cobweb.jpg"
 styles:
   - outlined-headers

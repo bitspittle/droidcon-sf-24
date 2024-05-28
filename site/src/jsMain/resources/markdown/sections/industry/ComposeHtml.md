@@ -1,5 +1,5 @@
 ---
-follows: CMPvsComposeHtml
+follows: Cmp
 ---
 
 ## Compose HTML
