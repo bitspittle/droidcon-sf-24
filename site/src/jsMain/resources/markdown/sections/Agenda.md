@@ -5,7 +5,8 @@ follows: Title
 ## Agenda
 
 * State of the industry
-* Kobweb basics
+* Kobweb concepts
+* Kobweb code
 * Android / KMP
 * Tips and tricks
 * Closing remarks
