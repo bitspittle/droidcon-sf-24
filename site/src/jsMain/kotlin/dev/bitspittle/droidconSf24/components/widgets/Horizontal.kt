@@ -18,7 +18,7 @@ fun Horizontal(ref: ((HTMLElement) -> Unit)? = null, content: @Composable () -> 
     Div(Modifier
         .display(DisplayStyle.Grid)
         .gridTemplateColumns { repeat(autoFit) { minmax(0.px, 1.fr) } }
-        .gap(1.cssRem)
+        .gap(0.5.cssRem)
         .toAttrs {
             if (ref != null) {
                 ref { ref(it); onDispose { } }

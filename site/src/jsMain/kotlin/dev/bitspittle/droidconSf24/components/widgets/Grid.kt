@@ -21,7 +21,7 @@ fun Grid(numColumns: Int, ref: ((HTMLElement) -> Unit)? = null, content: @Compos
             .display(DisplayStyle.Grid)
             .gridTemplateColumns { repeat(numColumns) { minmax(0.px, 1.fr) } }
             .gridTemplateRows { repeat(autoFit) { minmax(0.px, 1.fr) } }
-            .gap(1.cssRem)
+            .gap(0.5.cssRem)
             .toAttrs {
                 if (ref != null) {
                     ref { ref(it); onDispose { } }
