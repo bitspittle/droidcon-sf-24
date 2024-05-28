@@ -12,6 +12,8 @@ import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobwebx.markdown.markdown
+import dev.bitspittle.droidconSf24.components.widgets.Grid
+import dev.bitspittle.droidconSf24.styles.SiteColors
 import dev.bitspittle.droidconSf24.utilities.walk
 import kotlinx.dom.addClass
 import org.jetbrains.compose.web.css.*
@@ -45,7 +47,7 @@ val OutlinedHeadersStyle = CssStyle {
 
 val AccentedSubheadersStyle = CssStyle {
     cssRule(" :is(h3, h4, h5, h6)") {
-        Modifier.color(Colors.LightSlateGray)
+        Modifier.color(SiteColors.Accent)
     }
 }
 
@@ -130,14 +132,7 @@ fun SectionLayout(content: @Composable () -> Unit) {
             }
 
             is Layout.Grid -> {
-                Div(Modifier
-                    .display(DisplayStyle.Grid)
-                    .gridTemplateColumns { repeat(layout.numColumns) { minmax(0.px, 1.fr) } }
-                    .gridTemplateRows { repeat(autoFit) { minmax(0.px, 1.fr) } }
-                    .gap(1.cssRem)
-                    .toAttrs {
-                        ref { containerElement = it; onDispose {  } }
-                    }) {
+                Grid(layout.numColumns, ref = { containerElement = it }) {
                     content()
                 }
             }
