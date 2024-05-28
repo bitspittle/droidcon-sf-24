@@ -17,7 +17,7 @@ Div(attrs = {
   attr("id", "example")
   style {
     property("width", 50.px)
-    property("height, 25.px)
+    property("height", 25.px)
   }
 }) {
     Text("Hello!")
