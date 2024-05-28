@@ -16,7 +16,7 @@ Div(attrs = {
 }
 ```
 
-```kotlin 0|2-9|10
+```kotlin 0|2-9|10 [code-escape-hatch]
 Div(attrs = 
   Modifier
     .attrModifier {

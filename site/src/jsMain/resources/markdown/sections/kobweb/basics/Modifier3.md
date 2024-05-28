@@ -4,7 +4,7 @@ data-auto-animate:
 
 ## Modifier
 
-```kotlin
+```kotlin [code-escape-hatch]
 Div(attrs = 
   Modifier
     .attrModifier {
@@ -20,7 +20,7 @@ Div(attrs =
 }
 ```
 
-```kotlin
+```kotlin 0|2-4|0
 Div(attrs = Modifier
   .id("example")
   .width(50.px)
