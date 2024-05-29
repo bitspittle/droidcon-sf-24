@@ -8,8 +8,7 @@ styles:
 
 ### Routing
 
-<!-- image is getting stretched due to reveal.js margin, disable it -->
-{{{ Image("about-url-bar.png", Modifier.margin(0.px)) }}}
+{{{ UrlBar("some-example-site.com/about") }}}
 
 ```kotlin
 @Page
