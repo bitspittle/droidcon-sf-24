@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.ListStyleType
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.alignContent
 import com.varabyte.kobweb.compose.ui.modifiers.fontFamily
 import com.varabyte.kobweb.compose.ui.modifiers.listStyle
 import com.varabyte.kobweb.compose.ui.modifiers.textAlign
@@ -13,6 +14,7 @@ import com.varabyte.kobweb.silk.style.toModifier
 import dev.bitspittle.droidconSf24.utilities.walk
 import kotlinx.browser.document
 import kotlinx.dom.addClass
+import org.jetbrains.compose.web.css.AlignContent
 import org.jetbrains.compose.web.dom.Span
 import org.w3c.dom.HTMLLIElement
 import org.w3c.dom.HTMLOListElement
@@ -25,6 +27,7 @@ val FoldersStyle = CssStyle {
             .fontFamily("monospace")
             .listStyle(ListStyleType.None)
             .textAlign(TextAlign.Start)
+            .alignContent(AlignContent.Center)
     }
 }
 
