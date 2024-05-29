@@ -15,7 +15,7 @@
 @Page
 @Composable
 fun HomePage() {
-    Link("about")
+    Link("/about")
 }
 ```
 
@@ -31,3 +31,9 @@ fun AboutPage() {
 }}}
 
 <!-- TODO: Add animating example here -->
+
+{{{ SpeakerNotes
+
+* Mention that instant linking is an advantage AND disadvantage, based on your purpose
+
+}}}
