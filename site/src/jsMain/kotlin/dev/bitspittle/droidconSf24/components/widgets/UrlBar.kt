@@ -33,8 +33,10 @@ val UrlAreaStyle = CssStyle.base {
     Modifier
         .borderRadius(10.px)
         .backgroundColor(Colors.DarkSlateGrey)
+        .fontFamily("monospace")
         .fontSize(1.3.cssRem)
         .padding(leftRight = 0.7.cssRem, topBottom = 0.2.cssRem)
+        .flexGrow(1)
 }
 
 val UrlIconStyle = CssStyle.base {

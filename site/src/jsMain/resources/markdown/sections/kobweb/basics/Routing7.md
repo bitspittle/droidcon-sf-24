@@ -1,39 +1,12 @@
-## Instant routing
+---
+data-auto-animate:
+---
 
-{{{ Horizontal
+## <span data-id="title">Dynamic routes</span>
 
-{{{ Folders(Modifier.fontSize(1.7.cssRem))
 
-* pages
-  * Index.kt
-  * About.kt
+{{{ UrlBar("mysite.com/users/bitspittle/post/5", Modifier.width(80.percent), id = "url") }}}
 
-}}}
+{{{ UrlBar("mysite.com/users/lop/post/32", Modifier.width(80.percent).margin { top(1.cssRem) }) }}}
 
-```kotlin
-// Index.kt
-@Page
-@Composable
-fun HomePage() {
-    Link("/about")
-}
-```
-
-```kotlin
-// About.kt
-@Page
-@Composable
-fun AboutPage() {
-    Text("About us")
-}
-```
-
-}}}
-
-<!-- TODO: Add animating example here -->
-
-{{{ SpeakerNotes
-
-* Mention that instant linking is an advantage AND disadvantage, based on your purpose
-
-}}}
+{{{ UrlBar("mysite.com/users/thedome/post/5", Modifier.width(80.percent).margin { top(1.cssRem) }) }}}
