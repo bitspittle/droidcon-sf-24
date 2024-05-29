@@ -85,7 +85,7 @@ kobweb {
             return filePath.removePrefix("sections/").removeSuffix(".md")
         }
 
-        val numericSuffix = Regex("(.*)(\\d+)$")
+        val numericSuffix = Regex("(.*[^\\d])(\\d+)$")
 
         process.set { markdownEntries ->
             val groupedById = markdownEntries.associateBy { entry -> entry.toSlideId() }
@@ -190,7 +190,9 @@ kobweb {
                         """.trimMargin()
                         )
 
-                        groupedSlides.getValue(slideId).sorted().forEach { groupedSlideId ->
+                        groupedSlides.getValue(slideId)
+                            .sortedBy { numericSuffix.matchEntire(it)?.groupValues?.get(2)?.toInt() ?: 0 }
+                            .forEach { groupedSlideId ->
                             appendLine(
                                 """
                             |       ${groupedById.getValue(groupedSlideId).fqn}()

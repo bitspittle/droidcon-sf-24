@@ -15,7 +15,7 @@ import dev.bitspittle.droidconSf24.utilities.walk
 import kotlinx.browser.document
 import kotlinx.dom.addClass
 import org.jetbrains.compose.web.css.AlignContent
-import org.jetbrains.compose.web.dom.Span
+import org.jetbrains.compose.web.dom.Div
 import org.w3c.dom.HTMLLIElement
 import org.w3c.dom.HTMLOListElement
 import org.w3c.dom.HTMLUListElement
@@ -33,7 +33,7 @@ val FoldersStyle = CssStyle {
 
 @Composable
 fun Folders(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
-    Span(attrs = FoldersStyle.toModifier().then(modifier).toAttrs {
+    Div(attrs = FoldersStyle.toModifier().then(modifier).toAttrs {
         ref { element ->
             element.children.walk { child ->
                 when (child) {
