@@ -10,10 +10,13 @@ import org.jetbrains.compose.web.dom.Code as JbCode
 fun Code(text: String, info: String? = null) {
     val infoSplit = info.orEmpty().split(" ").mapNotNull { it.takeUnless { it.isEmpty() } }.toMutableList()
     val lang = infoSplit.removeFirstOrNull()
-    val lines = if (infoSplit.isNotEmpty() && !infoSplit.first().startsWith("[")) infoSplit.removeFirst() else null
-    val id = if (infoSplit.isNotEmpty()) infoSplit.removeFirst().removePrefix("[").removeSuffix("]") else null
+    val lines = if (infoSplit.isNotEmpty() && (infoSplit.first().first() !in listOf('[', '<'))) infoSplit.removeFirst() else null
+    val classes = if (infoSplit.firstOrNull()?.startsWith("<") == true) infoSplit.removeFirst().removePrefix("<").removeSuffix(">") else null
+    val id = if (infoSplit.firstOrNull()?.startsWith("[") == true) infoSplit.removeFirst().removePrefix("[").removeSuffix("]") else null
 
-    Pre {
+    Pre(attrs = {
+        classes?.let { classes(classes) }
+    }) {
         JbCode(attrs = {
             attr("data-trim", "")
             attr("data-noescape", "")
