@@ -1,5 +1,5 @@
 site:
-  title: "Droidcon24 Presentation"
+  title: "DroidconSF24 Presentation"
   routePrefix: "droidcon-sf-24"
 
 server:
