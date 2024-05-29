@@ -9,7 +9,7 @@ Div(attrs = {
   id("example")
   style {
     width(50.px)
-    height(50.px)
+    height(25.px)
   }
 }) {
     Text("Hello!")
@@ -24,7 +24,7 @@ Div(attrs =
     }
     .styleModifier {
       width(50.px)
-      height(50.px)
+      height(25.px)
     }
     .toAttrs()
 ) {

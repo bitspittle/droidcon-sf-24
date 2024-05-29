@@ -1,5 +1,4 @@
 ---
-follows: KobwebCreate
 ---
 
 ## Running a project
