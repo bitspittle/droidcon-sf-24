@@ -14,6 +14,7 @@ import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobwebx.markdown.markdown
 import dev.bitspittle.droidconSf24.components.widgets.Grid
 import dev.bitspittle.droidconSf24.styles.SiteColors
+import dev.bitspittle.droidconSf24.utilities.heavyTextShadow
 import dev.bitspittle.droidconSf24.utilities.walk
 import kotlinx.dom.addClass
 import org.jetbrains.compose.web.css.*
@@ -32,16 +33,7 @@ val SectionStyle = CssStyle {
 
 val OutlinedHeadersStyle = CssStyle {
     cssRule(" :is(h1, h2, h3, h4, h5, h6)") {
-        listOf(
-            (-1).px to (-1).px,
-            (1).px to (-1).px,
-            (-1).px to (1).px,
-            (1).px to (1).px,
-        )
-            .map { CSSTextShadow(it.first, it.second, blurRadius = 20.px, color = Colors.Black) }
-            .let { shadows ->
-                Modifier.textShadow(*shadows.toTypedArray())
-            }
+        Modifier.heavyTextShadow(20.px)
     }
 }
 
