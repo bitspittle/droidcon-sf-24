@@ -1,25 +1,19 @@
 ---
-data-auto-animate:
 ---
 
-## Modifier
+## Modifier Chaining
 
-```kotlin 0 [code-final]
-Div(attrs = Modifier
-  .id("example")
-  .width(50.px)
-  .height(25.px)
-  .toAttrs()
-) {
-    Text("Hello!")
-}
+```kotlin 1,3,6
+val SizeModifier =
+    Modifier.size(50.px)
+val SpacingModifier =
+    Modifier.margin(10.px).padding(20.px)
+
+val CombinedModifier = SizeModifier.then(SpacingModifier)
 ```
 
-```html
-<div
-   id="example"
-   style="width:50px;height:25px"
->
-  Hello!
-</div>
-```
+{{{ SpeakerNotes
+
+* Modifiers are totally immutable and safe to share! 
+
+}}}

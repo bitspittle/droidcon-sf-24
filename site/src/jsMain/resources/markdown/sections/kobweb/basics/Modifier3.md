@@ -4,7 +4,7 @@ data-auto-animate:
 
 ## Modifier
 
-```kotlin 0 [code-escape-hatch]
+```kotlin 2-10 [code-escape-hatch]
 Div(attrs = 
   Modifier
     .attrModifier {
@@ -15,9 +15,7 @@ Div(attrs =
       height(25.px)
     }
     .toAttrs()
-) {
-    Text("Hello!")
-}
+)
 ```
 
 ```kotlin 0|2-4 [code-final]
@@ -26,9 +24,7 @@ Div(attrs = Modifier
   .width(50.px)
   .height(25.px)
   .toAttrs()
-) {
-    Text("Hello!")
-}
+)
 ```
 
 {{{ SpeakerNotes

@@ -4,15 +4,16 @@ data-auto-animate:
 
 ## Modifier
 
-```kotlin 0 [code-final]
+{{{ Horizontal
+
+```kotlin [code-final]
+// Kobweb
 Div(attrs = Modifier
   .id("example")
   .width(50.px)
   .height(25.px)
   .toAttrs()
-) {
-    Text("Hello!")
-}
+)
 ```
 
 ```kotlin
@@ -23,7 +24,7 @@ Div(attrs = {
         width(50.px)
         height(25.px)
     }
-}) {
-    Text("Hello!")
-}
+})
 ```
+
+}}}
