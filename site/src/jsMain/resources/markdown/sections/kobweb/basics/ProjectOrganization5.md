@@ -18,15 +18,14 @@ fun PageLayout(content: @Composable () -> Unit) {
 }
 ```
 
-```kotlin 1,2,7-9
+```kotlin 1,6,8
 import com.mysite.components.layouts.PageLayout
-import com.mysite.components.widgets.VisitorCounter
 
 @Page
 @Composable
 fun IndexPage() {
   PageLayout {
-    VisitorCounter()
+    /* ... */
   }    
 }
 ```
