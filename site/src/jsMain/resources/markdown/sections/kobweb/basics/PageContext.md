@@ -8,7 +8,7 @@ data-auto-animate-restart:
 
 {{{ UrlBar("mysite.com/", id = "url") }}}
 
-```kotlin 4 [code]
+```kotlin 1,4 [code]
 @Page
 @Composable
 fun IndexPage() {

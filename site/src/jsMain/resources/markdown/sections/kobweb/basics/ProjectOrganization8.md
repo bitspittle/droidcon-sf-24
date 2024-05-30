@@ -7,7 +7,6 @@ data-auto-animate:
 {{{ Folders(Modifier.fillMaxWidth().padding(left = 5.cssRem).dataId("folders"))
 
 * src
-  * jsMain
   * resources
 
 }}}

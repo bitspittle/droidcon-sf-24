@@ -1,39 +1,27 @@
-## Instant routing
+---
+data-auto-animate:
+---
 
-{{{ Horizontal
+## <span data-id="title">Dynamic routes</span>
 
-{{{ Folders(Modifier.fontSize(1.7.cssRem))
+{{{ UrlBar("mysite.com/users/{user}/posts/{post}", id = "url") }}}
 
-* pages
-  * Index.kt
-  * About.kt
+```kotlin 2 [user]
+// com/mysite/pages/users/user/PackageMapping.kt
+@file:PackageMapping("{}")
 
-}}}
+package com.mysite.pages.users.user
 
-```kotlin
-// Index.kt
-@Page
-@Composable
-fun HomePage() {
-    Link("/about")
-}
+import com.varabyte.kobweb.core.PackageMapping
 ```
 
-```kotlin
-// About.kt
-@Page
+```kotlin 4 [post]
+// com/mysite/pages/users/user/posts/Post.kt
+package com.mysite.pages.users.user.posts
+
+@Page("{}")
 @Composable
-fun AboutPage() {
-    Text("About us")
+fun PostPage() {
+    /* ... */
 }
 ```
-
-}}}
-
-<!-- TODO: Add animating example here -->
-
-{{{ SpeakerNotes
-
-* Mention that instant linking is an advantage AND disadvantage, based on your purpose
-
-}}}

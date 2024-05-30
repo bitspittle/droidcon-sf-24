@@ -37,7 +37,7 @@ fun BoxesInRow(modifier: Modifier = Modifier) {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Box(Modifier.size(4.cssRem).backgroundColor(Colors.Blue))
-        Box(Modifier.size(4.cssRem).backgroundColor(Colors.Pink))
+        Box(Modifier.size(4.cssRem).backgroundColor(Colors.Purple))
         Box(Modifier.size(4.cssRem).backgroundColor(Colors.Green))
     }
 }

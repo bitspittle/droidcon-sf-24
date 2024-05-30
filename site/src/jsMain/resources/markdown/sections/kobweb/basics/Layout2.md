@@ -10,10 +10,10 @@ Row(
     .padding(10.px)
     .gap(20.px)
     .backgroundColor(Colors.Cyan),
-  contentAlignment = Alignment.Center
+  verticalAlignment = Alignment.CenterVertically
 ) {
   BlueBox()
-  PinkBox()
+  PurpleBox()
   GreenBox()  
 }
 ```

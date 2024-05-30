@@ -12,6 +12,5 @@ data-auto-animate:
   * widgets
     * ${KobwebText("Button.kt")}
     * ${KobwebText("VisitorCounter.kt")}
-* pages
 
 }}}

@@ -12,6 +12,5 @@ data-auto-animate:
     * ${KobwebText("ArticleLayout.kt")}
   * sections
   * widgets
-* pages
 
 }}}
