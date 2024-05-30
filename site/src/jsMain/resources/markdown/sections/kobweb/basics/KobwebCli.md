@@ -1,6 +1,5 @@
 ---
 follows: InstallKobweb
-data-auto-animate:
 ---
 
 ## Creating a project

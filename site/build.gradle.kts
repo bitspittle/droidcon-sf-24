@@ -58,16 +58,18 @@ kobweb {
     }
     markdown {
         defaultRoot.set(".components.layouts.SectionLayout")
-        imports.add(".components.widgets.*")
-        imports.add(".components.examples.*")
-        imports.add(".utilities.dataId")
-        imports.add("com.varabyte.kobweb.compose.ui.graphics.Colors")
-        imports.add("com.varabyte.kobweb.silk.components.icons.fa.*")
-        imports.add("com.varabyte.kobweb.compose.ui.Alignment")
-        imports.add("com.varabyte.kobweb.compose.ui.Modifier")
-        imports.add("com.varabyte.kobweb.compose.ui.modifiers.*")
-        imports.add("com.varabyte.kobweb.compose.foundation.layout.Arrangement")
-
+        imports.addAll(
+            ".components.widgets.*",
+            ".components.examples.*",
+            ".utilities.dataId",
+            "com.varabyte.kobweb.compose.ui.graphics.Colors",
+            "com.varabyte.kobweb.silk.components.icons.fa.*",
+            "com.varabyte.kobweb.compose.ui.Alignment",
+            "com.varabyte.kobweb.compose.ui.Modifier",
+            "com.varabyte.kobweb.compose.ui.modifiers.*",
+            "com.varabyte.kobweb.compose.css.*",
+            "com.varabyte.kobweb.compose.foundation.layout.Arrangement",
+        )
         for (unit in listOf("percent", "px", "cssRem", "fr")) {
             imports.add("org.jetbrains.compose.web.css.$unit")
         }
