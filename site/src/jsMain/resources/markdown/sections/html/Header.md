@@ -1,6 +1,6 @@
 ---
 follows: Caution
-data-background-image: "images/html-code.webp"
+data-background-image: "images/html-code.jpg"
 styles:
   - outlined-headers
 ---
