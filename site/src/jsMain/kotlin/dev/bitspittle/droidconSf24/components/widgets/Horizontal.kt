@@ -14,8 +14,8 @@ import org.jetbrains.compose.web.dom.Div
 import org.w3c.dom.HTMLElement
 
 @Composable
-fun Horizontal(ref: ((HTMLElement) -> Unit)? = null, content: @Composable () -> Unit) {
-    Div(Modifier
+fun Horizontal(modifier: Modifier = Modifier, ref: ((HTMLElement) -> Unit)? = null, content: @Composable () -> Unit) {
+    Div(modifier
         .display(DisplayStyle.Grid)
         .gridTemplateColumns { repeat(autoFit) { minmax(0.px, 1.fr) } }
         .gap(0.5.cssRem)
