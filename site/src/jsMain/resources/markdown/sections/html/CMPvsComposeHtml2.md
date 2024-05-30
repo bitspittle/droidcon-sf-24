@@ -4,10 +4,10 @@ styles:
   - accented-subheaders
 ---
 
-## ${KotlinText("CMP for Web")} <span style="color:red">vs</span> ${KobwebText("Compose HTML")}
+## <span class="fragment custom highlight-kotlin" data-fragment-index="1">CMP for Web</span> <span style="color:red">vs</span> <span class="fragment custom  highlight-kobweb" data-fragment-index="1">Compose HTML</span>
 
 ### What's your use case?
 
-${KotlinText("I want to write a general application that happens to run on the web.")}
+<span class="fragment highlight-kotlin" data-fragment-index="1">I want to write a general application that happens to run on the web.</span>
 
-${KobwebText("I want to write a traditional website, but I don't want to use JS or React.")}
+<span class="fragment highlight-kobweb" data-fragment-index="1">I want to write a traditional website, but I don't want to use JS or React.</span>
