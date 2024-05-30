@@ -21,9 +21,7 @@ data-auto-animate-restart:
 <div
    id="example"
    class="rect"
->
-  Hello!
-</div>
+/>
 ```
 
 }}}

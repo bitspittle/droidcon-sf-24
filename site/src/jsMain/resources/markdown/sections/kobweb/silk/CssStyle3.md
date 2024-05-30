@@ -19,9 +19,7 @@ data-auto-animate:
 <div
    id="example"
    class="rect"
->
-  Hello!
-</div>
+/>
 ```
 
 }}}
@@ -43,9 +41,7 @@ Div(
    RectStyle.toModifier()
      .id("example")
      .toAttrs()
-) {
-   Text("Hello")
-}
+)
 ```
 
 }}}

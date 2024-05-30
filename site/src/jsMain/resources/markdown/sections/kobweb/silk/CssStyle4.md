@@ -19,9 +19,7 @@ data-auto-animate:
 <div
    id="example"
    class="rect"
->
-  Hello!
-</div>
+/>
 ```
 
 }}}
@@ -44,9 +42,7 @@ val RectStyle = CssStyle(
 ```kotlin 2 [div]
 Div(
    RectStyle.toAttrs()
-) {
-   Text("Hello")
-}
+)
 ```
 
 }}}

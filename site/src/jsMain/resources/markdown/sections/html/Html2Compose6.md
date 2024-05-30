@@ -17,9 +17,7 @@ data-auto-animate:
 <div
    id="example"
    class="rect"
->
-  Hello!
-</div>
+/>
 ```
 
 }}}
@@ -42,9 +40,7 @@ Div(attrs = {
   classes(
     AppStyleSheet.rect
   )
-}) {
-  Text("Hello!")
-}
+})
 ```
 
 }}}

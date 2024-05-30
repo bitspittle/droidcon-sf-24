@@ -19,9 +19,7 @@ data-auto-animate:
 <div
    id="example"
    class="rect"
->
-  Hello!
-</div>
+/>
 ```
 
 }}}
@@ -33,7 +31,5 @@ Div(
     .width(50.px)
     .height(25.px)
     .toAttrs()
-) {
-   Text("Hello")
-}
+)
 ```

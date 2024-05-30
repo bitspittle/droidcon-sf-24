@@ -15,7 +15,5 @@ data-auto-animate:
 <div
    id="example"
    class="rect"
->
-  Hello!
-</div>
+/>
 ```
