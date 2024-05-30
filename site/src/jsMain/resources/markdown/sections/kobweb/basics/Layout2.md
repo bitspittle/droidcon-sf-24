@@ -2,7 +2,7 @@
 data-auto-animate:
 ---
 
-## Layout
+## Row
 
 ```kotlin 0|4|6|0
 Row(

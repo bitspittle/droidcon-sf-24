@@ -4,7 +4,7 @@ data-auto-animate:
 data-auto-animate-restart:
 ---
 
-## Layout
+## Box
 
 ```kotlin 0|1,4,7,10|5|0 [code]
 Box(
