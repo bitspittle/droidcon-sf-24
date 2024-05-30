@@ -7,14 +7,6 @@ import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import org.jetbrains.compose.web.dom.Video
 
-//val ImageStyle = CssStyle.base {
-//    Modifier
-//        .borderRadius(5.px)
-//        .margin(leftRight = 10.percent)
-//        .justifyItems(JustifyItems.Center)
-//        .alignItems(AlignItems.Center)
-//}
-
 @Composable
 fun Video(src: String, modifier: Modifier = Modifier, autoplay: Boolean = true) {
     Box {
