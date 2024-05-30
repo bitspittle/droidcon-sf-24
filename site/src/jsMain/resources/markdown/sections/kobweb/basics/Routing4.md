@@ -6,7 +6,7 @@ data-auto-animate:
 
 {{{ UrlBar("mysite.com/patch-notes/latest", id = "url") }}}
 
-```kotlin 1,3 [code]
+```kotlin 1,3 <fragment> [code]
 // com/mysite/pages/patchNotes/Latest.kt
 
 package com.mysite.pages.patchNotes
