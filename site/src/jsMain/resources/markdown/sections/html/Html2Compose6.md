@@ -4,7 +4,7 @@ data-auto-animate:
 
 {{{ Horizontal
 
-```css
+```css 1
 /* example.css */
 .rect {
   width: 50px;
@@ -12,7 +12,7 @@ data-auto-animate:
 }
 ```
 
-```html
+```html 1
 <!-- example.html -->
 <div
    id="example"
@@ -24,7 +24,7 @@ data-auto-animate:
 
 {{{ Horizontal
 
-```kotlin 0|3-6|0
+```kotlin 0|3-6
 object AppStyleSheet 
   : StyleSheet() {
   val rect by style {
@@ -34,7 +34,7 @@ object AppStyleSheet
 }
 ```
 
-```kotlin 0|3-5|0
+```kotlin 0|3-5
 Div(attrs = {
   id("example")
   classes(
