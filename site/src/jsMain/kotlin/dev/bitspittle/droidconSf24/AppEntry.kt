@@ -13,11 +13,14 @@ import com.varabyte.kobweb.silk.init.InitSilkContext
 import com.varabyte.kobweb.silk.init.registerStyleBase
 import com.varabyte.kobweb.silk.style.layer.SilkLayer
 import com.varabyte.kobweb.silk.style.layer.add
+import com.varabyte.kobweb.silk.theme.colors.ColorMode
 import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.css.cssRem
 
 @InitSilk
 fun initSilk(ctx: InitSilkContext) {
+    ctx.config.initialColorMode = ColorMode.DARK
+
     ctx.stylesheet.apply {
         // Layers specified in build.gradle.kts
         cssLayers.add("highlightjs", "revealjs", after = SilkLayer.BASE)

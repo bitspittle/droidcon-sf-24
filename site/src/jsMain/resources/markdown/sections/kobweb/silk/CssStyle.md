@@ -1,5 +1,5 @@
 ---
-follows: Header
+follows: Widgets
 data-auto-animate:
 data-auto-animate-restart:
 ---

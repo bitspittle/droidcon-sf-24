@@ -48,7 +48,7 @@ fun ColorModeBox(modifier: Modifier = Modifier) {
     var fakeColorMode by remember { mutableStateOf(ColorMode.LIGHT) }
 
     LaunchedEffect(Unit) {
-        window.setInterval(5.seconds) {
+        window.setInterval(4.seconds) {
             fakeColorMode = fakeColorMode.opposite
         }
     }
