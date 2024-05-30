@@ -7,11 +7,10 @@ import com.varabyte.kobweb.compose.ui.modifiers.display
 import com.varabyte.kobweb.compose.ui.modifiers.padding
 import com.varabyte.kobweb.compose.ui.modifiers.userSelect
 import com.varabyte.kobweb.core.App
-import com.varabyte.kobweb.core.KobwebApp
+import com.varabyte.kobweb.silk.SilkApp
 import com.varabyte.kobweb.silk.init.InitSilk
 import com.varabyte.kobweb.silk.init.InitSilkContext
 import com.varabyte.kobweb.silk.init.registerStyleBase
-import com.varabyte.kobweb.silk.prepareSilkFoundation
 import com.varabyte.kobweb.silk.style.layer.SilkLayer
 import com.varabyte.kobweb.silk.style.layer.add
 import org.jetbrains.compose.web.css.DisplayStyle
@@ -44,9 +43,7 @@ fun initSilk(ctx: InitSilkContext) {
 @App
 @Composable
 fun AppEntry(content: @Composable () -> Unit) {
-    KobwebApp {
-        prepareSilkFoundation {
-            content()
-        }
+    SilkApp {
+        content()
     }
 }
