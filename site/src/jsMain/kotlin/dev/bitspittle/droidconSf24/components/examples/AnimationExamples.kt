@@ -35,11 +35,11 @@ val AnimationTransitionCursorKeyframes = Keyframes {
         Modifier.translate(5.cssRem, 1.cssRem)
     }
 
-    each(50.percent, 80.percent) {
+    each(50.percent, 78.percent) {
         Modifier.translate(1.cssRem, 1.cssRem)
     }
 
-    each(90.percent, 100.percent) {
+    each(88.percent, 100.percent) {
         Modifier.translate(5.cssRem, 1.cssRem)
     }
 }
