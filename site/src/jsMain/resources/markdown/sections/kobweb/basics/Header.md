@@ -5,4 +5,4 @@ styles:
   - outlined-headers
 ---
 
-# Kobweb Basics
+# ${Kobweb} Basics
