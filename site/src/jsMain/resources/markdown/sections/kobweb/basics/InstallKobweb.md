@@ -2,7 +2,7 @@
 follows: Architecture
 ---
 
-## Install Kobweb
+## Install ${Kobweb}
 
 ```bash
 # Homebrew: Mac / Linux

@@ -2,7 +2,7 @@
 follows: WhyKobweb
 ---
 
-## Kobweb Architecture
+## ${Kobweb} Architecture
 
 {{{ Grid(2)
 

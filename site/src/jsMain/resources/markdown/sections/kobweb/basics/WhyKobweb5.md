@@ -4,7 +4,7 @@ styles:
   - accented-subheaders
 ---
 
-## Why did I create Kobweb?
+## Why did I create ${Kobweb}?
 
 ### Markdown support
 

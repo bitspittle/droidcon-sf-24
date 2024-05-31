@@ -23,5 +23,6 @@ fun initSilk(ctx: InitSilkContext) {
 object SiteColors {
     val KobwebBlue = Color.rgb(0x4285f4)
     val KotlinPurple = Color.rgb(0x7f52ff)
+    val AndroidGreen = Color.rgb(0x3DDC84)
     val Accent = Colors.LightBlue
 }

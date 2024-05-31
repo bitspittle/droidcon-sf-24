@@ -12,4 +12,4 @@ Modifier
     .padding(20.px)
 ```
 
-### <span class="fragment">${Kobweb()} != ${KotlinText("Jetpack Compose")}</span>
+### <span class="fragment">${Kobweb()} != ${AndroidText("Jetpack Compose")}</span>
