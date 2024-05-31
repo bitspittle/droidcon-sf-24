@@ -2,13 +2,12 @@ package dev.bitspittle.droidconSf24.components.examples
 
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.AnimationIterationCount
-import com.varabyte.kobweb.compose.css.CSSTransition
+import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
-import com.varabyte.kobweb.silk.components.icons.fa.FaArrowPointer
 import com.varabyte.kobweb.silk.style.animation.Keyframes
 import com.varabyte.kobweb.silk.style.animation.toAnimation
 import dev.bitspittle.droidconSf24.components.widgets.Cursor
@@ -58,7 +57,7 @@ fun TransitionExample(modifier: Modifier = Modifier) {
                 )
         )
 
-        Modifier.transition(CSSTransition("background-color", 200.ms))
+        Modifier.transition(Transition.of("background-color", 200.ms))
         Cursor(Modifier
             .animation(
                 AnimationTransitionCursorKeyframes.toAnimation(

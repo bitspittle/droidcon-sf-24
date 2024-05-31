@@ -10,7 +10,7 @@ val ChangeOnHoverStyle = CssStyle {
   base {
     Modifier
       .backgroundColor(Colors.Cyan)
-      .transition(CSSTransition("background-color", 200.ms))
+      .transition(Transition.of("background-color", 200.ms))
   }
 
   hover {

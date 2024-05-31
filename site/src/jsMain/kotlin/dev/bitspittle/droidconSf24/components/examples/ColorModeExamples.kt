@@ -2,8 +2,8 @@ package dev.bitspittle.droidconSf24.components.examples
 
 import androidx.compose.runtime.*
 import com.varabyte.kobweb.browser.util.setInterval
-import com.varabyte.kobweb.compose.css.CSSTransition
 import com.varabyte.kobweb.compose.css.StyleVariable
+import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
@@ -29,7 +29,7 @@ val FakeColorButtonContainerStyle = CssStyle.base {
         .backgroundColor(FakeColorBgColor.value())
         .padding(2.cssRem)
         .border(1.px, LineStyle.Solid, FakeColorFgColor.value())
-        .transition(CSSTransition("all", 200.ms))
+        .transition(Transition.all(200.ms))
 }
 
 val FakeColorButtonStyle = CssStyle.base {
@@ -39,7 +39,7 @@ val FakeColorButtonStyle = CssStyle.base {
         .fontSize(2.cssRem)
         .backgroundColor(FakeColorFgColor.value())
         .color(FakeColorBgColor.value())
-        .transition(CSSTransition("all", 200.ms))
+        .transition(Transition.all(200.ms))
 }
 
 
