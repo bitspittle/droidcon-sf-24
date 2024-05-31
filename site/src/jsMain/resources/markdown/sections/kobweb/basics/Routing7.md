@@ -10,3 +10,5 @@ data-auto-animate:
 {{{ UrlBar("mysite.com/users/opletter/post/32", Modifier.width(80.percent).margin { top(1.cssRem) }) }}}
 
 {{{ UrlBar("mysite.com/users/thedome/post/5", Modifier.width(80.percent).margin { top(1.cssRem) }) }}}
+
+{{{ UrlBar("mysite.com/users/binay/post/108", Modifier.width(80.percent).margin { top(1.cssRem) }) }}}
