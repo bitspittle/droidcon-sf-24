@@ -105,7 +105,7 @@ kobweb {
             val slidesPackage = "$group.components.sections"
             val slidesPath = "${slidesPackage.replace('.', '/')}/Slides.kt"
 
-            val firstSlide = "Title"
+            val firstSlide = "intro/Title"
             val lastSlide = "QandA"
 
             val slideSections =
