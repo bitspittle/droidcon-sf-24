@@ -19,3 +19,14 @@ fun NodeList.walk(onEach: (Node) -> Unit) {
             node.childNodes.walk(onEach)
         }
 }
+
+val HTMLElement.ancestors: Sequence<HTMLElement>
+    get() {
+        var curr: HTMLElement? = this
+        return sequence {
+            while (curr != null) {
+                yield(curr!!)
+                curr = curr!!.parentElement as? HTMLElement
+            }
+        }
+    }
