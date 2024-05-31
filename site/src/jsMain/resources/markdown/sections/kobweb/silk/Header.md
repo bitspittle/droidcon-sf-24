@@ -1,5 +1,5 @@
 ---
-follows: kobweb/basics/ProjectOrganization
+follows: kobweb/basics/
 data-background-image: "images/silk.webp"
 styles:
   - outlined-headers

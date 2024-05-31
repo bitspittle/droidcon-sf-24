@@ -87,6 +87,17 @@ kobweb {
             return filePath.removePrefix("sections/").removeSuffix(".md")
         }
 
+        fun String.toSlideSection(): String {
+            val slideId = this
+            return slideId.substringBeforeLast("/")
+        }
+
+        fun MarkdownEntry.toSlideSection(): String {
+            return toSlideId().toSlideSection()
+        }
+
+        fun MarkdownEntry.follows(): String? = frontMatter["follows"]?.singleOrNull()
+
         val numericSuffix = Regex("(.*[^\\d])(\\d+)$")
 
         process.set { markdownEntries ->
@@ -96,26 +107,49 @@ kobweb {
 
             val firstSlide = "Title"
             val lastSlide = "QandA"
-            val followingMap = mutableMapOf<String, MutableList<String>>()
+
+            val slideSections =
+                markdownEntries.map { entry -> "${entry.toSlideSection()}/" }.toSet()
+
             val groupedSlides = mutableMapOf<String, MutableList<String>>()
             markdownEntries.forEach { entry ->
-                val slideId = entry.toSlideId()
-                val follows = entry.frontMatter["follows"]?.singleOrNull()
+                val follows = entry.follows()
                 if (follows == null) {
+                    val slideId = entry.toSlideId()
                     if (slideId !in listOf(firstSlide, lastSlide)) {
                         val match = numericSuffix.matchEntire(slideId)
                         if (match == null) {
                             logger.error("e: ${entry.filePath} needs to specify the slide it follows.")
                         } else {
                             val prefix = match.groupValues[1]
-                            groupedSlides.getOrPut(prefix) { mutableListOf(prefix) }.add(slideId)
+                            // Include the parent slide in the list of slides
+                            val items = groupedSlides.getOrPut(prefix) { mutableListOf(prefix) }
+                            items.add(slideId)
                         }
                     }
-                } else {
+                }
+            }
+            groupedSlides.forEach { _, values ->
+                values.sortBy { numericSuffix.matchEntire(it)?.groupValues?.get(2)?.toInt() ?: 0 }
+            }
+
+            val followingMap = mutableMapOf<String, MutableList<String>>()
+            markdownEntries.forEach { entry ->
+                val follows = entry.follows() ?: return@forEach
+                val slideId = entry.toSlideId()
+
+                if (follows.endsWith("/")) {
+                    if (!slideSections.contains(follows)) {
+                        logger.error("e: ${entry.filePath} uses `follows` value \"$follows\" which does not match any markdown section.")
+                    } else {
+                        followingMap.getOrPut(follows) { mutableListOf() }.add(slideId)
+                    }
+                }
+                else {
                     // If a slide "subdir/b" and it says it follows "a" and "a" doesn't exist, check "subdir/a" as well
                     val potentialFollows = mutableListOf(follows)
                     if (slideId.contains("/") && !follows.contains("/")) {
-                        potentialFollows.add("${slideId.substringBeforeLast("/")}/$follows")
+                        potentialFollows.add("${slideId.toSlideSection()}/$follows")
                     }
 
                     val finalFollows = potentialFollows.firstOrNull { groupedById.containsKey(it) }
@@ -133,12 +167,13 @@ kobweb {
                 while (slidesToProcess.isNotEmpty()) {
                     val currSlide = slidesToProcess.removeFirst()
                     orderedSlides.add(currSlide)
-                    followingMap[currSlide].orEmpty().let { following ->
-                        if (following.size > 1) {
-                            logger.error("e: Multiple slides marked as following the same slide: $currSlide <- ${following.joinToString()}")
-                        }
-                        slidesToProcess.addAll(following)
+                    val followedBy =
+                        followingMap[currSlide] ?: followingMap["${currSlide.toSlideSection()}/"] ?: emptyList()
+
+                    if (followedBy.size > 1) {
+                        logger.error("e: Multiple slides marked as following the same slide: $currSlide <- ${followedBy.joinToString()}")
                     }
+                    slidesToProcess.addAll(followedBy)
                 }
             }
             orderedSlides.add(lastSlide)

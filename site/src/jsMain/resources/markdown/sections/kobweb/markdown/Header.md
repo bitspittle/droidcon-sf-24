@@ -1,5 +1,5 @@
 ---
-follows: kobweb/silk/Icons
+follows: kobweb/silk/
 data-background-image: "images/markdown.png"
 styles:
   - outlined-headers

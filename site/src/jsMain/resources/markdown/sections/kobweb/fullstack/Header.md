@@ -1,5 +1,5 @@
 ---
-follows: kobweb/markdown/Process
+follows: kobweb/markdown/
 data-background-image: "images/servers.jpg"
 styles:
   - outlined-headers
