@@ -5,6 +5,7 @@ data-auto-animate:
 ## API routes
 
 ```kotlin [api-backend]
+// Backend
 @Api
 fun echo(ctx: ApiContext) {
     val msg = ctx.req.params.getValue("message")
@@ -12,7 +13,8 @@ fun echo(ctx: ApiContext) {
 }
 ```
 
-```kotlin 7 [api-frontend]
+```kotlin 8 [api-frontend]
+// Frontend
 @Page
 @Composable
 fun FullstackPage() {
