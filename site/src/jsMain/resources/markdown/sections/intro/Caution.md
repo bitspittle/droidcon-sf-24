@@ -1,5 +1,5 @@
 ---
-follows: Title
+follows: ExampleSites
 ---
 
 ## ⚠️ Caution ⚠️
