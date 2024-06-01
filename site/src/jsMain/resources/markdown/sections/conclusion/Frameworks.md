@@ -4,8 +4,8 @@ follows: Community
 
 ## Other frameworks
 
-* CMP for Web
-* Kweb
-* KVision / Kilua
-* Doodle
-* Fritz2
+* <a href="https://www.jetbrains.com/lp/compose-multiplatform/">CMP for Web</a>
+* <a href="https://github.com/kwebio/kweb-core">Kweb</a>
+* <a href="https://kvision.io/">KVision</a> / <a href="https://github.com/rjaros/kilua">Kilua</a>
+* <a href="https://nacular.github.io/doodle/">Doodle</a>
+* <a href="https://www.fritz2.dev/">Fritz2</a>
