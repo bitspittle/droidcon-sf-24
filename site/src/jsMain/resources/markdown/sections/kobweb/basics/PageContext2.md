@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## Page Context
 
 {{{ UrlBar("mysite.com/watch?v=F5B-CxJTKlg", id = "url") }}}

@@ -1,6 +1,4 @@
 ---
-data-auto-animate:
-data-auto-animate-restart:
 follows: Html2Compose
 styles:
   - accented-subheaders

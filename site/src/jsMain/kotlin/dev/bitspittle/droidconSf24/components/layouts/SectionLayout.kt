@@ -73,6 +73,11 @@ fun SectionLayout(content: @Composable () -> Unit) {
             val dataValueList = md.frontMatter[dataKey] ?: return@mapNotNull null
             val dataValue = dataValueList.singleOrNull().orEmpty()
             dataKey to dataValue
+        } + buildList {
+            add("data-auto-animate" to "")
+            if (md.frontMatter.containsKey("follows")) {
+                add("data-auto-animate-restart" to "")
+            }
         }
 
     val behaviors = md.frontMatter["behaviors"].orEmpty().toSet()

@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 {{{ Horizontal
 
 ```css 1

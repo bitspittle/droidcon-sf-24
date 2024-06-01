@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## <span data-id="title">Page</span>
 
 {{{ UrlBar("mysite.com/patch-notes/latest", id = "url") }}}

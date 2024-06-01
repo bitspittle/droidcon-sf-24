@@ -1,7 +1,5 @@
 ---
 follows: Responsive
-data-auto-animate:
-data-auto-animate-restart:
 ---
 
 ## Transitions

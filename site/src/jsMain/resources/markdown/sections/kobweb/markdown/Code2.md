@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## Code
 
 ```text [code-md]

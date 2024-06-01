@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ```html
 <!-- example.html -->
 <div

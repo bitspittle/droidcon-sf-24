@@ -1,6 +1,5 @@
 ---
 follows: Community
-data-auto-animate:
 ---
 
 ## Other frameworks

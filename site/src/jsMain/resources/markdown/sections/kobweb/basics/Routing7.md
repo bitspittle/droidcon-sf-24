@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## <span data-id="title">Dynamic routes</span>
 
 {{{ UrlBar("mysite.com/users/binay/post/108", Modifier.width(80.percent), id = "url") }}}

@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## Font Awesome
 
 ```kotlin 5

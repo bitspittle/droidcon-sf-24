@@ -1,7 +1,5 @@
 ---
 follows: KobwebCli
-data-auto-animate:
-data-auto-animate-restart:
 ---
 
 ## Modifier

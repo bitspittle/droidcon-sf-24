@@ -1,7 +1,5 @@
 ---
 follows: Recap
-data-auto-animate:
-data-auto-animate-restart:
 ---
 
 ## Additional topics

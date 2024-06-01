@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## Modifier
 
 ```kotlin 2-5

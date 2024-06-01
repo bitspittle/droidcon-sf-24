@@ -1,7 +1,5 @@
 ---
 follows: PageContext
-data-auto-animate:
-data-auto-animate-restart:
 ---
 
 ## Box

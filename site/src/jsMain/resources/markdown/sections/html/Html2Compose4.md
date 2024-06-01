@@ -1,8 +1,3 @@
----
-data-auto-animate:
-data-auto-animate-restart:
----
-
 ```css
 /* example.css */
 .rect {

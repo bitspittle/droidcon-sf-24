@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## Markdown
 
 {{{ Folders(Modifier.dataId("folders-md"))

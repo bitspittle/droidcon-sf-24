@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## API routes
 
 ```kotlin 0|4,10|6,8 [api-backend]

@@ -1,6 +1,5 @@
 ---
 follows: Header
-data-auto-animate:
 ---
 
 ```html

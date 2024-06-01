@@ -1,5 +1,4 @@
 ---
-data-auto-animate:
 styles:
   - accented-subheaders
 ---

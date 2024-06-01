@@ -1,7 +1,5 @@
 ---
 follows: Code
-data-auto-animate:
-data-auto-animate-restart:
 ---
 
 ## `markdown.process`

@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## Markdown
 
 {{{ UrlBar("mysite.com/posts/kobweb") }}}

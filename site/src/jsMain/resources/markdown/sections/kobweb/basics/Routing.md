@@ -1,7 +1,5 @@
 ---
 follows: Modifier
-data-auto-animate:
-data-auto-animate-restart:
 ---
 
 ## Page

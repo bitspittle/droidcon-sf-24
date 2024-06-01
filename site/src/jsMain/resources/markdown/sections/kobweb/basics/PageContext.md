@@ -1,7 +1,5 @@
 ---
 follows: Routing
-data-auto-animate:
-data-auto-animate-restart:
 ---
 
 ## Page Context

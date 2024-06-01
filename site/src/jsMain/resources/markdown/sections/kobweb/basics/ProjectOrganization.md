@@ -1,7 +1,5 @@
 ---
 follows: Layout
-data-auto-animate:
-data-auto-animate-restart:
 ---
 
 ## <span data-id="title">Project organization</span>

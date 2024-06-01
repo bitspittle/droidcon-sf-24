@@ -1,7 +1,5 @@
 ---
 follows: CssStyle
-data-auto-animate:
-data-auto-animate-restart:
 ---
 
 ## ColorMode

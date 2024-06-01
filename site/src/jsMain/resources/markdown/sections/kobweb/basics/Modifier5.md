@@ -1,6 +1,3 @@
----
----
-
 ## Modifier Chaining
 
 ```kotlin 1,3,6

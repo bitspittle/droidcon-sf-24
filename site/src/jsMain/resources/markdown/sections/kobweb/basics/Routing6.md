@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## <span data-id="title">Route overrides</span>
 
 {{{ UrlBar("mysite.com/releases/1.0.0/screenshots", id = "url") }}}

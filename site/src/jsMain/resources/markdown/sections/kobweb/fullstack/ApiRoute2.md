@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## API routes
 
 {{{ Folders

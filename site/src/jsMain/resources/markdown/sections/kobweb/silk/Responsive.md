@@ -1,7 +1,5 @@
 ---
 follows: ColorMode
-data-auto-animate:
-data-auto-animate-restart:
 ---
 
 ## Responsive

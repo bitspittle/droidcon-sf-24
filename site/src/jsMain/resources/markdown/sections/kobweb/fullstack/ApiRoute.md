@@ -1,7 +1,5 @@
 ---
 follows: FullstackVsStatic
-data-auto-animate:
-data-auto-animate-restart:
 ---
 
 ## API routes

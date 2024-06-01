@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## Additional topics
 
 * Utility methods

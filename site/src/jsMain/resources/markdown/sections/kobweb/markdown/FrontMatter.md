@@ -1,7 +1,5 @@
 ---
 follows: Markdown
-data-auto-animate:
-data-auto-animate-restart:
 ---
 
 ## Front Matter

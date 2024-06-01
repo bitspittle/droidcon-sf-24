@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## <span data-id="title">Project organization</span>
 
 ```kotlin 1,2,7,9

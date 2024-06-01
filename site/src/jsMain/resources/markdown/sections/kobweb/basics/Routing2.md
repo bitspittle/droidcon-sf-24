@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## Page
 
 {{{ UrlBar("mysite.com/", id = "url") }}}

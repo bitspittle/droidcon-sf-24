@@ -1,7 +1,3 @@
----
-data-auto-animate:
----
-
 ## CssStyle
 
 {{{ Horizontal
