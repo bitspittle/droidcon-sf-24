@@ -4,7 +4,4 @@ follows: NotCovered
 
 ## Community
 
-* Discord
-* Kotlin Slack
-* Stevdza-san
-* Skyfish
+<span style="font-size:10rem">${FaDiscord} ${FaSlack}</span>
