@@ -185,10 +185,15 @@ kobweb {
                 }
                 val targetSlideCount = 90
                 print("You have created $slideCount slide(s) (target: $targetSlideCount). ")
-                if (slideCount == targetSlideCount) {
-                    println("Congratulations!")
-                } else if (slideCount > targetSlideCount) {
-                    println("Congratulations! (You are over by ${slideCount - targetSlideCount} slide(s).)")
+                if (slideCount >= targetSlideCount) {
+                    print("Congratulations!")
+                    if (slideCount > targetSlideCount) {
+                        print(" (You are over by ${slideCount - targetSlideCount} slide(s).)")
+                    }
+                    println()
+                    val minTimeSecs = ((30 * 60) / slideCount.toFloat()).roundToInt()
+                    val maxTimeSecs = ((45 * 60) / slideCount.toFloat()).roundToInt()
+                    println("You must spend on average $minTimeSecs - $maxTimeSecs seconds per slide (or you will run out of time)")
                 } else {
                     println(
                         "You are approximately ${
