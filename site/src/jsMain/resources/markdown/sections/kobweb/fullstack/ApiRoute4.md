@@ -7,7 +7,7 @@ data-auto-animate:
 ```kotlin [api-backend]
 // Backend
 @Api
-fun echo(ctx: ApiContext) {
+suspend fun echo(ctx: ApiContext) {
     val msg = ctx.req.params.getValue("message")
     ctx.res.setBodyText(msg)
 }

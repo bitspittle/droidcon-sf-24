@@ -7,7 +7,7 @@ data-auto-animate:
 ```kotlin 1-4|6-9|11-14|16 [api-backend]
 // Backend
 @Api
-fun postMessage(ctx: ApiContext) {
+fun contactMe(ctx: ApiContext) {
     if (ctx.req.method != HttpMethod.POST) return
 
     val msg: ContactMeMessage =

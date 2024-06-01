@@ -7,7 +7,7 @@ data-auto-animate:
 ```kotlin [api-backend]
 // Backend
 @Api
-fun hello(ctx: ApiContext) {
+suspend fun hello(ctx: ApiContext) {
     ctx.res.setBodyText("hello world")
 }
 ```

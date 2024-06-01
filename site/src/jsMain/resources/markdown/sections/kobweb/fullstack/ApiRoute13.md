@@ -12,7 +12,7 @@ Button(onClick = {
     )
     scope.launch {
         window.api.post(
-            "postMessage",
+            "contact-me",
             body = Json.encodeToString(msg)
                 .encodeToByteArray()
         )
