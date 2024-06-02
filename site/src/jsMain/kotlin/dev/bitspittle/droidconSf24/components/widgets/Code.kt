@@ -21,17 +21,23 @@ val HideVerticalScrollbar = CssStyle {
 // Markdown code tags can contain (each optionally, but in order)...
 // - line number highlights (see: https://revealjs.com/code/#line-numbers-%26-highlights)
 // - class names: surrounded by <> and separated by commas (e.g. `<fragment,fade-down>`)
+// - attributes: key/value pairs surrounded by {} and separated by commands (e.g. `{data-fragment-index=3,id=hello}`)
 // - a data ID: surrounded by [] (e.g. `[kobweb-code]`)
 @Composable
 fun Code(text: String, info: String? = null) {
     val infoSplit = info.orEmpty().split(" ").mapNotNull { it.takeUnless { it.isEmpty() } }.toMutableList()
     val lang = infoSplit.removeFirstOrNull()
-    val lines = if (infoSplit.isNotEmpty() && (infoSplit.first().first() !in listOf('[', '<'))) infoSplit.removeFirst() else null
+    val lines = if (infoSplit.isNotEmpty() && (infoSplit.first().first() !in listOf('[', '<', '{'))) infoSplit.removeFirst() else null
     val classes = if (infoSplit.firstOrNull()?.startsWith("<") == true) infoSplit.removeFirst().removePrefix("<").removeSuffix(">").split(",") else null
+    val attrs = if (infoSplit.firstOrNull()?.startsWith("{") == true) infoSplit
+        .removeFirst()
+        .removePrefix("{").removeSuffix("}")
+        .split(",").associate { attrsStr -> attrsStr.split('=').let { it[0] to it[1] } } else null
     val id = if (infoSplit.firstOrNull()?.startsWith("[") == true) infoSplit.removeFirst().removePrefix("[").removeSuffix("]") else null
 
     Pre(attrs = {
         classes?.let { classes(classes) }
+        attrs?.forEach { (k, v) -> attr(k, v) }
     }) {
         JbCode(attrs = {
             attr("data-trim", "")
