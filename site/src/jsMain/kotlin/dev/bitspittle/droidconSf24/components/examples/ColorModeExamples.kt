@@ -29,7 +29,6 @@ private val FakeColorBoxBgColor by StyleVariable<CSSColorValue>()
 
 val FakeColorButtonContainerStyle = CssStyle.base {
     Modifier
-        .size(8.cssRem)
         .borderRadius(1.cssRem)
         .backgroundColor(FakeColorButtonBgColor.value())
         .padding(2.cssRem)
