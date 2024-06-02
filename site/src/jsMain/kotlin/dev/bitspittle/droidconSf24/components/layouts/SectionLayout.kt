@@ -11,7 +11,7 @@ import com.varabyte.kobweb.core.rememberPageContext
 import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobwebx.markdown.markdown
-import dev.bitspittle.droidconSf24.components.widgets.Grid
+import dev.bitspittle.droidconSf24.components.widgets.Spacer
 import dev.bitspittle.droidconSf24.pages.PresentationAttrs
 import dev.bitspittle.droidconSf24.pages.PresentationState
 import dev.bitspittle.droidconSf24.styles.SiteColors
@@ -19,7 +19,6 @@ import dev.bitspittle.droidconSf24.utilities.heavyTextShadow
 import dev.bitspittle.droidconSf24.utilities.walk
 import kotlinx.dom.addClass
 import org.jetbrains.compose.web.css.*
-import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Section
 import org.w3c.dom.Element
 import org.w3c.dom.HTMLElement
@@ -45,16 +44,17 @@ val AccentedSubheadersStyle = CssStyle {
     }
 }
 
-private sealed interface Layout {
-    data object Default : Layout
-    data object Horizontal : Layout
-    data class Grid(val numColumns: Int) : Layout
-
-}
-
 private fun Enum<*>.toKebabCase(): String {
     return name.lowercase().replace("_", "-")
 }
+
+enum class Layout {
+    // "top": Contents should
+    TOP,
+    // "center": changes colors of h3 (and smaller) headers for better visual separation
+    CENTER;
+}
+
 
 enum class Styles {
     // "outlined-headers": puts text shadow on h tags, useful when there's a background image
@@ -100,16 +100,9 @@ fun SectionLayout(content: @Composable () -> Unit) {
 
     val styles = md.frontMatter["styles"].orEmpty().toSet()
     val layout = md.frontMatter["layout"]?.singleOrNull()?.let { layoutStr ->
-        val layoutStrAndArgs = layoutStr.trim().split(" ")
-        when (layoutStrAndArgs[0]) {
-            Layout.Horizontal::class.simpleName!!.lowercase() -> Layout.Horizontal
-            Layout.Grid::class.simpleName!!.lowercase() -> Layout.Grid(layoutStrAndArgs[1].toInt())
-            else -> {
-                console.warn("Ignored unrecognized layout \"$layoutStr\"")
-                null
-            }
-        }
-    } ?: Layout.Default
+        @Suppress("NAME_SHADOWING") val layoutStr = layoutStr.trim()
+        Layout.entries.firstOrNull { it.name.equals(layoutStr, ignoreCase = true) }
+    } ?: if (!md.frontMatter.containsKey("follows")) Layout.TOP else Layout.CENTER
 
     if (behaviors.contains(Behaviors.AUTO_PROGRESS_FRAGMENTS.toKebabCase())) {
         PresentationState.AutoProgressSlides.add(md.path)
@@ -151,29 +144,12 @@ fun SectionLayout(content: @Composable () -> Unit) {
                     }
                 }
 
-                if (layout is Layout.Default) {
-                    ref { containerElement = it; onDispose { } }
-                }
+                ref { containerElement = it; onDispose { } }
             }
     ) {
-        when (layout) {
-            is Layout.Horizontal -> {
-                Div(Modifier
-                    .display(DisplayStyle.Grid)
-                    .gridTemplateColumns { repeat(autoFit) { minmax(0.px, 1.fr) } }
-                    .gap(1.cssRem)
-                    .toAttrs { ref { containerElement = it; onDispose { } } }) {
-                    content()
-                }
-            }
-
-            is Layout.Grid -> {
-                Grid(layout.numColumns, ref = { containerElement = it }) {
-                    content()
-                }
-            }
-
-            else -> content()
+        content()
+        if (layout == Layout.TOP) {
+            Spacer() // Use a spacer at the end to pushing everything up
         }
     }
 }
