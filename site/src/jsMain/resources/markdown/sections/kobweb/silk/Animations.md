@@ -4,7 +4,7 @@ follows: Responsive
 
 ## Transitions
 
-```kotlin [code]
+```kotlin 0|5|4,9|0 [code]
 val ChangeOnHoverStyle = CssStyle {
   base {
     Modifier
