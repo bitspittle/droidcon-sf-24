@@ -1,3 +1,7 @@
+---
+data-auto-animate-restart:
+---
+
 ## ${FaCodeFork()} Modifiers are a fork!
 
 ```kotlin

@@ -1,3 +1,7 @@
+---
+data-auto-animate-restart:
+---
+
 ## Build script
 
 ```kotlin 4,8-14|17

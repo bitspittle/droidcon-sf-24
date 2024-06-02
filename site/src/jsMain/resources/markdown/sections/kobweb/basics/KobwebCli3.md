@@ -1,4 +1,5 @@
 ---
+data-auto-animate-restart:
 behaviors:
   - auto-fragment LI
   - auto-progress-fragments 50

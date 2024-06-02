@@ -1,3 +1,7 @@
+---
+data-auto-animate-restart:
+---
+
 ## Creating a project
 
 {{{ Video("kobweb-create-app.mp4") }}}
