@@ -1,4 +1,11 @@
-## Font Awesome
+---
+styles:
+  - accented-subheaders
+---
+
+## Icons
+
+### Font Awesome
 
 ```kotlin 5
 // build.gradle.kts
@@ -13,12 +20,8 @@ kotlin {
 
 ```kotlin
 FaEye()
-FaHeart()
+FaHeart(style = IconStyle.FILLED)
 Text("Kobweb")
 ```
 
-{{{ Horizontal
-
-${FaEye} ${FaHeart} ${Kobweb()}
-
-}}}
+${FaEye} <span style="color:red">${FaHeart(style = FaIconStyle.FILLED)}</span> ${Kobweb()}

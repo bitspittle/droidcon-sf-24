@@ -1,7 +1,11 @@
 ---
 follows: Animations
+styles:
+  - accented-subheaders
 ---
 
-## Font Awesome
+## Icons
+
+### Font Awesome
 
 {{{ Image("font-awesome.png") }}}

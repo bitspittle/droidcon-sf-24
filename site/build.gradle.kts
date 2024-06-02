@@ -64,6 +64,9 @@ kobweb {
             ".utilities.dataId",
             "com.varabyte.kobweb.compose.ui.graphics.Colors",
             "com.varabyte.kobweb.silk.components.icons.fa.*",
+            "com.varabyte.kobweb.silk.components.icons.fa.IconStyle as FaIconStyle",
+            "com.varabyte.kobweb.silk.components.icons.mdi.*",
+            "com.varabyte.kobweb.silk.components.icons.mdi.IconStyle as MdiIconStyle",
             "com.varabyte.kobweb.compose.ui.Alignment",
             "com.varabyte.kobweb.compose.ui.Modifier",
             "com.varabyte.kobweb.compose.ui.modifiers.*",
@@ -280,6 +283,7 @@ kotlin {
             implementation(libs.kobweb.core)
             implementation(libs.kobweb.silk)
             implementation(libs.silk.icons.fa)
+            implementation(libs.silk.icons.mdi)
             implementation(libs.kobwebx.markdown)
             // We use devNpm to pull down relevant reveal.js files locally. See `head.add` block above.
             implementation(devNpm("reveal.js", "5.1.0"))
