@@ -5,9 +5,9 @@ styles:
 
 ## Widgets
 
-### Using Modifier
+### Using `Modifier`
 
-```kotlin 0|3,9
+```kotlin 0|3,9|0
 Button(
     onClick = { /* ... */ },
     Modifier.boxShadow(
@@ -22,4 +22,4 @@ Button(
 }
 ```
 
-{{{ ShadowedButtonExample }}}
+{{{ ShadowedButtonExample(Modifier.classNames("fragment")) }}}
