@@ -2,29 +2,22 @@
 data-auto-animate-restart:
 ---
 
-## Build script
+## Kobweb Configuration
 
-```kotlin 4,8-14|17
-plugins {
-    alias(libs.plugins.kotlin.multiplatform)
-    alias(libs.plugins.jetbrains.compose)
-    alias(libs.plugins.kobweb.application)
-    alias(libs.plugins.kobwebx.markdown)
-}
+```yaml 3,6|9-15
+# .kobweb/conf.yaml
+site:
+  title: "App"
 
-kobweb {
-    app {
-        index {
-            description.set("Powered by Kobweb")
-        }
-    }
-}
+server:
+  port: 8080
 
-kotlin {
-    configAsKobwebApplication("app")
-
-    sourceSets {
-        /* ... */
-    }
-}
+  files:
+    dev:
+      contentRoot: "build/processedResources/js/main/public"
+      script: "build/dist/js/developmentExecutable/app.js"
+      api: "build/libs/app.jar"
+    prod:
+      script: "build/dist/js/productionExecutable/app.js"
+      siteRoot: ".kobweb/site"
 ```

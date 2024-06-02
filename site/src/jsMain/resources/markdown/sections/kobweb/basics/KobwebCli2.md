@@ -1,12 +1,42 @@
 ---
 data-auto-animate-restart:
+behaviors:
+  - auto-fragment LI
+  - auto-progress-fragments 50
 ---
 
-## Creating a project
+## Project structure
 
-{{{ Video("kobweb-create-app.mp4") }}}
+{{{ Folders(Modifier.fontSize(1.2.cssRem).textAlign(TextAlign.Center))
+
+* .kobweb/conf.yaml
+* build.gradle.kts
+* gradle/libs.versions.toml
+* site
+    * build.gradle.kts
+    * src
+        * jsMain
+            * components
+                * layouts
+                    * MarkdownLayout.kt
+                    * PageLayout.kt
+                * sections
+                    * Footer.kt
+                    * NavHeader.kt
+                * widgets
+                    * IconButton.kt
+            * pages
+                * Index.kt
+            * AppEntry.kt
+        * resources
+            * markdown/About.md
+            * public/favicon.ico
+
+}}}
 
 {{{ SpeakerNotes
-* The first time I created a Compose HTML project it took me 40 minutes.
+
+* No index.html in sight!
+* Gradle build scripts set up for you
 
 }}}

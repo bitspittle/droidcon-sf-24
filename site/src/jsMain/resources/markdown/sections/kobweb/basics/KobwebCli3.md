@@ -1,41 +1,30 @@
 ---
 data-auto-animate-restart:
-behaviors:
-  - auto-fragment LI
-  - auto-progress-fragments 50
 ---
 
-## Project structure
+## Build script
 
-{{{ Folders(Modifier.fontSize(1.2.cssRem).textAlign(TextAlign.Center))
+```kotlin 4,8-14|17
+plugins {
+    alias(libs.plugins.kotlin.multiplatform)
+    alias(libs.plugins.jetbrains.compose)
+    alias(libs.plugins.kobweb.application)
+    alias(libs.plugins.kobwebx.markdown)
+}
 
-* build.gradle.kts
-* gradle/libs.versions.toml
-* site
-  * build.gradle.kts 
-  * src
-    * jsMain
-      * components
-        * layouts
-          * MarkdownLayout.kt
-          * PageLayout.kt
-        * sections
-          * Footer.kt
-          * NavHeader.kt
-        * widgets
-          * IconButton.kt
-      * pages
-        * Index.kt
-      * AppEntry.kt
-    * resources
-      * markdown/About.md
-      * public/favicon.ico
+kobweb {
+    app {
+        index {
+            description.set("Powered by Kobweb")
+        }
+    }
+}
 
-}}}
+kotlin {
+    configAsKobwebApplication("app")
 
-{{{ SpeakerNotes
-
-* No index.html in sight!
-* Gradle build scripts set up for you
-
-}}}
+    sourceSets {
+        /* ... */
+    }
+}
+```
