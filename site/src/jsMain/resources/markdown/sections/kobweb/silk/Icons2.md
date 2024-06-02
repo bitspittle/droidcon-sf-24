@@ -18,10 +18,10 @@ kotlin {
 }
 ```
 
-```kotlin
+```kotlin <fragment>
 FaEye()
 FaHeart(style = IconStyle.FILLED)
 Text("Kobweb")
 ```
 
-${FaEye} <span style="color:red">${FaHeart(style = FaIconStyle.FILLED)}</span> ${Kobweb()}
+<span class="fragment">${FaEye} <span style="color:red">${FaHeart(style = FaIconStyle.FILLED)}</span> ${Kobweb()}</span>
