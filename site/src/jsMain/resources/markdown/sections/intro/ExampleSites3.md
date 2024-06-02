@@ -2,4 +2,4 @@
 data-auto-animate-restart:
 ---
 
-{{{ Video("phoenix-red-wolf.mp4") }}}
+{{{ Video("chess-playground.mp4") }}}
