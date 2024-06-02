@@ -10,7 +10,7 @@ import org.jetbrains.compose.web.dom.Video
 @Composable
 fun Video(src: String, modifier: Modifier = Modifier, autoplay: Boolean = true) {
     Box {
-        Video(attrs = modifier.fillMaxSize().toAttrs {
+        Video(attrs = Modifier.fillMaxSize().then(modifier).toAttrs {
             attr("data-src", "videos/$src")
             if (autoplay) { attr("data-autoplay", "") }
         })
