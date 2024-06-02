@@ -1,26 +1,20 @@
----
-data-auto-animate-restart:
-behaviors:
-  -auto-progress-fragments
----
-
 ## ${FaCodeFork()} Modifiers are a fork!
 
 {{{ Horizontal
 
-```kotlin <fragment,fade-down>
+```kotlin
 Modifier
     .padding(20.px)
     .fillMaxWidth()
 ```
 
-```kotlin <fragment,fade-down>
+```kotlin
 Modifier
     .fillMaxWidth()
     .padding(20.px)
 ```
 
-```kotlin <fragment,fade-down>
+```kotlin
 Modifier
     .padding(20.px)
     .fillMaxWidth()
@@ -28,3 +22,5 @@ Modifier
 ```
 
 }}}
+
+### ${Kobweb()} != ${AndroidText("Jetpack Compose")}
