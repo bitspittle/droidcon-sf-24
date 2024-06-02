@@ -17,6 +17,6 @@ Button(
 
 {{{ Centered
 
-{{{ ColorModeBox }}}
+{{{ ColorModeButton }}}
 
 }}}
