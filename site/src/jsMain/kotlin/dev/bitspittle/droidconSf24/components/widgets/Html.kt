@@ -9,16 +9,16 @@ import com.varabyte.kobweb.silk.style.base
 import com.varabyte.kobweb.silk.style.toModifier
 import dev.bitspittle.droidconSf24.styles.SiteColors
 
-val KotlinTextStyle = CssStyle.base {
-    Modifier.color(SiteColors.KotlinPurple)
+val HtmlTextStyle = CssStyle.base {
+    Modifier.color(SiteColors.HtmlOrange)
 }
 
 @Composable
-fun KotlinText(text: String) {
-    SpanText(text, KotlinTextStyle.toModifier())
+fun HtmlText(text: String) {
+    SpanText(text, HtmlTextStyle.toModifier())
 }
 
 @Composable
-fun Kotlin() {
-    KotlinText("Kotlin")
+fun Html() {
+    HtmlText("HTML")
 }
