@@ -119,22 +119,3 @@ fun SquashExample(modifier: Modifier = Modifier) {
         )
     }
 }
-
-//val AnimationSpinningKeyframes = Keyframes {
-//    from { Modifier.rotate(0.deg) }
-//    to { Modifier.rotate(359.deg) }
-//}
-//
-//@Composable
-//fun SpinningExample(modifier: Modifier = Modifier) {
-//    Box(
-//        modifier.size(6.cssRem).borderRadius(5.px).margin(top = 2.cssRem).backgroundColor(SiteColors.KobwebBlue)
-//            .animation(
-//                AnimationSpinningKeyframes.toAnimation(
-//                    10.s,
-//                    AnimationTimingFunction.Linear,
-//                    iterationCount = AnimationIterationCount.Infinite,
-//                )
-//            )
-//    )
-//}
