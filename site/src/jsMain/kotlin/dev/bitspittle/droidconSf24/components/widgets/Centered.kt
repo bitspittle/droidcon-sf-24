@@ -13,13 +13,12 @@ import com.varabyte.kobweb.silk.style.base
 import com.varabyte.kobweb.silk.style.toModifier
 import dev.bitspittle.droidconSf24.styles.SiteColors
 import org.jetbrains.compose.web.css.AlignContent
-import org.jetbrains.compose.web.css.AlignItems
 import org.jetbrains.compose.web.css.DisplayStyle
 import org.jetbrains.compose.web.dom.Span
 
 @Composable
-fun Centered(content: @Composable () -> Unit) {
-    Span(Modifier.display(DisplayStyle.InlineBlock).alignContent(AlignContent.Center).toAttrs()) {
+fun Centered(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
+    Span(modifier.display(DisplayStyle.InlineBlock).alignContent(AlignContent.Center).toAttrs()) {
         content()
     }
 }
