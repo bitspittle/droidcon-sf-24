@@ -9,5 +9,6 @@ behaviors:
 
 * Cost
 * Speed of deployment
-* Hosting services
+* Ease of deployment
+* Finding a hosting solution
 * Backend functionality
