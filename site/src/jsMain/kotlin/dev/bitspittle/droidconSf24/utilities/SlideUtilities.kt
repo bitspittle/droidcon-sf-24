@@ -7,7 +7,6 @@ import com.varabyte.kobweb.compose.dom.ref
 import org.w3c.dom.HTMLElement
 import org.w3c.dom.MutationObserver
 import org.w3c.dom.MutationObserverInit
-import kotlin.math.absoluteValue
 
 fun HTMLElement.onSlideVisibilityChanged(callback: (Boolean) -> Unit) {
     var isVisible = false
@@ -46,24 +45,19 @@ fun MutableState<HTMLElement?>.intoSlideLifecycleRef(): ElementRefScope<HTMLElem
 fun SlideLifecycleEffect(
     elementState: MutableState<HTMLElement?>,
     reset: () -> Unit = {},
-    disposableEffect: () -> CancellableActionHandle,
+    disposableEffect: () -> CancellableActionHandle?,
 ) {
     var isSlideVisible by remember { mutableStateOf(false) }
     elementState.value?.let { element ->
         DisposableEffect(isSlideVisible) {
             var handle: CancellableActionHandle? = null
             if (isSlideVisible) {
-                println("STARTING 0x${element.hashCode().absoluteValue.toString(16)}")
-
-                reset()
                 handle = disposableEffect()
             }
 
             onDispose {
-                handle?.let { handle ->
-                    handle.cancel()
-                    reset()
-                }
+                handle?.cancel()
+                reset()
             }
         }
 
