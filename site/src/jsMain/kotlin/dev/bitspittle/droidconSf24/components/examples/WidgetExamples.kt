@@ -4,15 +4,14 @@ import androidx.compose.runtime.*
 import com.varabyte.kobweb.browser.dom.ElementTarget
 import com.varabyte.kobweb.browser.util.CancellableActionHandle
 import com.varabyte.kobweb.browser.util.setInterval
+import com.varabyte.kobweb.compose.css.BoxShadow
 import com.varabyte.kobweb.compose.dom.ref
 import com.varabyte.kobweb.compose.foundation.layout.Box
+import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
-import com.varabyte.kobweb.compose.ui.modifiers.backgroundColor
-import com.varabyte.kobweb.compose.ui.modifiers.borderRadius
-import com.varabyte.kobweb.compose.ui.modifiers.height
-import com.varabyte.kobweb.compose.ui.modifiers.size
+import com.varabyte.kobweb.compose.ui.modifiers.*
 import com.varabyte.kobweb.compose.ui.toAttrs
 import com.varabyte.kobweb.silk.components.disclosure.Tabs
 import com.varabyte.kobweb.silk.components.forms.*
@@ -31,6 +30,15 @@ import kotlin.time.Duration.Companion.seconds
 @Composable
 fun ButtonExample(modifier: Modifier = Modifier) {
     Button(onClick = {}, modifier, size = ButtonSize.LG) {
+        Text("Click me!")
+    }
+}
+
+@Composable
+fun ShadowedButtonExample(modifier: Modifier = Modifier) {
+    Button(onClick = {}, modifier.boxShadow(BoxShadow.of(
+        blurRadius = 0.5.cssRem, spreadRadius = 0.2.cssRem, color = Colors.Yellow
+    )), size = ButtonSize.LG) {
         Text("Click me!")
     }
 }
@@ -95,6 +103,59 @@ fun InputExample(modifier: Modifier = Modifier) {
         modifier,
         placeholder = "Type here",
         ref = ref { element -> element.onSlideVisibilityChanged { isSlideVisible = it } })
+}
+
+@Composable
+fun InputVariantsExample(modifier: Modifier = Modifier) {
+    var text by remember { mutableStateOf("") }
+    val target = "Hello!!!"
+
+    var isSlideVisible by remember { mutableStateOf(false) }
+    DisposableEffect(isSlideVisible) {
+        var handle: CancellableActionHandle? = null
+        if (isSlideVisible) {
+            handle = window.setInterval(initialDelay = 4.seconds, 300.milliseconds) {
+                text = target.substring(0, text.length + 1)
+                if (text == target) {
+                    handle?.cancel()
+                }
+            }
+        }
+
+        onDispose {
+            handle?.cancel()
+            text = ""
+        }
+    }
+
+    Column(modifier.gap(0.5.cssRem), ref = ref {
+        element -> element.onSlideVisibilityChanged { isSlideVisible = it }
+    }) {
+        TextInput(
+            text,
+            placeholder = "outlined",
+            variant = OutlinedInputVariant,
+            onTextChanged = {},
+        )
+        TextInput(
+            text,
+            placeholder = "filled",
+            variant = FilledInputVariant,
+            onTextChanged = {},
+        )
+        TextInput(
+            text,
+            placeholder = "flushed",
+            variant = FlushedInputVariant,
+            onTextChanged = {},
+        )
+        TextInput(
+            text,
+            placeholder = "unstyled",
+            variant = UnstyledInputVariant,
+            onTextChanged = {},
+        )
+    }
 }
 
 @Composable
