@@ -13,3 +13,4 @@ behaviors:
 * Advanced `ApiContext` usage
 * Effective HTML layouts
 * Using browser devtools
+* Live coding demo
