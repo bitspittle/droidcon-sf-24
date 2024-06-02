@@ -1,11 +1,6 @@
 package dev.bitspittle.droidconSf24.components.examples
 
-import androidx.compose.runtime.*
-import com.varabyte.kobweb.browser.dom.ElementTarget
-import com.varabyte.kobweb.browser.util.CancellableActionHandle
-import com.varabyte.kobweb.browser.util.invokeLater
-import com.varabyte.kobweb.browser.util.setInterval
-import com.varabyte.kobweb.browser.util.setTimeout
+import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.AnimationIterationCount
 import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
@@ -14,23 +9,9 @@ import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
-import com.varabyte.kobweb.compose.ui.toAttrs
-import com.varabyte.kobweb.silk.components.disclosure.Tabs
-import com.varabyte.kobweb.silk.components.forms.*
-import com.varabyte.kobweb.silk.components.overlay.AdvancedTooltip
-import com.varabyte.kobweb.silk.components.overlay.OpenClosePopupStrategy
-import com.varabyte.kobweb.silk.components.overlay.Tooltip
-import com.varabyte.kobweb.silk.components.overlay.manual
 import com.varabyte.kobweb.silk.style.animation.Keyframes
 import com.varabyte.kobweb.silk.style.animation.toAnimation
-import com.varabyte.kobweb.silk.theme.colors.ColorMode
-import dev.bitspittle.droidconSf24.components.widgets.Horizontal
-import kotlinx.browser.window
 import org.jetbrains.compose.web.css.*
-import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.Text
-import kotlin.time.Duration.Companion.milliseconds
-import kotlin.time.Duration.Companion.seconds
 
 @Composable
 fun ResponsivePreviews(modifier: Modifier = Modifier) {

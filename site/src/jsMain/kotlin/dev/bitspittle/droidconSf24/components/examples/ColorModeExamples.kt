@@ -16,6 +16,9 @@ import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.base
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobweb.silk.theme.colors.ColorMode
+import dev.bitspittle.droidconSf24.utilities.SlideLifecycleEffect
+import dev.bitspittle.droidconSf24.utilities.intoSlideLifecycleRef
+import dev.bitspittle.droidconSf24.utilities.rememberElementState
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.*
 import kotlin.time.Duration.Companion.seconds
@@ -57,7 +60,8 @@ val FakeColorBoxStyle = CssStyle.base {
 private fun ColorContainer(modifier: Modifier = Modifier, content: @Composable (ColorMode) -> Unit) {
     var fakeColorMode by remember { mutableStateOf(ColorMode.LIGHT) }
 
-    LaunchedEffect(Unit) {
+    val elementState = rememberElementState()
+    SlideLifecycleEffect(elementState, reset = { fakeColorMode = ColorMode.LIGHT }) {
         window.setInterval(4.seconds) {
             fakeColorMode = fakeColorMode.opposite
         }
@@ -67,7 +71,8 @@ private fun ColorContainer(modifier: Modifier = Modifier, content: @Composable (
         FakeColorButtonContainerStyle.toModifier().then(modifier)
             .setVariable(FakeColorButtonBgColor, if (fakeColorMode.isLight) Colors.SeaShell else Colors.Black)
             .setVariable(FakeColorButtonFgColor, if (fakeColorMode.isLight) Colors.Black else Colors.White),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
+        ref = elementState.intoSlideLifecycleRef(),
     ) {
         content(fakeColorMode)
     }

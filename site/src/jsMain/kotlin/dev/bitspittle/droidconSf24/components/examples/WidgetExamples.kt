@@ -5,7 +5,7 @@ import com.varabyte.kobweb.browser.dom.ElementTarget
 import com.varabyte.kobweb.browser.util.CancellableActionHandle
 import com.varabyte.kobweb.browser.util.setInterval
 import com.varabyte.kobweb.compose.css.BoxShadow
-import com.varabyte.kobweb.compose.dom.ref
+import com.varabyte.kobweb.compose.dom.registerRefScope
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Column
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -18,7 +18,9 @@ import com.varabyte.kobweb.silk.components.forms.*
 import com.varabyte.kobweb.silk.components.overlay.AdvancedTooltip
 import com.varabyte.kobweb.silk.components.overlay.OpenClosePopupStrategy
 import com.varabyte.kobweb.silk.components.overlay.manual
-import dev.bitspittle.droidconSf24.utilities.onSlideVisibilityChanged
+import dev.bitspittle.droidconSf24.utilities.SlideLifecycleEffect
+import dev.bitspittle.droidconSf24.utilities.intoSlideLifecycleRef
+import dev.bitspittle.droidconSf24.utilities.rememberElementState
 import kotlinx.browser.window
 import org.jetbrains.compose.web.css.cssRem
 import org.jetbrains.compose.web.css.px
@@ -47,18 +49,10 @@ fun ShadowedButtonExample(modifier: Modifier = Modifier) {
 fun CheckboxExample(modifier: Modifier = Modifier) {
     var checked by remember { mutableStateOf(false) }
 
-    var isSlideVisible by remember { mutableStateOf(false) }
-    DisposableEffect(isSlideVisible) {
-        var handle: CancellableActionHandle? = null
-        if (isSlideVisible) {
-            handle = window.setInterval(2.seconds) {
-                checked = !checked
-            }
-        }
-
-        onDispose {
-            handle?.cancel()
-            checked = false
+    val elementState = rememberElementState()
+    SlideLifecycleEffect(elementState, reset = { checked = false }) {
+        window.setInterval(2.seconds) {
+            checked = !checked
         }
     }
 
@@ -66,7 +60,7 @@ fun CheckboxExample(modifier: Modifier = Modifier) {
     Box(
         Modifier.height(5.cssRem),
         contentAlignment = Alignment.Center,
-        ref = ref { element -> element.onSlideVisibilityChanged { isSlideVisible = it } }
+        ref = elementState.intoSlideLifecycleRef()
     ) {
         Checkbox(checked, onCheckedChange = { }, modifier, size = CheckboxSize.LG) {
             Text("Check me!")
@@ -79,22 +73,16 @@ fun InputExample(modifier: Modifier = Modifier) {
     var text by remember { mutableStateOf("") }
     val target = "Hello!!!"
 
-    var isSlideVisible by remember { mutableStateOf(false) }
-    DisposableEffect(isSlideVisible) {
-        var handle: CancellableActionHandle? = null
-        if (isSlideVisible) {
-            handle = window.setInterval(initialDelay = 4.seconds, 300.milliseconds) {
-                text = target.substring(0, text.length + 1)
-                if (text == target) {
-                    handle?.cancel()
-                }
+    val elementState = rememberElementState()
+    SlideLifecycleEffect(elementState, reset = { text = "" }) {
+        lateinit var handle: CancellableActionHandle
+        handle = window.setInterval(initialDelay = 4.seconds, 300.milliseconds) {
+            text = target.substring(0, text.length + 1)
+            if (text == target) {
+                handle.cancel()
             }
         }
-
-        onDispose {
-            handle?.cancel()
-            text = ""
-        }
+        handle
     }
 
     TextInput(
@@ -102,7 +90,8 @@ fun InputExample(modifier: Modifier = Modifier) {
         onTextChanged = {},
         modifier,
         placeholder = "Type here",
-        ref = ref { element -> element.onSlideVisibilityChanged { isSlideVisible = it } })
+        ref = elementState.intoSlideLifecycleRef()
+    )
 }
 
 @Composable
@@ -110,27 +99,19 @@ fun InputVariantsExample(modifier: Modifier = Modifier) {
     var text by remember { mutableStateOf("") }
     val target = "Hello!!!"
 
-    var isSlideVisible by remember { mutableStateOf(false) }
-    DisposableEffect(isSlideVisible) {
-        var handle: CancellableActionHandle? = null
-        if (isSlideVisible) {
-            handle = window.setInterval(initialDelay = 4.seconds, 300.milliseconds) {
-                text = target.substring(0, text.length + 1)
-                if (text == target) {
-                    handle?.cancel()
-                }
+    val elementState = rememberElementState()
+    SlideLifecycleEffect(elementState, reset = { text = "" }) {
+        lateinit var handle: CancellableActionHandle
+        handle = window.setInterval(initialDelay = 2.seconds, 200.milliseconds) {
+            text = target.substring(0, text.length + 1)
+            if (text == target) {
+                handle.cancel()
             }
         }
-
-        onDispose {
-            handle?.cancel()
-            text = ""
-        }
+        handle
     }
 
-    Column(modifier.gap(0.5.cssRem), ref = ref {
-        element -> element.onSlideVisibilityChanged { isSlideVisible = it }
-    }) {
+    Column(modifier.gap(0.5.cssRem), ref = elementState.intoSlideLifecycleRef()) {
         TextInput(
             text,
             placeholder = "outlined",
@@ -162,22 +143,14 @@ fun InputVariantsExample(modifier: Modifier = Modifier) {
 fun TabExample(modifier: Modifier = Modifier) {
     var currTab by remember { mutableStateOf(0) }
 
-    var isSlideVisible by remember { mutableStateOf(false) }
-    DisposableEffect(isSlideVisible) {
-        var handle: CancellableActionHandle? = null
-        if (isSlideVisible) {
-            handle = window.setInterval(2.seconds) {
-                currTab = (currTab + 1) % 3
-            }
-        }
-
-        onDispose {
-            handle?.cancel()
-            currTab = 0
+    val elementState = rememberElementState()
+    SlideLifecycleEffect(elementState, reset = { currTab = 0 }) {
+        window.setInterval(2.seconds) {
+            currTab = (currTab + 1) % 3
         }
     }
 
-    Tabs(modifier, ref = ref { element -> element.onSlideVisibilityChanged { isSlideVisible = it } }) {
+    Tabs(modifier, ref = elementState.intoSlideLifecycleRef()) {
         TabPanel(isDefault = (currTab == 0)) {
             Tab { Text("Tab 1") }; Panel { Text("Panel 1") }
         }
@@ -194,25 +167,15 @@ fun TabExample(modifier: Modifier = Modifier) {
 fun TooltipExample(modifier: Modifier = Modifier) {
     val tooltipStrategy = remember { OpenClosePopupStrategy.manual() }
 
-    var isSlideVisible by remember { mutableStateOf(false) }
-    DisposableEffect(isSlideVisible) {
-        var handle: CancellableActionHandle? = null
-        if (isSlideVisible) {
-            handle = window.setInterval(initialDelay = 2.seconds, 4.seconds) {
-                tooltipStrategy.isOpen = !tooltipStrategy.isOpen
-            }
-        }
-        onDispose {
-            handle?.cancel()
-            tooltipStrategy.isOpen = false
+    val elementState = rememberElementState()
+    SlideLifecycleEffect(elementState, reset = { tooltipStrategy.isOpen = false }) {
+        window.setInterval(initialDelay = 2.seconds, 4.seconds) {
+            tooltipStrategy.isOpen = !tooltipStrategy.isOpen
         }
     }
 
-    Div(Modifier.size(4.cssRem).backgroundColor(Colors.Cyan).borderRadius(5.px).toAttrs {
-        ref { element ->
-            element.onSlideVisibilityChanged { isSlideVisible = it }
-            onDispose {  }
-        }
-    })
+    Div(Modifier.size(4.cssRem).backgroundColor(Colors.Cyan).borderRadius(5.px).toAttrs()) {
+        registerRefScope(elementState.intoSlideLifecycleRef())
+    }
     AdvancedTooltip(ElementTarget.PreviousSibling, "Hello!!!", modifier, openCloseStrategy = tooltipStrategy)
 }
