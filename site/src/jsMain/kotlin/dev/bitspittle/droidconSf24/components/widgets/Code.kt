@@ -1,6 +1,8 @@
 package dev.bitspittle.droidconSf24.components.widgets
 
 import androidx.compose.runtime.Composable
+import com.varabyte.kobweb.compose.css.Overflow
+import com.varabyte.kobweb.compose.css.overflowX
 import org.jetbrains.compose.web.dom.Pre
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.dom.Code as JbCode
@@ -23,6 +25,12 @@ fun Code(text: String, info: String? = null) {
             id?.let { attr("data-id", id) }
             lines?.let { attr("data-line-numbers", lines) }
             classes(lang?.let { "language-$it" } ?: "nohighlight")
+            style {
+                // We never want code to scroll horizontally
+                // It's a presentation so the user can't ever see past the end!
+                // With vertical scroll at least we can use code fragments to scroll.
+                overflowX(Overflow.Clip)
+            }
         }) {
             Text(text)
         }
