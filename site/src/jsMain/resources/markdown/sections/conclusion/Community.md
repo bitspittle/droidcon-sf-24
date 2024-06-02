@@ -4,4 +4,10 @@ follows: Additional
 
 ## Community
 
-<span style="font-size:10rem">${FaDiscord} ${FaSlack}</span>
+{{{ Horizontal(Modifier.scale(0.8))
+
+{{{ Image("discord.png") }}}
+
+{{{ Image("slack.png") }}}
+
+}}}
