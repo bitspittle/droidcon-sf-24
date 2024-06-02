@@ -3,9 +3,19 @@ package dev.bitspittle.droidconSf24.components.widgets
 import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.Overflow
 import com.varabyte.kobweb.compose.css.overflowX
+import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.modifiers.overflow
+import com.varabyte.kobweb.silk.style.CssStyle
+import com.varabyte.kobweb.silk.style.base
 import org.jetbrains.compose.web.dom.Pre
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.dom.Code as JbCode
+
+val HideVerticalScrollbar = CssStyle {
+    cssRule("> code") {
+        Modifier.overflow { y(Overflow.Clip) }
+    }
+}
 
 // See https://revealjs.com/code/
 // Markdown code tags can contain (each optionally, but in order)...
