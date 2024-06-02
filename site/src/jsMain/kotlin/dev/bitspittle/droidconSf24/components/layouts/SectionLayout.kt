@@ -1,7 +1,6 @@
 package dev.bitspittle.droidconSf24.components.layouts
 
 import androidx.compose.runtime.*
-import com.varabyte.kobweb.compose.css.CSSTextShadow
 import com.varabyte.kobweb.compose.css.TextAlign
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
@@ -13,6 +12,8 @@ import com.varabyte.kobweb.silk.style.CssStyle
 import com.varabyte.kobweb.silk.style.toModifier
 import com.varabyte.kobwebx.markdown.markdown
 import dev.bitspittle.droidconSf24.components.widgets.Grid
+import dev.bitspittle.droidconSf24.pages.PresentationAttrs
+import dev.bitspittle.droidconSf24.pages.PresentationState
 import dev.bitspittle.droidconSf24.styles.SiteColors
 import dev.bitspittle.droidconSf24.utilities.heavyTextShadow
 import dev.bitspittle.droidconSf24.utilities.walk
@@ -20,6 +21,7 @@ import kotlinx.dom.addClass
 import org.jetbrains.compose.web.css.*
 import org.jetbrains.compose.web.dom.Div
 import org.jetbrains.compose.web.dom.Section
+import org.w3c.dom.Element
 import org.w3c.dom.HTMLElement
 
 val SectionStyle = CssStyle {
@@ -50,16 +52,27 @@ private sealed interface Layout {
 
 }
 
-// layouts:
-//   "horizontal": creates a row
-//   "grid n": creates a simple grid of n columns
-//
-// styles:
-//   "outlined-headers": puts text shadow on h tags, useful when there's a background image
-//   "accented-subheaders": changes colors of h3 (and smaller) headers for better visual separation
-//
-// behaviors:
-//   "auto-fragment": automatically add fragment tags to all top level elements (to force a click through effect)
+private fun Enum<*>.toKebabCase(): String {
+    return name.lowercase().replace("_", "-")
+}
+
+enum class Styles {
+    // "outlined-headers": puts text shadow on h tags, useful when there's a background image
+    OUTLINED_HEADERS,
+    // "accented-subheaders": changes colors of h3 (and smaller) headers for better visual separation
+    ACCENTED_SUBHEADERS;
+}
+
+enum class Behaviors {
+    // "auto-fragment": automatically add fragment tags to relevant elements (to force a click through effect)
+    //    If arguments are passed in, apply the fragment to those elements.
+    //    Otherwise, apply to all top-level elements (except the first child, which is the header slide).
+    AUTO_FRAGMENT,
+
+    // "auto-progress-fragments": automatically run through all fragments without needing to click.
+    //    If an argument is passed in, that will be that many milliseconds to wait. Otherwise, some relatively short wait.
+    AUTO_PROGRESS_FRAGMENTS;
+}
 
 @Composable
 fun SectionLayout(content: @Composable () -> Unit) {
@@ -80,7 +93,11 @@ fun SectionLayout(content: @Composable () -> Unit) {
             }
         }
 
-    val behaviors = md.frontMatter["behaviors"].orEmpty().toSet()
+    val behaviors = md.frontMatter["behaviors"].orEmpty().map {
+        val keyValue = it.split(" ", limit = 2)
+        if (keyValue.size == 1) keyValue[0] to null else keyValue[0] to keyValue[1]
+    }.toMap()
+
     val styles = md.frontMatter["styles"].orEmpty().toSet()
     val layout = md.frontMatter["layout"]?.singleOrNull()?.let { layoutStr ->
         val layoutStrAndArgs = layoutStr.trim().split(" ")
@@ -94,12 +111,25 @@ fun SectionLayout(content: @Composable () -> Unit) {
         }
     } ?: Layout.Default
 
+    if (behaviors.contains(Behaviors.AUTO_PROGRESS_FRAGMENTS.toKebabCase())) {
+        PresentationState.AutoProgressSlides.add(md.path)
+    }
+
     var containerElement by remember { mutableStateOf<HTMLElement?>(null) }
     containerElement?.let { element ->
-        if (behaviors.contains("auto-fragment")) {
+        if (behaviors.contains(Behaviors.AUTO_FRAGMENT.toKebabCase())) {
+            val args = behaviors[Behaviors.AUTO_FRAGMENT.toKebabCase()]?.split(",")?.map { it.trim() }?.toSet()
+
+            fun Element.isMatch(): Boolean {
+                return when (args) {
+                    null -> this.parentElement == element && this != element.firstElementChild
+                    else -> args.contains(this.nodeName)
+                }
+            }
+
             element.children.walk { child ->
-                if (child.parentElement == element && child != element.firstElementChild) {
-                    child.addClass("fragment fade-in")
+                if (child.isMatch()) {
+                    child.addClass("fragment")
                 }
             }
         }
@@ -108,10 +138,19 @@ fun SectionLayout(content: @Composable () -> Unit) {
     Section(
         attrs = SectionStyle
             .toModifier()
-            .thenIf(styles.contains("outlined-headers"), OutlinedHeadersStyle.toModifier())
-            .thenIf(styles.contains("accented-subheaders"), AccentedSubheadersStyle.toModifier())
+            .thenIf(styles.contains(Styles.OUTLINED_HEADERS.toKebabCase()), OutlinedHeadersStyle.toModifier())
+            .thenIf(styles.contains(Styles.ACCENTED_SUBHEADERS.toKebabCase()), AccentedSubheadersStyle.toModifier())
             .toAttrs {
                 dataAttrs.forEach { (key, value) -> attr(key, value) }
+                attr(PresentationAttrs.SLIDE_PATH, md.path)
+                behaviors[Behaviors.AUTO_PROGRESS_FRAGMENTS.toKebabCase()]?.let { arg ->
+                    if (arg.toIntOrNull() != null) {
+                        attr(PresentationAttrs.AUTO_PROGRESS_FRAGMENT_DURATION_MS, arg)
+                    } else {
+                        console.warn("Skipped invalid ${Behaviors.AUTO_PROGRESS_FRAGMENTS.toKebabCase()} arg \"$arg\", should be an int representing duration milliseconds")
+                    }
+                }
+
                 if (layout is Layout.Default) {
                     ref { containerElement = it; onDispose { } }
                 }

@@ -9,9 +9,13 @@ external class Reveal(element: Element, options: Json) {
     fun destroy()
 
     // Events
-    fun on(evt: String, action: () -> Unit)
+    fun on(evt: String, action: (Json) -> Unit)
 
     // Slides
     fun slide(indexh: Int, indexv: Int, indexf: Int = definedExternally)
     fun getIndices(): Json
+
+    // Fragments
+    fun availableFragments(): Json
+    fun nextFragment()
 }

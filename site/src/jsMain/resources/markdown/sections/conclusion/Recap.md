@@ -1,5 +1,8 @@
 ---
 follows: Reveal
+behaviors:
+  - auto-fragment LI
+  - auto-progress-fragments
 ---
 
 ## Recap

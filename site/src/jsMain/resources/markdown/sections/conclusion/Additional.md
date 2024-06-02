@@ -1,5 +1,8 @@
 ---
 follows: Recap
+behaviors:
+  - auto-fragment LI
+  - auto-progress-fragments
 ---
 
 ## Additional topics

@@ -1,3 +1,9 @@
+---
+behaviors:
+  - auto-fragment LI
+  - auto-progress-fragments
+---
+
 ## Recap
 
 * Widgets

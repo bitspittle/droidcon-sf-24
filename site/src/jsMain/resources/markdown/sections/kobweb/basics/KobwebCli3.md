@@ -1,3 +1,9 @@
+---
+behaviors:
+  - auto-fragment LI
+  - auto-progress-fragments 50
+---
+
 ## Project structure
 
 {{{ Folders(Modifier.fontSize(1.2.cssRem).textAlign(TextAlign.Center))

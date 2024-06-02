@@ -1,5 +1,8 @@
 ---
 follows: Community
+behaviors:
+  - auto-fragment LI
+  - auto-progress-fragments
 ---
 
 ## Other frameworks
