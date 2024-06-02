@@ -12,8 +12,7 @@ behaviors:
 * Integrating a JS library
 * Workers
 * Api streams
-* Utility methods
-  * upload/download
-  * window extensions
+* Working with raw HTML elements
+* Loading / saving files
 * Widget and variant examples
 * Ktor server plugins
