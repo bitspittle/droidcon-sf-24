@@ -1,3 +1,7 @@
+---
+data-auto-animate-restart:
+---
+
 ## Keyframes
 
 ```kotlin [code]
