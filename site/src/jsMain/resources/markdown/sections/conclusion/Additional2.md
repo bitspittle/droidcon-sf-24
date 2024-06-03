@@ -10,7 +10,7 @@ behaviors:
 * InitSilk and registering styles
 * Local / session storage
 * Custom fonts
-* Server logs
+* Custom markdown handlers
 * Debugging the backend
 * Deploying to a service
 * `deferRender`

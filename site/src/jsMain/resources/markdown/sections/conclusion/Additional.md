@@ -13,7 +13,7 @@ behaviors:
 * Integrating a JS library
 * Workers
 * Api streams
-* Working with raw HTML elements
+* Backing HTML elements
 * Loading / saving files
 * Widget and variant examples
 * Ktor server plugins

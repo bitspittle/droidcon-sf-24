@@ -8,9 +8,10 @@ behaviors:
 
 * Multi-module builds
 * Customizing the site palette
+* SVG elements
 * Overriding Silk styles
 * ${AndroidText("Android")} 🤝 ${Kobweb}
-* Advanced `ApiContext` usage
-* Effective HTML layouts
+* Using databases on the backend
+* CSS tips and tricks
 * Using browser devtools
 * Live coding demo
