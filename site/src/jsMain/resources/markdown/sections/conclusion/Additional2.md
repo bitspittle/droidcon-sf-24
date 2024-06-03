@@ -7,10 +7,10 @@ behaviors:
 ## Additional topics
 
 * `AppGlobals`
-* InitSilk and registering styles
+* InitSilk / registering styles
 * Local / session storage
 * Custom fonts
-* Custom markdown handlers
+* Overriding markdown handlers
 * Debugging the backend
 * Deploying to a service
 * `deferRender`

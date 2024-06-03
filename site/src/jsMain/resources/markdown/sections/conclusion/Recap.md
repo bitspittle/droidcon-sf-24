@@ -3,16 +3,35 @@ follows: Reveal
 layout: top
 behaviors:
   - auto-fragment LI
-  - auto-progress-fragments
+  - auto-progress-fragments 150
 ---
 
 ## Recap
 
+{{{ Horizontal
+
+{{{ Div
+
 * Compose HTML
-* Kobweb binary
-* Project lifecycle
+* Kobweb CLI
 * Routing
 * Page context
 * `Modifier`
 * `Box`, `Row`, `Column`
-* Project organization
+* Widgets
+
+}}}
+
+{{{ Div
+
+* CssStyle
+* ColorMode
+* Breakpoints
+* Animations
+* Icons
+* Markdown
+* API routes
+
+}}}
+
+}}}

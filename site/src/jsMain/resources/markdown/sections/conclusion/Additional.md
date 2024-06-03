@@ -15,5 +15,5 @@ behaviors:
 * Api streams
 * Backing HTML elements
 * Loading / saving files
-* Widget and variant examples
+* More widget examples
 * Ktor server plugins
