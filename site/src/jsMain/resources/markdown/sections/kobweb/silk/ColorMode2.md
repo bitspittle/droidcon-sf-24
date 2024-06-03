@@ -14,7 +14,7 @@ val ColorBoxStyle = CssStyle.base {
 }
 ```
 
-{{{ Centered
+{{{ Centered(Modifier.classNames("fragment"))
 
 {{{ ColorModeButtonAndBox }}}
 

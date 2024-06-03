@@ -22,7 +22,7 @@
 
 {{{ Horizontal
 
-```kotlin 3 [style]
+```kotlin 2-3 [style]
 val RectStyle = CssStyle(
   extraModifier =
     Modifier.id("example")  

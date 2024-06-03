@@ -18,7 +18,7 @@ val ChangeOnHoverStyle = CssStyle {
 }
 ```
 
-{{{ Centered
+{{{ Centered(Modifier.classNames("fragment"))
 
 {{{ TransitionExample }}}
 

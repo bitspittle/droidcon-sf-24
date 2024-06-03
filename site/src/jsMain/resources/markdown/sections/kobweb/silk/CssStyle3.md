@@ -32,7 +32,7 @@ val RectStyle = CssStyle {
 }
 ```
 
-```kotlin 2 [div]
+```kotlin 0|2 [div]
 Div(
    RectStyle.toModifier()
      .id("example")

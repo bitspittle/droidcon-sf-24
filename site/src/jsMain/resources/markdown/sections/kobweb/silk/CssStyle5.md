@@ -1,6 +1,6 @@
 ## CssStyle
 
-```kotlin 0|8-10 [style]
+```kotlin 0|8-10|0 [style]
 val HoverStyle = CssStyle {
     base {
         Modifier
@@ -14,8 +14,8 @@ val HoverStyle = CssStyle {
 }
 ```
 
-{{{ Centered
+{{{ Centered(Modifier.classNames("fragment"))
 
-{{{ HoverExample() }}}
+{{{ HoverExample }}}
 
 }}}
