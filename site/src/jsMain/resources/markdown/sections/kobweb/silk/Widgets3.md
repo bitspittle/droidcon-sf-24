@@ -5,20 +5,16 @@ styles:
 
 ## Widgets
 
-### Input
+### Switch
 
 ```kotlin
-var text by remember { mutableStateOf("") }
+var checked by remember { mutableStateOf(false) }
 
-TextInput(
-    text,
-    placeholder = "type here",
-    onTextChanged = { text = it }
-)
+Switch(checked, onCheckedChange = { /* ... */ })
 ```
 
 {{{ Centered
 
-{{{ InputExample(Modifier.scale(1.3)) }}}
+{{{ SwitchExample(Modifier.scale(1.3)) }}}
 
 }}}

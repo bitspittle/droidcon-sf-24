@@ -5,17 +5,15 @@ styles:
 
 ## Widgets
 
-### Variants
+### Tooltip
 
-```kotlin [variants]
-TextInput(variant = OutlinedInputVariant)
-TextInput(variant = FilledInputVariant)
-TextInput(variant = FlushedInputVariant)
-TextInput(variant = UnstyledInputVariant)
+```kotlin 2
+Div(modifier.backgroundColor(Colors.Cyan).toAttrs())
+Tooltip(ElementTarget.PreviousSibling, "Hello!!!")
 ```
 
 {{{ Centered
 
-{{{ InputVariantsExample(Modifier.scale(1.3)) }}}
+{{{ TooltipExample(Modifier.fontSize(1.4.cssRem)) }}}
 
 }}}

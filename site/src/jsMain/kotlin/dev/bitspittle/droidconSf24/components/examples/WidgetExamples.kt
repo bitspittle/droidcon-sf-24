@@ -69,6 +69,20 @@ fun CheckboxExample(modifier: Modifier = Modifier) {
 }
 
 @Composable
+fun SwitchExample(modifier: Modifier = Modifier) {
+    var checked by remember { mutableStateOf(false) }
+
+    val elementState = rememberElementState()
+    SlideLifecycleEffect(elementState, reset = { checked = false }) {
+        window.setInterval(2.seconds) {
+            checked = !checked
+        }
+    }
+
+    Switch(checked, onCheckedChange = { }, modifier, size = SwitchSize.LG, ref = elementState.intoSlideLifecycleRef())
+}
+
+@Composable
 fun InputExample(modifier: Modifier = Modifier) {
     var text by remember { mutableStateOf("") }
     val target = "Hello!!!"

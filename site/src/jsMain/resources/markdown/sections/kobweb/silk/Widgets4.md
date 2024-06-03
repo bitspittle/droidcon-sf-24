@@ -5,24 +5,20 @@ styles:
 
 ## Widgets
 
-### Tab
+### Input
 
 ```kotlin
-Tabs {
-    TabPanel {
-        Tab { Text("Tab 1") }; Panel { Text("Panel 1") }
-    }
-    TabPanel {
-        Tab { Text("Tab 2") }; Panel { Text("Panel 2") }
-    }
-    TabPanel {
-        Tab { Text("Tab 3") }; Panel { Text("Panel 3") }
-    }
-}
+var text by remember { mutableStateOf("") }
+
+TextInput(
+    text,
+    placeholder = "type here",
+    onTextChanged = { text = it }
+)
 ```
 
 {{{ Centered
 
-{{{ TabExample }}}
+{{{ InputExample(Modifier.scale(1.3)) }}}
 
 }}}
