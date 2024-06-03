@@ -1,7 +1,6 @@
 package dev.bitspittle.droidconSf24.components.widgets
 
 import androidx.compose.runtime.Composable
-import com.varabyte.kobweb.compose.foundation.layout.Arrangement
 import com.varabyte.kobweb.compose.foundation.layout.Box
 import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
@@ -13,13 +12,14 @@ import com.varabyte.kobweb.compose.ui.thenIf
 import com.varabyte.kobweb.silk.components.icons.fa.FaArrowLeft
 import com.varabyte.kobweb.silk.components.icons.fa.FaArrowRight
 import com.varabyte.kobweb.silk.components.icons.fa.FaArrowRotateRight
-import com.varabyte.kobweb.silk.style.*
+import com.varabyte.kobweb.silk.style.CssStyle
+import com.varabyte.kobweb.silk.style.base
+import com.varabyte.kobweb.silk.style.extendedByBase
+import com.varabyte.kobweb.silk.style.toModifier
 import dev.bitspittle.droidconSf24.styles.SiteColors
 import org.jetbrains.compose.web.css.cssRem
-import org.jetbrains.compose.web.css.percent
 import org.jetbrains.compose.web.css.px
-import org.jetbrains.compose.web.dom.Div
-import org.jetbrains.compose.web.dom.Text
+import org.jetbrains.compose.web.dom.Span as JbSpan
 
 val UrlBarContainerStyle = CssStyle.base {
     Modifier
@@ -49,6 +49,8 @@ val DisabledUrlIconStyle = UrlIconStyle.extendedByBase {
     Modifier.color(Colors.LightGray.copyf(alpha = 0.6f))
 }
 
+// Optional: You can highlight parts of the URL with square brackets
+// www.example.com/[hello]/
 @Composable
 fun UrlBar(url: String, modifier: Modifier = Modifier, id: String? = null) {
     Box(contentAlignment = Alignment.Center) {
@@ -61,7 +63,16 @@ fun UrlBar(url: String, modifier: Modifier = Modifier, id: String? = null) {
             FaArrowRight(DisabledUrlIconStyle.toModifier())
             FaArrowRotateRight(UrlIconStyle.toModifier())
             Box(UrlAreaStyle.toModifier()) {
-                Text(if (url.contains("://")) url else "https://$url")
+                val urlWithOrigin = if (url.contains("://")) url else "https://$url"
+                val finalUrl = if (!urlWithOrigin.contains('[')) urlWithOrigin else
+                    urlWithOrigin
+                        .replace("[", "<span style=\"color:cyan\">")
+                        .replace("]", "</span>")
+
+
+                JbSpan(attrs = {
+                    ref { element -> element.innerHTML = finalUrl; onDispose {  } }
+                })
             }
         }
     }

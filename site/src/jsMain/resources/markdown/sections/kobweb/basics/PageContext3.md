@@ -1,6 +1,6 @@
 ## Page Context
 
-{{{ UrlBar("mysite.com/users/bitspittle/posts/5", id = "url") }}}
+{{{ UrlBar("mysite.com/users/[bitspittle]/posts/[5]", id = "url") }}}
 
 ```kotlin 4,6,7 [code]
 @Page("{}")

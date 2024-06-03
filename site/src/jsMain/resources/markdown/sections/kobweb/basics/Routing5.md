@@ -1,13 +1,13 @@
 ## <span data-id="title">Route overrides</span>
 
-{{{ UrlBar("mysite.com/patch-notes/1.0.0", id = "url") }}}
+{{{ UrlBar("mysite.com/acronyms/[HTML]", id = "url") }}}
 
 ```kotlin 0|1,5 <fragment> [code]
-// com/mysite/pages/patchNotes/1_0_0.kt
+// com/mysite/acronyms/Html.kt
 
 package com.mysite.pages
 
-@Page("1.0.0")
+@Page("HTML")
 @Composable
 fun AboutPage() {
     /* ... */

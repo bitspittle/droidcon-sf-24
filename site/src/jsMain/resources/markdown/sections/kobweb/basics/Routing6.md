@@ -1,6 +1,6 @@
 ## <span data-id="title">Route overrides</span>
 
-{{{ UrlBar("mysite.com/releases/1.0.0/screenshots", id = "url") }}}
+{{{ UrlBar("mysite.com/releases/[1.0.0]/screenshots", id = "url") }}}
 
 ```kotlin 0|2 <fragment> [code]
 // com/mysite/pages/releases/_1_0_0/PackageMapping.kt

@@ -1,6 +1,6 @@
 ## Page Context
 
-{{{ UrlBar("mysite.com/watch?v=F5B-CxJTKlg", id = "url") }}}
+{{{ UrlBar("mysite.com/watch[?v=F5B-CxJTKlg]", id = "url") }}}
 
 ```kotlin 4,6 [code]
 @Page

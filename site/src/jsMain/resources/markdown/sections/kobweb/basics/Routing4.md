@@ -1,6 +1,6 @@
 ## <span data-id="title">Routing</span>
 
-{{{ UrlBar("mysite.com/patch-notes/latest", id = "url") }}}
+{{{ UrlBar("mysite.com/[patch-notes]/latest", id = "url") }}}
 
 ```kotlin 1,3 <fragment> [code]
 // com/mysite/pages/patchNotes/Latest.kt

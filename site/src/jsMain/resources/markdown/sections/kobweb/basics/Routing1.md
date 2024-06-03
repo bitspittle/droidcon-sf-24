@@ -1,6 +1,6 @@
 ## Routing
 
-{{{ UrlBar("mysite.com/about", id = "url") }}}
+{{{ UrlBar("mysite.com/[about]", id = "url") }}}
 
 ```kotlin 0|1,3,5 <fragment> [code]
 // com/mysite/pages/About.kt

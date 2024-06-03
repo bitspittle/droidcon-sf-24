@@ -1,6 +1,6 @@
 ## Markdown
 
-{{{ UrlBar("mysite.com/posts/kobweb") }}}
+{{{ UrlBar("mysite.com/[posts/kobweb]") }}}
 
 ```kotlin [kobweb-md]
 // build/generated/pages/posts/Kobweb.kt

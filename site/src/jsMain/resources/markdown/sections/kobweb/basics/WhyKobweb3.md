@@ -7,7 +7,7 @@ styles:
 
 ### Routing
 
-{{{ UrlBar("some-example-site.com/about") }}}
+{{{ UrlBar("some-example-site.com/[about]") }}}
 
 ```kotlin
 @Page
