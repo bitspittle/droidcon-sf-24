@@ -1,5 +1,6 @@
 ---
 follows: Reveal
+layout: top
 behaviors:
   - auto-fragment LI
   - auto-progress-fragments

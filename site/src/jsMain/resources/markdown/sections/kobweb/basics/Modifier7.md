@@ -1,3 +1,7 @@
+---
+layout: center
+---
+
 ## ${FaCodeFork()} Modifiers are a fork!
 
 {{{ Horizontal

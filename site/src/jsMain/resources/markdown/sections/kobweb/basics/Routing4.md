@@ -1,4 +1,4 @@
-## <span data-id="title">Page</span>
+## <span data-id="title">Routing</span>
 
 {{{ UrlBar("mysite.com/patch-notes/latest", id = "url") }}}
 

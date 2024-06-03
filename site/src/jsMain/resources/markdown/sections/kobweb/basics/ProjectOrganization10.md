@@ -11,13 +11,13 @@
 
 {{{ Horizontal
 
-```kotlin
+```kotlin <fragment,fade-right> {data-fragment-index=1}
 Img(
   src =
    "/images/buster.jpg"
 )
 ```
 
-{{{ Image("buster.jpg") }}}
+{{{ Image("buster.jpg", Modifier.classNames("fragment", "fade-left").attr("data-fragment-index", "1")) }}}
 
 }}}

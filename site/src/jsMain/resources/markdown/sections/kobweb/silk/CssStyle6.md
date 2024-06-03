@@ -2,7 +2,7 @@
 
 {{{ Horizontal
 
-```kotlin 0|2,6 [style]
+```kotlin 0|0|2,6 [style]
 val RectStyle = CssStyle {
     base {
         Modifier

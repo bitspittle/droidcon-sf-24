@@ -12,4 +12,4 @@ Today is ${.component.widgets.CurrentDay}.
 
 Today is ${CurrentDay}.
 
-{{{ Clock }}}
+{{{ Clock(Modifier.dataId("clock")) }}}

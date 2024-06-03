@@ -1,3 +1,7 @@
+---
+layout: center
+---
+
 ## The big reveal
 
 {{{ Vertical(Modifier.fontSize(2.5.cssRem), horizontalAlignment = Alignment.CenterHorizontally)

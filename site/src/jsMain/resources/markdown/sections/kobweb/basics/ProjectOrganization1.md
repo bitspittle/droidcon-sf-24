@@ -2,11 +2,10 @@
 
 {{{ Folders(Modifier.fillMaxWidth().padding(left = 5.cssRem).dataId("folders"))
 
-* src
-  * jsMain
-    * kotlin
-      * components
-      * pages
-  * resources
+* components
+    * layouts
+    * sections
+    * widgets
+* pages
 
 }}}

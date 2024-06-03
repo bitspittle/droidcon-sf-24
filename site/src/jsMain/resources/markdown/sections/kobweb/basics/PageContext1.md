@@ -1,15 +1,13 @@
-## Routing
+## Page Context
 
 {{{ UrlBar("mysite.com/", id = "url") }}}
 
-```kotlin 1,3 <fragment> [code]
-// com/mysite/pages/Index.kt
-
-package com.mysite.pages
-
+```kotlin 1,4 [code]
 @Page
 @Composable
 fun IndexPage() {
+    val ctx = rememberPageContext()
+    
     /* ... */
 }
 ```

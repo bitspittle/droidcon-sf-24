@@ -1,7 +1,8 @@
 ---
 data-auto-animate-restart:
+layout: center
 behaviors:
-  -auto-progress-fragments
+  - auto-progress-fragments
 ---
 
 ## ${FaCodeFork()} Modifiers are a fork!

@@ -1,6 +1,6 @@
 ## API routes
 
-```kotlin 0|6-12 [api-frontend]
+```kotlin 0|3-5|6-12 <hide-vertical-scrollbar> [api-frontend]
 val scope = rememberCoroutineScope()
 Button(onClick = {
     val msg = ContactMeMessage(

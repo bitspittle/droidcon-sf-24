@@ -62,6 +62,7 @@ kobweb {
             ".components.widgets.*",
             ".components.examples.*",
             ".utilities.dataId",
+            ".utilities.attr",
             "com.varabyte.kobweb.compose.ui.graphics.Colors",
             "com.varabyte.kobweb.silk.components.icons.fa.*",
             "com.varabyte.kobweb.silk.components.icons.fa.IconStyle as FaIconStyle",
@@ -215,6 +216,9 @@ kobweb {
     
                         import androidx.compose.runtime.*
                         import org.jetbrains.compose.web.dom.Section
+                        import com.varabyte.kobweb.compose.ui.Modifier
+                        import com.varabyte.kobweb.compose.ui.modifiers.fillMaxHeight
+                        import com.varabyte.kobweb.compose.ui.toAttrs
                     """.trimIndent()
                 )
 

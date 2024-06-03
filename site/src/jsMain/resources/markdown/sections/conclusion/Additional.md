@@ -1,5 +1,6 @@
 ---
 follows: Recap
+layout: top
 behaviors:
   - auto-fragment LI
   - auto-progress-fragments

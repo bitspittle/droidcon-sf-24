@@ -1,8 +1,15 @@
+---
+layout: center
+behaviors:
+  - auto-progress-fragments 400
+---
+
+
 ## Instant routing
 
 {{{ Horizontal
 
-{{{ Folders(Modifier.fontSize(1.7.cssRem))
+{{{ Folders(Modifier.fontSize(1.7.cssRem).classNames("fragment", "fade-down"))
 
 * pages
   * Index.kt
@@ -10,7 +17,7 @@
 
 }}}
 
-```kotlin
+```kotlin <fragment>
 // Index.kt
 @Page
 @Composable
@@ -19,7 +26,7 @@ fun HomePage() {
 }
 ```
 
-```kotlin
+```kotlin <fragment>
 // About.kt
 @Page
 @Composable
@@ -29,8 +36,6 @@ fun AboutPage() {
 ```
 
 }}}
-
-<!-- TODO: Add animating example here -->
 
 {{{ SpeakerNotes
 

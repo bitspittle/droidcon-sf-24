@@ -4,10 +4,12 @@ import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.AnimationIterationCount
 import com.varabyte.kobweb.compose.css.Transition
 import com.varabyte.kobweb.compose.foundation.layout.Box
+import com.varabyte.kobweb.compose.foundation.layout.Row
 import com.varabyte.kobweb.compose.ui.Alignment
 import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.*
+import com.varabyte.kobweb.silk.style.*
 import com.varabyte.kobweb.silk.style.animation.Keyframes
 import com.varabyte.kobweb.silk.style.animation.toAnimation
 import dev.bitspittle.droidconSf24.components.widgets.Cursor
@@ -67,7 +69,24 @@ fun HoverExample(modifier: Modifier = Modifier) {
     }
 }
 
+val ColoredSquareStyle = CssStyle.base {
+    Modifier
+        .size(6.cssRem)
+        .borderRadius(5.px)
+        .backgroundColor(Colors.Orange)
+}
+
+val RotatedSquareStyle = ColoredSquareStyle.extendedByBase {
+    Modifier
+        .rotate(45.deg)
+        .backgroundColor(Colors.Cyan)
+}
+
+
 @Composable
 fun RotatedRectExample(modifier: Modifier = Modifier) {
-    Box(modifier.size(6.cssRem).borderRadius(5.px).margin(top = 2.cssRem).backgroundColor(Colors.Cyan).rotate(45.deg))
+    Row(modifier.margin(top = 2.cssRem).gap(4.cssRem)) {
+        Box(ColoredSquareStyle.toModifier())
+        Box(RotatedSquareStyle.toModifier())
+    }
 }

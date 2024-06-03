@@ -1,3 +1,7 @@
+---
+data-auto-animate-restart:
+---
+
 ## Row
 
 ```kotlin 0|4|6|0

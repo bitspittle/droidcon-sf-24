@@ -10,3 +10,7 @@ Today is ${CurrentDay}.
 
 {{{ Clock }}}
 ```
+
+Today is ${CurrentDay}.
+
+{{{ Clock(Modifier.dataId("clock")) }}}

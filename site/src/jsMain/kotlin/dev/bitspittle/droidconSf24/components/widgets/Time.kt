@@ -34,10 +34,10 @@ fun CanvasState.save(block: () -> Unit) {
 }
 
 @Composable
-fun Clock() {
+fun Clock(modifier: Modifier = Modifier) {
     // We technically only need to update once per second, but let's be a bit more aggressive to capture color
     // changes faster if they happen
-    Canvas2d(300, 300, minDeltaMs = ONE_FRAME_MS_60_FPS * 5) {
+    Canvas2d(300, 300, modifier, minDeltaMs = ONE_FRAME_MS_60_FPS * 5) {
         // Adapted from: https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations#an_animated_clock
         val date = Date()
         val r = 150.0

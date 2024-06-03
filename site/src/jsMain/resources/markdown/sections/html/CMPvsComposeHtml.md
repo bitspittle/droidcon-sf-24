@@ -1,7 +1,11 @@
 ---
 follows: Html2Compose
+layout: top
 styles:
   - accented-subheaders
+behaviors:
+  - auto-fragment LI
+  - auto-progress-fragments 100
 ---
 
 ## CMP for Web <span style="color:red">vs</span> Compose HTML

@@ -15,7 +15,7 @@ tags:
 ---
 ```
 
-```kotlin 0|4|5-8 <fragment>
+```kotlin 0|3|4|5-8 <fragment>
 @Composable
 fun ArticleLayout(content: @Composable () -> Unit) {
     val ctx = rememberPageContext()

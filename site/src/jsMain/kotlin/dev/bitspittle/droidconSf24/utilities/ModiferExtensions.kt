@@ -13,6 +13,10 @@ fun Modifier.dataId(id: String) = attrsModifier {
     attr("data-id", id)
 }
 
+fun Modifier.attr(key: String, value: String) = attrsModifier {
+    attr(key, value)
+}
+
 fun Modifier.heavyTextShadow(thickness: CSSLengthNumericValue = 20.px): Modifier {
     return listOf(
         (-1).px to (-1).px,
