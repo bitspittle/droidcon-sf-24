@@ -14,6 +14,6 @@ Tooltip(ElementTarget.PreviousSibling, "Hello!!!")
 
 {{{ Centered
 
-{{{ TooltipExample(Modifier.fontSize(1.4.cssRem)) }}}
+{{{ TooltipExample(Modifier.fontSize(2.cssRem)) }}}
 
 }}}
