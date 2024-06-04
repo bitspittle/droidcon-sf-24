@@ -28,6 +28,7 @@ kobweb {
             description.set("Kobweb Presentation for Droidcon SF 2024")
             head.add {
                 val revealJs = routePrefix.prependTo("/reveal.js")
+                val highlightJs = routePrefix.prependTo("/highlightjs")
                 script { src = "$revealJs/dist/reveal.js" }
                 style {
                     unsafe {
@@ -38,7 +39,7 @@ kobweb {
                 script { src = "$revealJs/plugin/highlight/highlight.js" }
                 style {
                     unsafe {
-                        raw("@import url(\"$revealJs/plugin/highlight/monokai.css\") layer(highlightjs);")
+                        raw("@import url(\"$highlightJs/a11y-dark.css\") layer(highlightjs);")
                     }
                 }
                 script { src = "$revealJs/plugin/notes/notes.js" }
