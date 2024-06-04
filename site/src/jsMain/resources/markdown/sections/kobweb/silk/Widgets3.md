@@ -13,7 +13,7 @@ var checked by remember { mutableStateOf(false) }
 Switch(checked, onCheckedChange = { /* ... */ })
 ```
 
-{{{ Centered
+{{{ Centered(Modifier.margin(top=2.cssRem))
 
 {{{ SwitchExample(Modifier.scale(1.3)) }}}
 

@@ -14,7 +14,7 @@ TextInput(variant = FlushedInputVariant)
 TextInput(variant = UnstyledInputVariant)
 ```
 
-{{{ Centered
+{{{ Centered(Modifier.margin(top=4.cssRem))
 
 {{{ InputVariantsExample(Modifier.scale(1.3)) }}}
 

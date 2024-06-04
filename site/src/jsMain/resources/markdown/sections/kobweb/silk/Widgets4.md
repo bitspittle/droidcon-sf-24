@@ -17,7 +17,7 @@ TextInput(
 )
 ```
 
-{{{ Centered
+{{{ Centered(Modifier.margin(top=2.cssRem))
 
 {{{ InputExample(Modifier.scale(1.3)) }}}
 

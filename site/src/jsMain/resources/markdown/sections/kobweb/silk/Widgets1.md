@@ -13,8 +13,8 @@ Button(onClick = { /* ... */ }) {
 }
 ```
 
-{{{ Centered
+{{{ Centered(Modifier.margin(top=2.cssRem))
 
-{{{ ButtonExample }}}
+{{{ ButtonExample(Modifier.scale(1.3)) }}}
 
 }}}

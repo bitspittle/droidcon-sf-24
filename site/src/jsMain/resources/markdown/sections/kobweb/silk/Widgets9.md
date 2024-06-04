@@ -22,4 +22,4 @@ Button(
 }
 ```
 
-{{{ ShadowedButtonExample(Modifier.classNames("fragment")) }}}
+{{{ ShadowedButtonExample(Modifier.classNames("fragment").margin(top = 2.cssRem)) }}}

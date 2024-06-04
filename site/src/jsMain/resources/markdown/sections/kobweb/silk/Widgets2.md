@@ -15,7 +15,7 @@ Checkbox(checked, onCheckedChange = { /* ... */ }) {
 }
 ```
 
-{{{ Centered
+{{{ Centered(Modifier.margin(top=2.cssRem))
 
 {{{ CheckboxExample(Modifier.scale(1.3)) }}}
 
