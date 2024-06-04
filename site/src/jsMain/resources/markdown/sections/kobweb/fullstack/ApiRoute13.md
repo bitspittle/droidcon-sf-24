@@ -1,6 +1,6 @@
 ## API routes
 
-```kotlin 0|3-5|6-12 <hide-vertical-scrollbar> [api-frontend]
+```kotlin 0|3-5|6-12|0 <hide-vertical-scrollbar,apifrontend> [api-frontend]
 val scope = rememberCoroutineScope()
 Button(onClick = {
     val msg = ContactMeMessage(
@@ -13,7 +13,5 @@ Button(onClick = {
                 .encodeToByteArray()
         )
     }
-}) {
-    Text("Send Message")
-}
+}) { Text("Send Message") }
 ```

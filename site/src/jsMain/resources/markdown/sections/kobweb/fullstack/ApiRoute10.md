@@ -1,6 +1,16 @@
 ## API routes
 
-```kotlin 0|7-10 [api-init]
+```kotlin <apibackend> [api-backend]
+// Backend
+@Api
+suspend fun contactMe(ctx: ApiContext) {
+    // ...
+    // 2: Save the message into a data store?
+    // ...
+}
+```
+
+```kotlin 0|1,7-10 <fragment,apibackend> [api-init]
 // Backend
 
 interface DataStore {
@@ -11,10 +21,4 @@ interface DataStore {
 fun initApi(ctx: InitApiContext) {
     ctx.data.add<DataStore>(DataStoreImpl())
 }
-```
-
-```kotlin <fragment> [api-backend]
-// Backend
-
-// 2: Save the message into a data store?
 ```

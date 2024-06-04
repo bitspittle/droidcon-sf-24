@@ -1,6 +1,6 @@
 ## API routes
 
-```kotlin 7-10 [api-init]
+```kotlin 1,7-10 <apibackend> [api-init]
 // Backend
 
 interface DataStore {
@@ -13,13 +13,17 @@ fun initApi(ctx: InitApiContext) {
 }
 ```
 
-```kotlin [api-backend]
+```kotlin <apibackend> [api-backend]
 // Backend
-
-// val msg: ContactMeMessage = ...
-
-ctx.data.getValue<DataStore>().addText(
-    id = "${msg.lastName}, ${msg.firstName}",
-    text = "${msg.subject}: ${msg.message}"
-)
+@Api
+suspend fun contactMe(ctx: ApiContext) {
+    // ...
+    val msg: ContactMeMessage
+    
+    ctx.data.getValue<DataStore>().addText(
+        id = "${msg.lastName}, ${msg.firstName}",
+        text = "${msg.subject}: ${msg.message}"
+    )
+    // ...
+}
 ```

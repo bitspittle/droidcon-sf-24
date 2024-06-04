@@ -4,9 +4,17 @@ import androidx.compose.runtime.Composable
 import com.varabyte.kobweb.compose.css.Overflow
 import com.varabyte.kobweb.compose.css.overflowX
 import com.varabyte.kobweb.compose.ui.Modifier
+import com.varabyte.kobweb.compose.ui.graphics.Color
+import com.varabyte.kobweb.compose.ui.graphics.Colors
+import com.varabyte.kobweb.compose.ui.modifiers.border
 import com.varabyte.kobweb.compose.ui.modifiers.overflow
+import com.varabyte.kobweb.silk.init.InitSilk
+import com.varabyte.kobweb.silk.init.InitSilkContext
+import com.varabyte.kobweb.silk.init.registerStyleBase
 import com.varabyte.kobweb.silk.style.CssStyle
-import com.varabyte.kobweb.silk.style.base
+import dev.bitspittle.droidconSf24.styles.SiteColors
+import org.jetbrains.compose.web.css.LineStyle
+import org.jetbrains.compose.web.css.px
 import org.jetbrains.compose.web.dom.Pre
 import org.jetbrains.compose.web.dom.Text
 import org.jetbrains.compose.web.dom.Code as JbCode
@@ -14,6 +22,17 @@ import org.jetbrains.compose.web.dom.Code as JbCode
 val HideVerticalScrollbar = CssStyle {
     cssRule("> code") {
         Modifier.overflow { y(Overflow.Clip) }
+    }
+}
+
+@InitSilk
+fun initCodeStyles(ctx: InitSilkContext) {
+    ctx.stylesheet.apply {
+        fun border(color: Color) = Modifier.border(5.px, LineStyle.Solid, color)
+
+        registerStyleBase(".apibackend > code") { border(Colors.Gray) }
+        registerStyleBase(".apifrontend > code") { border(SiteColors.KobwebBlue) }
+        registerStyleBase(".apicommon > code") { border(Colors.LightGreen) }
     }
 }
 

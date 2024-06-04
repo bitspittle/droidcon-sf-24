@@ -1,6 +1,6 @@
 ## API routes
 
-```kotlin [api-backend]
+```kotlin <apibackend> [api-backend]
 // Backend
 @Api
 suspend fun echo(ctx: ApiContext) {
@@ -9,7 +9,7 @@ suspend fun echo(ctx: ApiContext) {
 }
 ```
 
-```kotlin 8 [api-frontend]
+```kotlin 1,8 <apifrontend> [api-frontend]
 // Frontend
 @Page
 @Composable

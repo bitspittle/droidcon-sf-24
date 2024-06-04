@@ -1,6 +1,6 @@
 ## API routes
 
-```kotlin [api-common]
+```kotlin <apicommon> [api-common]
 // Common
 @Serializable
 class ContactMeMessage(
@@ -11,11 +11,15 @@ class ContactMeMessage(
 )
 ```
 
-```kotlin [api-backend]
+```kotlin 0|5-8|0 <apibackend> [api-backend]
 // Backend
-
-val msg: ContactMeMessage =
-    Json.decodeFromString(
-        ctx.req.body!!.decodeToString()
-    )
+@Api
+suspend fun contactMe(ctx: ApiContext) {
+    // ...
+    val msg: ContactMeMessage =
+        Json.decodeFromString(
+            ctx.req.body!!.decodeToString()
+        )
+    // ...
+}
 ```

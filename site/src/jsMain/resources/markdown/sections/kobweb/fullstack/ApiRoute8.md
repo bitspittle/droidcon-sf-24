@@ -1,6 +1,16 @@
 ## API routes
 
-```kotlin [api-common]
+```kotlin <apibackend> [api-backend]
+// Backend
+@Api
+suspend fun contactMe(ctx: ApiContext) {
+    // ...
+    // 1: Parse the message?
+    // ...
+}
+```
+
+```kotlin <fragment,apicommon> [api-common]
 // Common
 @Serializable
 class ContactMeMessage(
@@ -9,10 +19,4 @@ class ContactMeMessage(
     val subject: String,
     val message: String,
 )
-```
-
-```kotlin <fragment> [api-backend]
-// Backend
-
-// 1: Parse the message?
 ```

@@ -1,6 +1,6 @@
 ## API routes
 
-```kotlin 0|4,10|6,8 [api-backend]
+```kotlin 0|4,10|6|8 <apibackend> [api-backend]
 // Backend
 @Api
 suspend fun contactMe(ctx: ApiContext) {
