@@ -10,7 +10,7 @@ styles:
 ```kotlin
 var checked by remember { mutableStateOf(false) }
 
-Switch(checked, onCheckedChange = { /* ... */ })
+Switch(checked, onCheckedChange = { checked = it })
 ```
 
 {{{ Centered(Modifier.margin(top=2.cssRem))

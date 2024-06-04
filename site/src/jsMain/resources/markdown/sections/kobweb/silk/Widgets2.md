@@ -10,7 +10,7 @@ styles:
 ```kotlin
 var checked by remember { mutableStateOf(false) }
 
-Checkbox(checked, onCheckedChange = { /* ... */ }) {
+Checkbox(checked, onCheckedChange = { checked = it }) {
     Text("Check me!")
 }
 ```
