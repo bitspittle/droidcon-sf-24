@@ -2,7 +2,7 @@
 
 {{{ Horizontal
 
-```css 1 [css]
+```css 1 <html> [css]
 /* example.css */
 .rect {
   width: 50px;
@@ -10,7 +10,7 @@
 }
 ```
 
-```html 1 [html]
+```html 1 <html> [html]
 <!-- example.html -->
 <div
    id="example"
@@ -22,7 +22,7 @@
 
 {{{ Horizontal
 
-```kotlin 2-3 [style]
+```kotlin 2-3 <kobweb> [style]
 val RectStyle = CssStyle(
   extraModifier =
     Modifier.id("example")  
@@ -35,7 +35,7 @@ val RectStyle = CssStyle(
 }
 ```
 
-```kotlin 2 [div]
+```kotlin 2 <kobweb> [div]
 Div(
    RectStyle.toAttrs()
 )

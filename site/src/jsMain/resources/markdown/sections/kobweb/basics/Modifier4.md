@@ -2,7 +2,7 @@
 
 {{{ Horizontal
 
-```kotlin [code-final]
+```kotlin <kobweb> [code-final]
 // Kobweb
 Div(attrs = Modifier
   .id("example")
@@ -12,7 +12,7 @@ Div(attrs = Modifier
 )
 ```
 
-```kotlin
+```kotlin <kotlin>
 // Compose HTML
 Div(attrs = {
     id("example")

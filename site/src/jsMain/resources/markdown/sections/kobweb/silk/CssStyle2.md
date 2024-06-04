@@ -2,7 +2,7 @@
 
 {{{ Horizontal
 
-```css 1 [css]
+```css 1 <html> [css]
 /* example.css */
 .rect {
   width: 50px;
@@ -10,7 +10,7 @@
 }
 ```
 
-```html 1 [html]
+```html 1 <html> [html]
 <!-- example.html -->
 <div
    id="example"
@@ -20,7 +20,7 @@
 
 }}}
 
-```kotlin [div]
+```kotlin <kobweb> [div]
 Div(
   Modifier
     .id("example")

@@ -1,6 +1,6 @@
 ## ${Html} to ${Kotlin}
 
-```html
+```html <html>
 <!-- example.html -->
 <div
    id="example"

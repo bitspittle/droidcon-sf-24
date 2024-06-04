@@ -1,9 +1,9 @@
 ## Modifier
 
-```kotlin 2-10 [code-escape-hatch]
+```kotlin 2-10 <kobweb> [code-escape-hatch]
 Div(attrs = 
   Modifier
-    .attrModifier {
+    .attrsModifier {
       id("example")
     }
     .styleModifier {
@@ -14,7 +14,7 @@ Div(attrs =
 )
 ```
 
-```kotlin 0|2-4 [code-final]
+```kotlin 0|2-4 <kobweb> [code-final]
 Div(attrs = Modifier
   .id("example")
   .width(50.px)
@@ -27,7 +27,7 @@ Div(attrs = Modifier
 
 * Note that the Kobweb solution treats attributes and styles at the same level.
 * There are very few attribute modifiers, in practice this has been fine
-* You can use an `attrModifier` escape hatch if necessary
+* You can use an `attrsModifier` escape hatch if necessary
 * We have begun work on an IntelliJ plugin which will help navigate occasional edge cases where this might matter
 
 }}}

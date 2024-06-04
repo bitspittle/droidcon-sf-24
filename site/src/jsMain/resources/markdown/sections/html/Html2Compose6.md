@@ -2,7 +2,7 @@
 
 {{{ Horizontal
 
-```css 2,5
+```css 2,5 <html>
 /* example.css */
 .rect {
   width: 50px;
@@ -10,7 +10,7 @@
 }
 ```
 
-```html 4
+```html 4 <html>
 <!-- example.html -->
 <div
    id="example"
@@ -22,7 +22,7 @@
 
 {{{ Horizontal
 
-```kotlin 0|3-6
+```kotlin 0|3-6 <kotlin>
 object AppStyleSheet 
   : StyleSheet() {
   val rect by style {
@@ -32,7 +32,7 @@ object AppStyleSheet
 }
 ```
 
-```kotlin 0|3-5
+```kotlin 0|3-5 <kotlin>
 Div(attrs = {
   id("example")
   classes(

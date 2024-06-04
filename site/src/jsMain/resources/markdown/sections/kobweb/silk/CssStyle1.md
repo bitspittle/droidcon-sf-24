@@ -2,7 +2,7 @@
 
 {{{ Horizontal
 
-```css 0 [css]
+```css 0 <html> [css]
 /* example.css */
 .rect {
   width: 50px;
@@ -10,7 +10,7 @@
 }
 ```
 
-```html 0 [html]
+```html 0 <html> [html]
 <!-- example.html -->
 <div
    id="example"

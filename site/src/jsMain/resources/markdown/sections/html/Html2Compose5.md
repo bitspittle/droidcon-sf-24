@@ -1,6 +1,6 @@
 ## ${Html} to ${Kotlin}
 
-```css
+```css <html>
 /* example.css */
 .rect {
   width: 50px;
@@ -8,7 +8,7 @@
 }
 ```
 
-```html 0|4|0
+```html 0|4|0 <html>
 <!-- example.html -->
 <div
    id="example"

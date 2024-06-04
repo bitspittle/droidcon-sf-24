@@ -1,6 +1,6 @@
 ## ${Html} to ${Kotlin}
 
-```html
+```html <html>
 <!-- example.html -->
 <div
    id="example"
@@ -8,7 +8,7 @@
 />
 ```
 
-```kotlin 0|2|3-6|0
+```kotlin 0|2|3-6|0 <kotlin>
 Div(attrs = {
   attr("id", "example")
   style {

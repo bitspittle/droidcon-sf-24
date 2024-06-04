@@ -33,6 +33,9 @@ fun initCodeStyles(ctx: InitSilkContext) {
         registerStyleBase(".apibackend > code") { border(Colors.Gray) }
         registerStyleBase(".apifrontend > code") { border(SiteColors.KobwebBlue) }
         registerStyleBase(".apicommon > code") { border(Colors.LightGreen) }
+        registerStyleBase(".html > code") { border(SiteColors.HtmlOrange) }
+        registerStyleBase(".kotlin > code") { border(SiteColors.KotlinPurple) }
+        registerStyleBase(".kobweb > code") { border(SiteColors.KobwebBlue) }
     }
 }
 

@@ -1,6 +1,6 @@
 ## Modifier
 
-```kotlin 2-5
+```kotlin 2-5 <kotlin>
 Div(attrs = {
   id("example")
   style {
@@ -10,10 +10,10 @@ Div(attrs = {
 })
 ```
 
-```kotlin 0|2-9|10 [code-escape-hatch]
+```kotlin 0|2-9|10 <kobweb> [code-escape-hatch]
 Div(attrs = 
   Modifier
-    .attrModifier {
+    .attrsModifier {
       id("example")
     }
     .styleModifier {

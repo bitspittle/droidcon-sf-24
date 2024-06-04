@@ -1,6 +1,6 @@
 ## Modifier
 
-```html
+```html <html>
 <!-- example.html -->
 <div
    id="example"
@@ -8,7 +8,7 @@
 />
 ```
 
-```kotlin
+```kotlin <kotlin>
 Div(attrs = {
   id("example")
   style {

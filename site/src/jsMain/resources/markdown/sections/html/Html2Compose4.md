@@ -1,6 +1,6 @@
 ## ${Html} to ${Kotlin}
 
-```css
+```css <html>
 /* example.css */
 .rect {
   width: 50px;
