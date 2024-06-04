@@ -12,8 +12,17 @@ behaviors:
 * CSS Variables
 * Integrating a JS library
 * Workers
-* Api streams
+* API streams
 * Backing HTML elements
 * Loading / saving files
 * More widget examples
 * Ktor server plugins
+
+{{{ SpeakerNotes
+
+* Call out:
+* Integrating a JS library
+* Workers 
+* API streams
+
+}}}

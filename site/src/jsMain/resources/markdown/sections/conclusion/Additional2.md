@@ -15,3 +15,11 @@ behaviors:
 * Deploying to a service
 * `deferRender`
 * `kobweb { ... }` block configuration
+
+{{{ SpeakerNotes
+
+* Call out:
+* Custom fonts
+* Deploying to a service
+
+}}}

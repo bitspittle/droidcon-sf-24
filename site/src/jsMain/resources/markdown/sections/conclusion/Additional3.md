@@ -15,3 +15,11 @@ behaviors:
 * CSS tips and tricks
 * Using browser devtools
 * Live coding demo
+
+{{{ SpeakerNotes
+
+* Call out:
+* Multi-module builds
+* Dev tools
+
+}}}
