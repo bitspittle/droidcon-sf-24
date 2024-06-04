@@ -6,7 +6,7 @@
   * layouts
   * sections
   * widgets
-    * ${KobwebText("Button.kt")}
-    * ${KobwebText("VisitorCounter.kt")}
+    * Button.kt
+    * VisitorCounter.kt
 
 }}}

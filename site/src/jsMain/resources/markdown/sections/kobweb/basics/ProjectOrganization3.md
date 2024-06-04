@@ -5,8 +5,8 @@
 * components
   * layouts
   * sections
-    * ${KobwebText("Header.kt")}
-    * ${KobwebText("Footer.kt")}
+    * Header.kt
+    * Footer.kt
   * widgets
 
 }}}

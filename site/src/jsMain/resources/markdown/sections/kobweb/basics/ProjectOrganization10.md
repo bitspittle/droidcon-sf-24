@@ -5,7 +5,7 @@
 * resources
   * public
     * images
-      * ${KobwebText("buster.jpg")}
+      * buster.jpg
 
 }}}
 

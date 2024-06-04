@@ -4,8 +4,8 @@
 
 * components
   * layouts
-    * ${KobwebText("PageLayout.kt")}
-    * ${KobwebText("ArticleLayout.kt")}
+    * PageLayout.kt
+    * ArticleLayout.kt
   * sections
   * widgets
 
