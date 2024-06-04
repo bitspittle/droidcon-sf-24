@@ -1,7 +1,6 @@
 ---
 follows: Header
+data-transition: zoom-out
 ---
 
 ## The big reveal
-
-{{{ Image("revealjs.svg", Modifier.classNames("fragment")) }}}
