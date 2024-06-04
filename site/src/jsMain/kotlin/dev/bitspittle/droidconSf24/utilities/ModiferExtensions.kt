@@ -6,6 +6,7 @@ import com.varabyte.kobweb.compose.ui.Modifier
 import com.varabyte.kobweb.compose.ui.attrsModifier
 import com.varabyte.kobweb.compose.ui.graphics.Colors
 import com.varabyte.kobweb.compose.ui.modifiers.textShadow
+import com.varabyte.kobweb.compose.ui.styleModifier
 import org.jetbrains.compose.web.css.px
 
 // See https://revealjs.com/auto-animate/#how-elements-are-matched
@@ -15,6 +16,10 @@ fun Modifier.dataId(id: String) = attrsModifier {
 
 fun Modifier.attr(key: String, value: String) = attrsModifier {
     attr(key, value)
+}
+
+fun Modifier.property(key: String, value: String) = styleModifier {
+    property(key, value)
 }
 
 fun Modifier.heavyTextShadow(thickness: CSSLengthNumericValue = 20.px): Modifier {
