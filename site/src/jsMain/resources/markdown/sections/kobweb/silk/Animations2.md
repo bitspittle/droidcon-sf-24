@@ -4,7 +4,7 @@ data-auto-animate-restart:
 
 ## Keyframes
 
-```kotlin [code]
+```kotlin 0|1,8|0 [code]
 val SpinningKeyframes = Keyframes {
     // from { Modifier.rotate(0.deg) }
     to { Modifier.rotate(360.deg) }
@@ -22,6 +22,6 @@ Modifier
 
 {{{ Centered
 
-{{{ SpinningExample }}}
+{{{ SpinningExample(Modifier.classNames("fragment")) }}}
 
 }}}
