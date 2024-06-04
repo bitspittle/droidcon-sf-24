@@ -11,13 +11,16 @@
 
 {{{ Horizontal
 
-```kotlin <fragment,fade-right> {data-fragment-index=1}
+```kotlin 2-3 <fragment,fade-right> {data-fragment-index=1}
 Img(
   src =
-   "/images/buster.jpg"
+   "/images/buster.jpg",
+  attrs =
+    Modifier.fillMaxSize()
+      .toAttrs()
 )
 ```
 
-{{{ Image("buster.jpg", Modifier.classNames("fragment", "fade-left").attr("data-fragment-index", "1")) }}}
+{{{ Image("buster.jpg", Modifier.classNames("fragment", "fade-left")) }}}
 
 }}}
