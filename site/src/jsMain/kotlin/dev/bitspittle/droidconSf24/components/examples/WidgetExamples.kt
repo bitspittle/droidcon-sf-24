@@ -79,7 +79,13 @@ fun SwitchExample(modifier: Modifier = Modifier) {
         }
     }
 
-    Switch(checked, onCheckedChange = { }, modifier, size = SwitchSize.LG, ref = elementState.intoSlideLifecycleRef())
+    Box(
+        Modifier.height(5.cssRem),
+        contentAlignment = Alignment.Center,
+        ref = elementState.intoSlideLifecycleRef()
+    ) {
+        Switch(checked, onCheckedChange = { }, modifier, size = SwitchSize.LG, ref = elementState.intoSlideLifecycleRef())
+    }
 }
 
 @Composable
@@ -90,7 +96,7 @@ fun InputExample(modifier: Modifier = Modifier) {
     val elementState = rememberElementState()
     SlideLifecycleEffect(elementState, reset = { text = "" }) {
         lateinit var handle: CancellableActionHandle
-        handle = window.setInterval(initialDelay = 4.seconds, 300.milliseconds) {
+        handle = window.setInterval(initialDelay = 2.seconds, 150.milliseconds) {
             text = target.substring(0, text.length + 1)
             if (text == target) {
                 handle.cancel()
@@ -116,7 +122,7 @@ fun InputVariantsExample(modifier: Modifier = Modifier) {
     val elementState = rememberElementState()
     SlideLifecycleEffect(elementState, reset = { text = "" }) {
         lateinit var handle: CancellableActionHandle
-        handle = window.setInterval(initialDelay = 2.seconds, 200.milliseconds) {
+        handle = window.setInterval(initialDelay = 2.seconds, 150.milliseconds) {
             text = target.substring(0, text.length + 1)
             if (text == target) {
                 handle.cancel()
