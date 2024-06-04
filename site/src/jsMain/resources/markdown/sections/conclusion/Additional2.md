@@ -1,7 +1,7 @@
 ---
 behaviors:
   - auto-fragment LI
-  - auto-progress-fragments
+  - auto-progress-fragments 150
 ---
 
 ## Additional topics
