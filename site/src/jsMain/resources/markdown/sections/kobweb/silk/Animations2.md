@@ -6,7 +6,7 @@ data-auto-animate-restart:
 
 ```kotlin 0|1,8|0 [code]
 val SpinningKeyframes = Keyframes {
-    // from { Modifier.rotate(0.deg) }
+    from { Modifier.rotate(0.deg) }
     to { Modifier.rotate(360.deg) }
 }
 
