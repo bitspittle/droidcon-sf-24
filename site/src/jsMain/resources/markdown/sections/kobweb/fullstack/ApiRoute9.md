@@ -15,11 +15,9 @@ class ContactMeMessage(
 // Backend
 @Api
 suspend fun contactMe(ctx: ApiContext) {
-    // ...
     val msg: ContactMeMessage =
         Json.decodeFromString(
             ctx.req.body!!.decodeToString()
         )
-    // ...
 }
 ```

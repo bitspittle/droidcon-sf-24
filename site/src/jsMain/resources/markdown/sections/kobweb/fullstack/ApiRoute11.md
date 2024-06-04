@@ -17,13 +17,11 @@ fun initApi(ctx: InitApiContext) {
 // Backend
 @Api
 suspend fun contactMe(ctx: ApiContext) {
-    // ...
     val msg: ContactMeMessage
     
     ctx.data.getValue<DataStore>().addText(
         id = "${msg.lastName}, ${msg.firstName}",
         text = "${msg.subject}: ${msg.message}"
     )
-    // ...
 }
 ```
