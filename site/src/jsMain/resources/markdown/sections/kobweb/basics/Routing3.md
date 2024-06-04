@@ -1,11 +1,11 @@
 ## Routing
 
-{{{ UrlBar("mysite.com/[blog/2024/droidcon-sf]", id = "url") }}}
+{{{ UrlBar("mysite.com/[droidcon-sf]", id = "url") }}}
 
 ```kotlin 1,3,5 <fragment> [code]
-// com/mysite/pages/blog/_2024/DroidconSf.kt
+// com/mysite/pages/DroidconSf.kt
 
-package com.mysite.pages.blog._2024
+package com.mysite.pages
 
 @Page
 @Composable

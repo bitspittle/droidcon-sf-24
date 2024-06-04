@@ -1,15 +1,22 @@
-## <span data-id="title">Dynamic routes</span>
+## <span data-id="title">Route overrides</span>
 
-{{{ UrlBar("mysite.com/users/binay/post/108", Modifier.width(80.percent), id = "url") }}}
+{{{ UrlBar("mysite.com/releases/[1.0.0]/screenshots", id = "url") }}}
 
-{{{ UrlBar("mysite.com/users/bitspittle/post/5", Modifier.width(80.percent).margin { top(1.cssRem) }) }}}
+```kotlin 0|2 <fragment> [code]
+// com/mysite/pages/releases/_1_0_0/PackageMapping.kt
+@file:PackageMapping("1.0.0")
 
-{{{ UrlBar("mysite.com/users/cabs/post/9", Modifier.width(80.percent).margin { top(1.cssRem) }) }}}
+package com.mysite.pages.releases._1_0_0
 
-{{{ UrlBar("mysite.com/users/charlee/post/18", Modifier.width(80.percent).margin { top(1.cssRem) }) }}}
+import com.varabyte.kobweb.core.PackageMapping
+```
 
-{{{ UrlBar("mysite.com/users/opletter/post/32", Modifier.width(80.percent).margin { top(1.cssRem) }) }}}
+{{{ Folders(Modifier.classNames("fragment"))
 
-{{{ UrlBar("mysite.com/users/stevdza-san/post/182", Modifier.width(80.percent).margin { top(1.cssRem) }) }}}
+* pages
+  * releases 
+    * _1_0_0
+      * PackageMapping.kt
+      * Screenshots.kt
 
-{{{ UrlBar("mysite.com/users/thedome/post/5", Modifier.width(80.percent).margin { top(1.cssRem) }) }}}
+}}}

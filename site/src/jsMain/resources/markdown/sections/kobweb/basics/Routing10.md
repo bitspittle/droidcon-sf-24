@@ -4,7 +4,7 @@
 
 ```kotlin 2 [user]
 // com/mysite/pages/users/user/PackageMapping.kt
-@file:PackageMapping("{}")
+@file:PackageMapping("{user}")
 
 package com.mysite.pages.users.user
 
@@ -15,7 +15,7 @@ import com.varabyte.kobweb.core.PackageMapping
 // com/mysite/pages/users/user/posts/Post.kt
 package com.mysite.pages.users.user.posts
 
-@Page("{}")
+@Page("{post}")
 @Composable
 fun PostPage() {
     /* ... */

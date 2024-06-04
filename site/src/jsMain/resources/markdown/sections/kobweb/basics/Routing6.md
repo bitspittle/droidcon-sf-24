@@ -1,22 +1,15 @@
 ## <span data-id="title">Route overrides</span>
 
-{{{ UrlBar("mysite.com/releases/[1.0.0]/screenshots", id = "url") }}}
+{{{ UrlBar("mysite.com/acronyms/[HTML]", id = "url") }}}
 
-```kotlin 0|2 <fragment> [code]
-// com/mysite/pages/releases/_1_0_0/PackageMapping.kt
-@file:PackageMapping("1.0.0")
+```kotlin 0|1,5 <fragment> [code]
+// com/mysite/acronyms/Html.kt
 
-package com.mysite.pages.releases._1_0_0
+package com.mysite.pages
 
-import com.varabyte.kobweb.core.PackageMapping
+@Page("HTML")
+@Composable
+fun AboutPage() {
+    /* ... */
+}
 ```
-
-{{{ Folders(Modifier.classNames("fragment"))
-
-* pages
-  * releases 
-    * _1_0_0
-      * PackageMapping.kt
-      * Screenshots.kt
-
-}}}

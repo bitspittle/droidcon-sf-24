@@ -1,15 +1,15 @@
-## <span data-id="title">Route overrides</span>
+## <span data-id="title">Routing</span>
 
-{{{ UrlBar("mysite.com/acronyms/[HTML]", id = "url") }}}
+{{{ UrlBar("mysite.com/[patch-notes]/latest", id = "url") }}}
 
-```kotlin 0|1,5 <fragment> [code]
-// com/mysite/acronyms/Html.kt
+```kotlin 1,3,5 <fragment> [code]
+// com/mysite/pages/patchNotes/Latest.kt
 
-package com.mysite.pages
+package com.mysite.pages.patchNotes
 
-@Page("HTML")
+@Page
 @Composable
-fun AboutPage() {
+fun LatestPage() {
     /* ... */
 }
 ```

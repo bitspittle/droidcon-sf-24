@@ -1,44 +1,23 @@
----
-layout: center
-behaviors:
-  - auto-progress-fragments 400
----
+## <span data-id="title">Dynamic routes</span>
 
+{{{ UrlBar("mysite.com/users/[{user}]/posts/[{post}]", id = "url") }}}
 
-## Instant routing
+```kotlin 2 [user]
+// com/mysite/pages/users/user/PackageMapping.kt
+@file:PackageMapping("{}")
 
-{{{ Horizontal
+package com.mysite.pages.users.user
 
-{{{ Folders(Modifier.fontSize(1.7.cssRem).classNames("fragment", "fade-down"))
-
-* pages
-  * Index.kt
-  * About.kt
-
-}}}
-
-```kotlin <fragment>
-// Index.kt
-@Page
-@Composable
-fun HomePage() {
-    Link("/about")
-}
+import com.varabyte.kobweb.core.PackageMapping
 ```
 
-```kotlin <fragment>
-// About.kt
-@Page
+```kotlin 4 [post]
+// com/mysite/pages/users/user/posts/Post.kt
+package com.mysite.pages.users.user.posts
+
+@Page("{}")
 @Composable
-fun AboutPage() {
-    Text("About us")
+fun PostPage() {
+    /* ... */
 }
 ```
-
-}}}
-
-{{{ SpeakerNotes
-
-* Mention that instant linking is an advantage AND disadvantage, based on your purpose
-
-}}}
