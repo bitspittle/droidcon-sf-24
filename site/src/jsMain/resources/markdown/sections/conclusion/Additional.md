@@ -9,6 +9,7 @@ behaviors:
 ## Additional topics
 
 * `conf.yaml` configuration
+* Transitions and animations
 * CSS Variables
 * Integrating a JS library
 * Workers
@@ -16,7 +17,6 @@ behaviors:
 * Backing HTML elements
 * Loading / saving files
 * More widget examples
-* Ktor server plugins
 
 {{{ SpeakerNotes
 

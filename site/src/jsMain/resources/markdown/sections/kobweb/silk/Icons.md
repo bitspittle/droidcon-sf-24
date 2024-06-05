@@ -1,5 +1,5 @@
 ---
-follows: Animations
+follows: Responsive
 ---
 
 ## Icons
