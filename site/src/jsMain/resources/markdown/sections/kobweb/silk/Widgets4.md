@@ -5,7 +5,7 @@ styles:
 
 ## Widgets
 
-### Input
+### TextInput
 
 ```kotlin
 var text by remember { mutableStateOf("") }
