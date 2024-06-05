@@ -4,7 +4,7 @@
 // Backend
 @Api
 suspend fun contactMe(ctx: ApiContext) {
-    // 1: Parse the message?
+    // 1: Read data from request
 }
 ```
 

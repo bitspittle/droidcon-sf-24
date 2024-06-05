@@ -6,9 +6,9 @@
 suspend fun contactMe(ctx: ApiContext) {
     if (ctx.req.method != HttpMethod.POST) return
 
-    // 1: Parse the message?
+    // 1: Read data from request
     
-    // 2: Save the message into a data store?
+    // 2: Write message into a data store
 
     ctx.res.status = 200
 }

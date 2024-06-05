@@ -4,7 +4,7 @@
 // Backend
 @Api
 suspend fun contactMe(ctx: ApiContext) {
-    // 2: Save the message into a data store?
+    // 2: Write message into a data store
 }
 ```
 
