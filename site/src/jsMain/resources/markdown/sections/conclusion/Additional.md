@@ -8,7 +8,6 @@ behaviors:
 
 ## Additional topics
 
-* `conf.yaml` configuration
 * Transitions and animations
 * CSS Variables
 * Integrating a JS library
@@ -17,6 +16,7 @@ behaviors:
 * Backing HTML elements
 * Loading / saving files
 * More widget examples
+* Custom fonts
 
 {{{ SpeakerNotes
 

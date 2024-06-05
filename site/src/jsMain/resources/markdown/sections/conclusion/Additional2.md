@@ -9,12 +9,12 @@ behaviors:
 * `AppGlobals`
 * InitSilk / registering styles
 * Local / session storage
-* Custom fonts
 * Overriding markdown handlers
 * Debugging the backend
 * Deploying to a service
 * `deferRender`
 * `kobweb { ... }` configuration
+* `conf.yaml` configuration
 
 {{{ SpeakerNotes
 
