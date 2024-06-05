@@ -2,7 +2,7 @@
 
 {{{ UrlBar("mysite.com/[patch-notes]/latest", id = "url") }}}
 
-```kotlin 1,3,5 <fragment> [code]
+```kotlin 1,3 <fragment> [code]
 // com/mysite/pages/patchNotes/Latest.kt
 
 package com.mysite.pages.patchNotes

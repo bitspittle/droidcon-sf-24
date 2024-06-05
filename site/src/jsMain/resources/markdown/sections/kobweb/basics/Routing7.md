@@ -2,7 +2,7 @@
 
 {{{ UrlBar("mysite.com/releases/[1.0.0]/screenshots", id = "url") }}}
 
-```kotlin 0|2 <fragment> [code]
+```kotlin 0|2,4 <fragment> [code]
 // com/mysite/pages/releases/_1_0_0/PackageMapping.kt
 @file:PackageMapping("1.0.0")
 
