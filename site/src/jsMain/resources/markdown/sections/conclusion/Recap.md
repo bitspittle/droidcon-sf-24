@@ -17,7 +17,6 @@ behaviors:
 * Routing
 * Page context
 * `Modifier`
-* `Box`, `Row`, `Column`
 * Widgets
 
 }}}
@@ -27,7 +26,6 @@ behaviors:
 * CssStyle
 * ColorMode
 * Breakpoints
-* Animations
 * Icons
 * Markdown
 * API routes
