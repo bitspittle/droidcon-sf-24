@@ -22,7 +22,7 @@
 
 {{{ Horizontal
 
-```kotlin 2-3 <kobweb> [style]
+```kotlin 2-3 <kobweb> [left]
 val RectStyle = CssStyle(
   extraModifier =
     Modifier.id("example")  
@@ -35,7 +35,7 @@ val RectStyle = CssStyle(
 }
 ```
 
-```kotlin 2 <kobweb> [div]
+```kotlin 2 <kobweb> [right]
 Div(
    RectStyle.toAttrs()
 )

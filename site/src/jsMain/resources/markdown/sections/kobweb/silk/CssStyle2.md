@@ -20,7 +20,7 @@
 
 }}}
 
-```kotlin <kobweb> [div]
+```kotlin <kobweb> [left]
 Div(
   Modifier
     .id("example")
