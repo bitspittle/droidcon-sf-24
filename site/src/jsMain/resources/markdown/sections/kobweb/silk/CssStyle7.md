@@ -1,7 +1,7 @@
 ## CssStyle
 
-```kotlin 0|7|0
-val SquareStyle = CssStyle.base {
+```kotlin 0|1,7|0
+val ColoredSquareStyle = CssStyle.base {
     Modifier
         .size(50.px)
         .backgroundColor(Colors.Orange)
