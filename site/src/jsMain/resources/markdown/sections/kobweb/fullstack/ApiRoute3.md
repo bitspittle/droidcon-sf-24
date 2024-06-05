@@ -8,7 +8,7 @@ suspend fun hello(ctx: ApiContext) {
 }
 ```
 
-```kotlin 0|1,8 <apifrontend> [api-frontend]
+```kotlin 0|1,8|0 <apifrontend> [api-frontend]
 // Frontend
 @Page
 @Composable

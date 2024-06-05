@@ -1,6 +1,6 @@
 ## API routes
 
-```kotlin 1,7-10 <apibackend> [api-init]
+```kotlin 3 <apibackend> [api-init]
 // Backend
 
 interface DataStore {
@@ -13,7 +13,7 @@ fun initApi(ctx: InitApiContext) {
 }
 ```
 
-```kotlin <apibackend> [api-backend]
+```kotlin 6 <apibackend> [api-backend]
 // Backend
 @Api
 suspend fun contactMe(ctx: ApiContext) {
