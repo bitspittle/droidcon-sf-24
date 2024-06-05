@@ -2,10 +2,9 @@
 
 {{{ Folders(Modifier.fillMaxWidth().padding(left = 5.cssRem).dataId("folders"))
 
-* resources
-  * public
-    * images
-      * buster.jpg
+* resources/public
+  * images
+    * buster.jpg
 
 }}}
 

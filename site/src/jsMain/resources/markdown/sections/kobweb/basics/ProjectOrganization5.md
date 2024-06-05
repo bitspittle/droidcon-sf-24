@@ -1,6 +1,6 @@
 ## <span data-id="title">Project organization</span>
 
-```kotlin 1,2,7,9
+```kotlin 0|5,8,11|1,2,7,9|5
 import com.mysite.components.sections.NavHeader
 import com.mysite.components.sections.Footer
 
@@ -14,7 +14,7 @@ fun PageLayout(content: @Composable () -> Unit) {
 }
 ```
 
-```kotlin 1,6,8
+```kotlin 0|1,6,8 <fragment>
 import com.mysite.components.layouts.PageLayout
 
 @Page
