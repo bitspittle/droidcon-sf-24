@@ -14,7 +14,7 @@ behaviors:
 * Debugging the backend
 * Deploying to a service
 * `deferRender`
-* `kobweb { ... }` block configuration
+* `kobweb { ... }` configuration
 
 {{{ SpeakerNotes
 
