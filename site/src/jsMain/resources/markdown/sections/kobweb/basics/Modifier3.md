@@ -1,6 +1,6 @@
 ## Modifier
 
-```kotlin 2-10 <kobweb> [code-escape-hatch]
+```kotlin <kobweb> [code-escape-hatch]
 Div(attrs = 
   Modifier
     .attrsModifier {
