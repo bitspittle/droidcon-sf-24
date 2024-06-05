@@ -6,7 +6,7 @@ follows: ExampleSites
 
 * <span style="color:orange">**Not 1.0 yet!**</span>
 * ${Kobweb} is *not* a shared UI framework
-* Documentation is OK, could be better
+* Still early days
 
 {{{ SpeakerNotes
 
