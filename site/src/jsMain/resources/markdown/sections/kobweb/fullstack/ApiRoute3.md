@@ -16,7 +16,7 @@ fun FullstackPage() {
     var fetchedText by remember { mutableStateOf("") }
     LaunchedEffect(Unit) {
         fetchedText =
-            window.api.get()
+            window.api.get("hello")
                 .decodeToString()
     }
     
