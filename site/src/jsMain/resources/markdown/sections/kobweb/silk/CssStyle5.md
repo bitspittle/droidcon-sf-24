@@ -1,6 +1,6 @@
 ## CssStyle
 
-```kotlin 0|8-10|0 [left]
+```kotlin 0|2-6|8-10|0 [left]
 val HoverStyle = CssStyle {
     base {
         Modifier
