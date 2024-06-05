@@ -1,6 +1,6 @@
 ## API routes
 
-```kotlin 0|5,10
+```kotlin 0|5,10-13
 // build.gradle.kts
 kotlin {
     configAsKobwebApplication(
@@ -10,7 +10,10 @@ kotlin {
 
     sourceSets {
         jsMain.dependencies { /* ... */ }
-        jvmMain.dependencies { /* ... */ }
+        jvmMain.dependencies {
+            compileOnly(libs.kobweb.api)
+            /* ... */
+        }
     }
 }
 ```
