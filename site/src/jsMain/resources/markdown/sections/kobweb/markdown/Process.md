@@ -4,7 +4,7 @@ follows: Code
 
 ## `markdown.process`
 
-```kotlin 0|5|6-11|8-10|0
+```kotlin 0|5|8-10|6-11|0
 // build.gradle.kts
 
 kobweb {
