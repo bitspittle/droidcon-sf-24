@@ -18,14 +18,14 @@ Modifier
 ```kotlin <fragment,fade-down>
 Modifier
     .fillMaxWidth()
-    .padding(30.px)
+    .padding(20.px)
 ```
 
 ```kotlin <fragment,fade-down>
 Modifier
     .padding(20.px)
     .fillMaxWidth()
-    .padding(30.px)
+    .padding(20.px)
 ```
 
 }}}
