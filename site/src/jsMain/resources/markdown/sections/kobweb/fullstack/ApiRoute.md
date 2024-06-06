@@ -1,5 +1,5 @@
 ---
-follows: FullstackVsStatic
+follows: BuildScript
 ---
 
 ## API routes
