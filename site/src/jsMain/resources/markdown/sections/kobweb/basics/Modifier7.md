@@ -15,14 +15,14 @@ Modifier
 ```kotlin
 Modifier
     .fillMaxWidth()
-    .padding(20.px)
+    .padding(30.px)
 ```
 
 ```kotlin
 Modifier
     .padding(20.px)
     .fillMaxWidth()
-    .padding(20.px)
+    .padding(30.px)
 ```
 
 }}}
