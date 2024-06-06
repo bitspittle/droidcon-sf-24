@@ -15,6 +15,7 @@ import com.varabyte.kobweb.silk.style.animation.Keyframes
 import com.varabyte.kobweb.silk.style.animation.toAnimation
 import com.varabyte.kobweb.silk.style.base
 import com.varabyte.kobweb.silk.theme.SilkTheme
+import com.varabyte.kobweb.silk.theme.name
 import dev.bitspittle.droidconSf24.utilities.SlideLifecycleEffect
 import dev.bitspittle.droidconSf24.utilities.intoSlideLifecycleRef
 import dev.bitspittle.droidconSf24.utilities.rememberElementState
@@ -35,27 +36,23 @@ val ResponsiveResizingKeyframesColor = Keyframes {
     each(70.percent, 100.percent) { Modifier.backgroundColor(Colors.Blue) }
 }
 
-@Composable
-fun AnimatedResponsiveExample(modifier: Modifier = Modifier) {
-    Box(modifier.fillMaxWidth().height(8.cssRem), contentAlignment = Alignment.Center) {
-        Box(
-            Modifier.borderRadius(5.px)
-                .animation(
-                    ResponsiveResizingKeyframesSize.toAnimation(
-                        5.s,
-                        AnimationTimingFunction.Linear,
-                        iterationCount = AnimationIterationCount.Infinite,
-                        direction = AnimationDirection.Alternate
-                    ),
-                    ResponsiveResizingKeyframesColor.toAnimation(
-                        5.s,
-                        AnimationTimingFunction.StepEnd,
-                        iterationCount = AnimationIterationCount.Infinite,
-                        direction = AnimationDirection.Alternate
-                    )
-                )
+val AnimatePreviewsResizeStyle = CssStyle.base {
+    Modifier.animation(
+        ResponsiveResizingKeyframesSize.toAnimation(
+            colorMode,
+            5.s,
+            AnimationTimingFunction.Linear,
+            iterationCount = AnimationIterationCount.of(3),
+            direction = AnimationDirection.Alternate
+        ),
+        ResponsiveResizingKeyframesColor.toAnimation(
+            colorMode,
+            5.s,
+            AnimationTimingFunction.StepEnd,
+            iterationCount = AnimationIterationCount.of(3),
+            direction = AnimationDirection.Alternate
         )
-    }
+    )
 }
 
 val ExplodePreviewsKeyframes = Keyframes {
@@ -63,31 +60,57 @@ val ExplodePreviewsKeyframes = Keyframes {
     100.percent { Modifier.translateX(ResponsiveTargetTranslateXVar.value()) }
 }
 
-val AnimatePreviewsTranslateStyle = CssStyle.base {
+val AnimatePreviewsExplodeStyle = CssStyle.base {
     Modifier.animation(ExplodePreviewsKeyframes.toAnimation(colorMode, 1.s, fillMode = AnimationFillMode.Forwards))
 }
 
-@Composable
-fun ResponsivePreviews(modifier: Modifier = Modifier) {
-    val elementState = rememberElementState()
-    var className by remember { mutableStateOf<String?>(null) }
+enum class AnimationPart {
+     OFF,
+    RESIZING,
+    EXPLODING,
+}
 
-    SlideLifecycleEffect(elementState, reset = { className = null }) {
-        className = SilkTheme.nameFor(AnimatePreviewsTranslateStyle)
+@Composable
+fun AnimatedResponsiveExample(modifier: Modifier = Modifier) {
+    val elementState = rememberElementState()
+    var animationPart by remember { mutableStateOf(AnimationPart.OFF) }
+
+    SlideLifecycleEffect(elementState, reset = { animationPart = AnimationPart.OFF }) {
+        animationPart = AnimationPart.RESIZING
         null
     }
 
     val borderRadius = Modifier.borderRadius(5.px)
+
     Box(
-        modifier.fillMaxWidth().gap(2.cssRem),
+        modifier.fillMaxWidth().height(8.cssRem),
         contentAlignment = Alignment.Center,
         ref = elementState.intoSlideLifecycleRef()
     ) {
-        val mayeAnimatedModifier = Modifier.thenIf(className != null) { Modifier.classNames(className!!) }
-
-        Box(borderRadius.size(3.cssRem, 5.cssRem).backgroundColor(Colors.Red).setVariable(ResponsiveTargetTranslateXVar, (-16.5).cssRem).then(mayeAnimatedModifier))
-        Box(borderRadius.size(4.cssRem, 6.cssRem).backgroundColor(Colors.Yellow).setVariable(ResponsiveTargetTranslateXVar, (-12).cssRem).then(mayeAnimatedModifier))
-        Box(borderRadius.size(10.cssRem, 8.cssRem).backgroundColor(Colors.Green).setVariable(ResponsiveTargetTranslateXVar, (-4).cssRem).then(mayeAnimatedModifier))
-        Box(borderRadius.size(16.cssRem, 8.cssRem).backgroundColor(Colors.Blue).setVariable(ResponsiveTargetTranslateXVar, (10).cssRem).then(mayeAnimatedModifier))
+        if (animationPart == AnimationPart.RESIZING) {
+            Box(
+                borderRadius.onAnimationEnd {
+                    animationPart = AnimationPart.EXPLODING
+                }.classNames(AnimatePreviewsResizeStyle.name)
+            )
+        } else if (animationPart == AnimationPart.EXPLODING) {
+            val animatedClass = borderRadius.classNames(AnimatePreviewsExplodeStyle.name)
+            Box(
+                animatedClass.size(3.cssRem, 5.cssRem).backgroundColor(Colors.Red)
+                    .setVariable(ResponsiveTargetTranslateXVar, (-16.5).cssRem)
+            )
+            Box(
+                animatedClass.size(4.cssRem, 6.cssRem).backgroundColor(Colors.Yellow)
+                    .setVariable(ResponsiveTargetTranslateXVar, (-12).cssRem)
+            )
+            Box(
+                animatedClass.size(10.cssRem, 8.cssRem).backgroundColor(Colors.Green)
+                    .setVariable(ResponsiveTargetTranslateXVar, (-4).cssRem)
+            )
+            Box(
+                animatedClass.size(16.cssRem, 8.cssRem).backgroundColor(Colors.Blue)
+                    .setVariable(ResponsiveTargetTranslateXVar, (10).cssRem)
+            )
+        }
     }
 }
