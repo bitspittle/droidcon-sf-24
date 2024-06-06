@@ -8,7 +8,7 @@
 />
 ```
 
-```kotlin <kotlin>
+```kotlin 2,4-5 <kotlin>
 Div(attrs = {
   id("example")
   style {
