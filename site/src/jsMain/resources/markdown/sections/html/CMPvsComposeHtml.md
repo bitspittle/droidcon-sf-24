@@ -17,4 +17,4 @@ behaviors:
 * Browser devtools
 * Browser accessibility
 * Special CSS styles (e.g. visited links)
-* Access to JS frameworks
+* Compatible with JS frameworks
