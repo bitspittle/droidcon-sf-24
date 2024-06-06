@@ -5,7 +5,7 @@
 * components
   * layouts
   * sections
-    * Header.kt
+    * NavHeader.kt
     * Footer.kt
   * widgets
 
