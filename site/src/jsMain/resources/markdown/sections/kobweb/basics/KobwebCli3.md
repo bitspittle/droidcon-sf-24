@@ -4,7 +4,7 @@ data-auto-animate-restart:
 
 ## Build script
 
-```kotlin 2|4,8-14|17
+```kotlin 0|4,8-14|17
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.jetbrains.compose)
