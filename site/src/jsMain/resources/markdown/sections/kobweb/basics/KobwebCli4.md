@@ -4,7 +4,7 @@ data-auto-animate-restart:
 
 ## Kobweb Configuration
 
-```yaml 3,6|0 <hide-vertical-scrollbar>
+```yaml 0|6|0 <hide-vertical-scrollbar>
 # .kobweb/conf.yaml
 site:
   title: "App"
