@@ -1,6 +1,6 @@
 ## CssStyle
 
-```kotlin 0|1,7|0
+```kotlin 0|1|1,7|0
 val SquareStyle = CssStyle.base {
     Modifier
         .size(50.px)
