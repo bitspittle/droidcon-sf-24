@@ -3,8 +3,6 @@ layout: center
 data-auto-animate-restart:
 ---
 
-## GitHub Pages
-
 {{{ Vertical(Modifier.fontSize(2.5.cssRem), horizontalAlignment = Alignment.CenterHorizontally)
 
 ${FaGithub} <a href="https://github.com/bitspittle/droidcon-sf-24" style="margin-left:1rem">https://github.com/bitspittle/droidcon-sf-24</a>
