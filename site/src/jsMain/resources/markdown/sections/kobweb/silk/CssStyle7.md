@@ -1,7 +1,7 @@
 ## CssStyle
 
 ```kotlin 0|1,7|0
-val ColoredSquareStyle = CssStyle.base {
+val SquareStyle = CssStyle.base {
     Modifier
         .size(50.px)
         .backgroundColor(Colors.Orange)
@@ -15,7 +15,7 @@ val RotatedSquareStyle = SquareStyle.extendedByBase {
 ```
 
 ```kotlin <fragment>
-Box(ColoredSquareStyle.toModifier())
+Box(SquareStyle.toModifier())
 Box(RotatedSquareStyle.toModifier())
 ```
 
