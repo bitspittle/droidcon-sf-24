@@ -1,6 +1,6 @@
 ## API routes
 
-```kotlin 3 <apibackend> [api-init]
+```kotlin 1 <apibackend> [api-init]
 // Backend
 
 interface DataStore {
