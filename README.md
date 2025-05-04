@@ -1,3 +1,8 @@
+Project deployed at<br>
+https://bitspittle.github.io/droidcon-sf-24/
+
+---
+
 This is a [Kobweb project](https://github.com/varabyte/kobweb) backing a presentation I gave at Droidcon SF in June 2024.
 
 It makes heavy use of the [`reveal.js` presentation framework](https://revealjs.com/), which is honestly some fantastic
